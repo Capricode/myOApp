@@ -69,6 +69,38 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\favoriteAnimation.json" />
+    <BundleResource Include="Resources\favorite.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
+    <BundleResource Include="Resources\not_favorite.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
+    <BundleResource Include="Resources\settings.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
+    <BundleResource Include="Resources\tab_account.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
+    <BundleResource Include="Resources\tab_browse.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
+    <BundleResource Include="Resources\tab_dashboard.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
+    <BundleResource Include="Resources\tab_future.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
+    <BundleResource Include="Resources\tab_past.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -123,6 +155,14 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\Favorite.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite.png" />
+    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite-1.png" />
+    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite-2.png" />
+    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite.png" />
+    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite-1.png" />
+    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -142,8 +182,12 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\myOApp\myOApp.csproj">
-      <Project>{9804F22B-3B4F-41E6-8660-A64D3CFC29C6}</Project>
+      <Project>{150A613B-F26A-4CD8-952B-099A53363411}</Project>
       <Name>myOApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\Favorite.imageset\" />
+    <Folder Include="Assets.xcassets\NotFavorite.imageset\" />
   </ItemGroup>
 </Project>
