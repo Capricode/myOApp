@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame  xmlns="http://xamarin.com/schemas/2014/forms" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+        xmlns:controls="clr-namespace:myOApp.Controls" 
+        mc:Ignorable="d"
+        x:Class="myOApp.Controls.EventCardFrame"
+             
+    
+        BackgroundColor="Yellow"
+        HasShadow="True"
+        CornerRadius="5"
+        Padding="10" 
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--try-with Auto -->
+            <RowDefinition Height="19"/>
+            <RowDefinition Height="19"/>
+            <RowDefinition Height="19"/>
+            <RowDefinition Height="22"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Event date -->
+        <Label 
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.RowSpan="3"
+            Text="31"
+            FontSize="54"
+            TextColor="Orange"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"/>
+        <Label 
+            Grid.Column="0" 
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            Text="SEP"
+            FontSize="22"
+            TextColor="Orange"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"/>
+
+        <!-- Event info -->
+        <Label 
+            Grid.Column="1"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Text="40. Langenthaler OL"
+            FontSize="17"
+            VerticalTextAlignment="End"
+            HorizontalTextAlignment="End"/>
+        <Label 
+            Grid.Column="1" 
+            Grid.Row="2"
+            Text="Map: Rappenchopf"
+            FontSize="14"
+            VerticalTextAlignment="End"
+            HorizontalTextAlignment="Start"/>
+        <Label 
+            Grid.Column="1" 
+            Grid.Row="3"
+            Text="{Binding Description}"
+            FontSize="12"
+            VerticalTextAlignment="Start"
+            HorizontalTextAlignment="Start"/>
+
+        <!-- Favicon -->
+
+        <Image 
+            Grid.Column="2"
+            Grid.RowSpan="4"
+            x:Name="FavoriteIcon"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            WidthRequest="40"
+            Source="{Binding IsFavorite, Converter={StaticResource boolToFavoriteIcon}}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!--<controls:FavoriteIcon 
+             IsFavorited="{Binding IsFavorite}"
+             Grid.Row="0"
+             Grid.RowSpan="4"
+             Grid.Column="2"/>-->
+
+        <!--<Label
+             x:Name="animationView" 
+             Grid.Row="0"
+             Grid.RowSpan="4"
+             Grid.Column="2"          
+             Text="OK"
+             VerticalOptions="FillAndExpand" 
+             HorizontalOptions="FillAndExpand" />-->
+
+        <!--<lottie:AnimationView
+             x:Name="animationView" 
+             Animation="favoriteAnimation3.json" 
+             Loop="True" 
+             IsPlaying="True"
+             VerticalOptions="Center" 
+             HorizontalOptions="Center"/>-->
+
+        <!-- From app-conference
+             <local:FavoriteImage  StyleId="FavoriteButton"
+             Grid.Column="2" 
+             Grid.Row="0"
+             Source="{Binding IsFavorite, Converter={StaticResource IsFilledIconConverter}, ConverterParameter='heart'}"
+             HorizontalOptions="End" VerticalOptions="Start" Aspect="AspectFit">
+             <local:FavoriteImage.GestureRecognizers>
+             <TapGestureRecognizer Command="{Binding Path=FavoriteCommand, Source={x:Reference SessionCell}}"
+             CommandParameter="{Binding .}"/>
+             </local:FavoriteImage.GestureRecognizers>
+             </local:FavoriteImage>-->
+    </Grid>
+</Frame>

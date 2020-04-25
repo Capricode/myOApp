@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:myOApp.Controls"
+             Title="MyOApp"
+             x:Class="myOApp.Views.DashboardPage">
+    <StackLayout BackgroundColor="#f8f8f7">
+        <StackLayout Padding="10">
+            <Label FontSize="Large" Text="Favorited events" TextColor="Black" />
+        </StackLayout>
+        <ScrollView Orientation="Horizontal" MinimumHeightRequest="200">
+            <FlexLayout BindableLayout.ItemsSource="{Binding FavoritedEvents}" >
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10,0" FlexLayout.AlignSelf="Start">
+                            <controls:EventCardView />
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </ScrollView>
+        <!--<StackLayout Padding="10">
+             <Label FontSize="Large" Text="Happening nearby" TextColor="Black" />
+             --><!--<ImageButton Source="tab_about"/>--><!--
+             </StackLayout>-->
+        <Grid Padding="10" MinimumHeightRequest="30">
+            <Label FontSize="Large" Text="Happening nearby" TextColor="Black"/>
+            <Image Source="settings" Margin="15, 0, 0, 0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToSettingsCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" BackgroundColor="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Event date -->
+                            <Label 
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Text="31"
+                                FontSize="54"
+                                TextColor="Orange"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"/>
+                            <Label 
+                                Grid.Column="0" 
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Text="SEP"
+                                FontSize="22"
+                                TextColor="Orange"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"/>
+
+                            <!-- Event info -->
+                            <Label 
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Text="45. Swiss International Mountain Marathon"
+                                FontSize="17"
+                                LineBreakMode="WordWrap"
+                                VerticalTextAlignment="End"
+                                HorizontalTextAlignment="Start"/>
+                            <Label 
+                                Grid.Column="1" 
+                                Grid.Row="2"
+                                Text="Map: Konstanz/Kreuzlingen"
+                                FontSize="15"
+                                LineBreakMode="TailTruncation"
+                                VerticalTextAlignment="End"
+                                HorizontalTextAlignment="Start"/>
+                            <Label 
+                                Grid.Column="1" 
+                                Grid.Row="3"
+                                Text="GL/GR | OLK Argus, Argus Bikers"
+                                FontSize="13"
+                                LineBreakMode="TailTruncation"
+                                VerticalTextAlignment="Start"
+                                HorizontalTextAlignment="Start"/>
+
+                            <!-- Favicon -->
+
+                            <Image 
+                                Grid.Column="2"
+                                Grid.RowSpan="4"
+                                x:Name="FavoriteIcon"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                WidthRequest="40"
+                                Source="{Binding IsFavorite, Converter={StaticResource boolToFavoriteIcon}}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <StackLayout BackgroundColor="White">
+                        <Label Text="No events are happening near you."
+                               Margin="10,25,10,10"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               HorizontalOptions="Fill"
+                               HorizontalTextAlignment="Center" />
+                        <Label FontSize="12"
+                               HorizontalOptions="Fill"
+                               HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Try " />
+                                        <Span Text="choosing more regions?" FontAttributes="Italic" TextColor="DarkOrange">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding GoToSettingsCommand}"/>
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
