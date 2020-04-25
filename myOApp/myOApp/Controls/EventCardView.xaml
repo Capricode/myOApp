@@ -16,7 +16,6 @@
         HorizontalOptions="Center">
         <Grid>
             <Grid.RowDefinitions>
-                <!--try-with Auto -->
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
