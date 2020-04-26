@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             xmlns:controls="clr-namespace:myOApp.Controls"
-             Title="MyOApp"
-             x:Class="myOApp.Views.DashboardPage">
+<ContentPage
+    x:Class="myOApp.Views.DashboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:myOApp.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MyOApp"
+    BackgroundColor="{DynamicResource MainBackgroundColor}"
+    mc:Ignorable="d">
     <ScrollView>
-        <StackLayout BackgroundColor="#f8f8f7">
+        <StackLayout BackgroundColor="{DynamicResource MainBackgroundColor}">
             <StackLayout Padding="10">
-                <Label FontSize="Large" Text="Favorited events" TextColor="Black" />
+                <Label FontSize="Large" Text="Favorited events" />
             </StackLayout>
-            <ScrollView Orientation="Horizontal" MinimumHeightRequest="200">
-                <FlexLayout BindableLayout.ItemsSource="{Binding FavoritedEvents}" >
+            <ScrollView MinimumHeightRequest="200" Orientation="Horizontal">
+                <FlexLayout BindableLayout.ItemsSource="{Binding FavoritedEvents}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10,10" FlexLayout.AlignSelf="Start">
@@ -24,11 +26,12 @@
                 </FlexLayout>
             </ScrollView>
             <Grid Padding="10" MinimumHeightRequest="30">
-                <Label FontSize="Large" Text="Happening nearby" TextColor="Black"/>
-                <!-- Todo: Fix the icon size on iOS -->
-                <Image Source="settings" Margin="15, 0, 0, 0">
+                <Label FontSize="Large" Text="Happening nearby" />
+                <!--  Todo: Fix the icon size on iOS  -->
+                <!--  Todo: Use https://forums.xamarin.com/discussion/72417/setting-tint-color-of-an-image FFImageLoading and change color of icon  -->
+                <Image Margin="15,0,0,0" Source="settings">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoToSettingsCommand}"/>
+                        <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
@@ -38,12 +41,12 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10" BackgroundColor="White">
+                        <Grid Padding="10" BackgroundColor="{DynamicResource CardBackgroundColor}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -51,63 +54,66 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- Event date -->
-                            <Label 
-                                Grid.Column="0"
+                            <!--  Event date  -->
+                            <Label
                                 Grid.Row="0"
                                 Grid.RowSpan="3"
-                                Text="31"
+                                Grid.Column="0"
                                 FontSize="54"
-                                TextColor="Orange"
-                                VerticalTextAlignment="Center"
-                                HorizontalTextAlignment="Center"/>
-                            <Label 
-                                Grid.Column="0" 
+                                HorizontalTextAlignment="Center"
+                                Text="31"
+                                TextColor="{DynamicResource AccentColor}"
+                                VerticalTextAlignment="Center" />
+                            <Label
                                 Grid.Row="2"
                                 Grid.RowSpan="2"
-                                Text="SEP"
+                                Grid.Column="0"
                                 FontSize="22"
-                                TextColor="Orange"
-                                VerticalTextAlignment="Center"
-                                HorizontalTextAlignment="Center"/>
+                                HorizontalTextAlignment="Center"
+                                Text="SEP"
+                                TextColor="{DynamicResource AccentColor}"
+                                VerticalTextAlignment="Center" />
 
-                            <!-- Event info -->
-                            <Label 
-                                Grid.Column="1"
+                            <!--  Event info  -->
+                            <Label
                                 Grid.Row="0"
                                 Grid.RowSpan="2"
-                                Text="45. Swiss International Mountain Marathon"
+                                Grid.Column="1"
                                 FontSize="17"
+                                HorizontalTextAlignment="Start"
                                 LineBreakMode="WordWrap"
-                                VerticalTextAlignment="End"
-                                HorizontalTextAlignment="Start"/>
-                            <Label 
-                                Grid.Column="1" 
+                                Style="{DynamicResource CardLabel}"
+                                Text="45. Swiss International Mountain Marathon"
+                                VerticalTextAlignment="End" />
+                            <Label
                                 Grid.Row="2"
-                                Text="Map: Konstanz/Kreuzlingen"
+                                Grid.Column="1"
                                 FontSize="15"
+                                HorizontalTextAlignment="Start"
                                 LineBreakMode="TailTruncation"
-                                VerticalTextAlignment="End"
-                                HorizontalTextAlignment="Start"/>
-                            <Label 
-                                Grid.Column="1" 
+                                Style="{DynamicResource CardLabel}"
+                                Text="Map: Konstanz/Kreuzlingen"
+                                VerticalTextAlignment="End" />
+                            <Label
                                 Grid.Row="3"
-                                Text="GL/GR | OLK Argus, Argus Bikers"
+                                Grid.Column="1"
                                 FontSize="13"
+                                HorizontalTextAlignment="Start"
                                 LineBreakMode="TailTruncation"
-                                VerticalTextAlignment="Start"
-                                HorizontalTextAlignment="Start"/>
+                                Style="{DynamicResource CardLabel}"
+                                Text="GL/GR | OLK Argus, Argus Bikers"
+                                VerticalTextAlignment="Start" />
 
-                            <!-- Favicon -->
+                            <!--  Favicon  -->
 
-                            <Image 
-                                Grid.Column="2"
-                                Grid.RowSpan="4"
+                            <Image
                                 x:Name="FavoriteIcon"
-                                VerticalOptions="Center"
+                                Grid.RowSpan="4"
+                                Grid.Column="2"
                                 HorizontalOptions="Center"
-                                WidthRequest="40"
-                                Source="{Binding IsFavorite, Converter={StaticResource boolToFavoriteIcon}}">
+                                Source="{Binding IsFavorite, Converter={StaticResource boolToFavoriteIcon}}"
+                                VerticalOptions="Center"
+                                WidthRequest="40">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
                                 </Image.GestureRecognizers>
@@ -116,23 +122,28 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.EmptyView>
-                    <StackLayout BackgroundColor="White">
-                        <Label Text="No events are happening near you."
-                               Margin="10,25,10,10"
-                               FontAttributes="Bold"
-                               FontSize="18"
-                               HorizontalOptions="Fill"
-                               HorizontalTextAlignment="Center" />
-                        <Label FontSize="12"
-                               HorizontalOptions="Fill"
-                               HorizontalTextAlignment="Center">
+                    <StackLayout BackgroundColor="{DynamicResource CardBackgroundColor}">
+                        <Label
+                            Margin="10,25,10,10"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="No events are happening near you." />
+                        <Label
+                            FontSize="12"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <FormattedString.Spans>
                                         <Span Text="Try " />
-                                        <Span Text="choosing more regions?" FontAttributes="Italic" TextColor="DarkOrange">
+                                        <Span
+                                            FontAttributes="Italic"
+                                            Text="choosing more regions?"
+                                            TextColor="{DynamicResource AccentColor}">
                                             <Span.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding GoToSettingsCommand}"/>
+                                                <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
                                             </Span.GestureRecognizers>
                                         </Span>
                                     </FormattedString.Spans>

@@ -13,14 +13,11 @@
             <!--  Extensions  -->
             <extensions:FavoriteIconConverter x:Key="boolToFavoriteIcon" />
 
-            <!--  Main colors  -->
-            <Color x:Key="MainBackgroundColor">#f8f8f7</Color>
-            <Color x:Key="AccentColor">DarkOrange</Color>
-            <Color x:Key="SecondaryColor">Green</Color>
-            <Color x:Key="MainTextColor">Black</Color>
-
             <!--  Global styles  -->
             <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
+            </Style>
+            <Style x:Key="CardLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
             </Style>
         </ResourceDictionary>

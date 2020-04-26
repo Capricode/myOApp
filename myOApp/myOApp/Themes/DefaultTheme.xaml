@@ -1,7 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="myOApp.Themes.DefaultTheme">
+<ResourceDictionary
+    x:Class="myOApp.Themes.DefaultTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="ColorDeclarationsGoHere"></Color>
+    <!--  Main colors  -->
+    <Color x:Key="MainBackgroundColor">#f8f8f7</Color>
+    <Color x:Key="CardBackgroundColor">#ffffff</Color>
+
+    <Color x:Key="AccentColor">#DC8635</Color>
+    <Color x:Key="SecondaryColor">Green</Color>
+    <Color x:Key="SpecialColor">#D96B2B</Color>
+
+    <Color x:Key="MainTextColor">Black</Color>
+    <Color x:Key="ContrastTextColor">Black</Color>
+
 </ResourceDictionary>

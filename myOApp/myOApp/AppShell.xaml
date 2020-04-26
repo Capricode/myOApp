@@ -14,11 +14,10 @@
     -->
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#f8f8f7</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{DynamicResource MainBackgroundColor}" />
                 <Setter Property="Shell.ForegroundColor" Value="Black" />
-                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="{DynamicResource ContrastTextColor}" />
                 <Setter Property="Shell.DisabledColor" Value="LightGray" />
                 <Setter Property="Shell.UnselectedColor" Value="DimGray" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource MainBackgroundColor}" />
