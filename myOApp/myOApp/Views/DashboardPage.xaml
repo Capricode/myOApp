@@ -7,31 +7,31 @@
              xmlns:controls="clr-namespace:myOApp.Controls"
              Title="MyOApp"
              x:Class="myOApp.Views.DashboardPage">
-    <StackLayout BackgroundColor="#f8f8f7">
-        <StackLayout Padding="10">
-            <Label FontSize="Large" Text="Favorited events" TextColor="Black" />
-        </StackLayout>
-        <ScrollView Orientation="Horizontal" MinimumHeightRequest="200">
-            <FlexLayout BindableLayout.ItemsSource="{Binding FavoritedEvents}" >
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10,10" FlexLayout.AlignSelf="Start">
-                            <controls:EventCardView />
-                        </Grid>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-            </FlexLayout>
-        </ScrollView>
-        <Grid Padding="10" MinimumHeightRequest="30">
-            <Label FontSize="Large" Text="Happening nearby" TextColor="Black"/>
-            <!-- Fix the icon size on iOS -->
-            <Image Source="settings" Margin="15, 0, 0, 0">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GoToSettingsCommand}"/>
-                </Image.GestureRecognizers>
-            </Image>
-        </Grid>
-        <ScrollView>
+    <ScrollView>
+        <StackLayout BackgroundColor="#f8f8f7">
+            <StackLayout Padding="10">
+                <Label FontSize="Large" Text="Favorited events" TextColor="Black" />
+            </StackLayout>
+            <ScrollView Orientation="Horizontal" MinimumHeightRequest="200">
+                <FlexLayout BindableLayout.ItemsSource="{Binding FavoritedEvents}" >
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10,10" FlexLayout.AlignSelf="Start">
+                                <controls:EventCardView />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </ScrollView>
+            <Grid Padding="10" MinimumHeightRequest="30">
+                <Label FontSize="Large" Text="Happening nearby" TextColor="Black"/>
+                <!-- Todo: Fix the icon size on iOS -->
+                <Image Source="settings" Margin="15, 0, 0, 0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToSettingsCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
             <CollectionView ItemsSource="{Binding Items}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
@@ -142,6 +142,6 @@
                     </StackLayout>
                 </CollectionView.EmptyView>
             </CollectionView>
-        </ScrollView>
-    </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
