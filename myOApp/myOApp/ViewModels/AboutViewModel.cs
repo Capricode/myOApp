@@ -1,46 +1,52 @@
-﻿using myOApp.Themes;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Windows.Input;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+﻿using System.Collections.Generic;
+using System.Linq;
+using myOApp.Controls;
+using myOApp.Extensions;
+using myOApp.Models;
 
 namespace myOApp.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
+        private IEnumerable<Region> Regions = new List<Region> {
+            new Region{Name="AG", Description=""},
+            new Region{Name="BE/SO", Description=""},
+            new Region{Name="GL/GR", Description=""},
+            new Region{Name="NOS", Description=""},
+            new Region{Name="NWS", Description=""},
+            new Region{Name="SR", Description=""},
+            new Region{Name="TI", Description=""},
+            new Region{Name="ZH/SH", Description=""},
+            new Region{Name="ZS", Description=""},
+            new Region{Name="AUSL.", Description=""}
+        };
+
+        public List<SelectableData<Region>> RegionsData { get; set; }
+
         public AboutViewModel()
         {
-            Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://xamarin.com"));
+            RegionsData = Regions.Select(x => new SelectableData<Region> { Data = x, Selected = false }).ToList();
         }
 
-        public ICommand OpenWebCommand { get; }
-
-        ICommand changeThemeCommand;
-        public ICommand ChangeThemeCommand => changeThemeCommand ?? (changeThemeCommand = new Command<ThemeEnum>((theme) => this.ChangeTheme(theme)));
-
-        private void ChangeTheme(ThemeEnum theme)
+        private string personalizedTitle;
+        public string PersonalizedTitle
         {
-            ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
-            if(mergedDictionaries != null)
-            {
-                mergedDictionaries.Clear();
+            get { return personalizedTitle; }
+            set { SetProperty(ref name, $"Hello { (!string.IsNullOrWhiteSpace(this.Name) ? this.Name : "Stranger!")}"); }
+        }
 
-                switch (theme)
-                {
-                    case ThemeEnum.Alternative:
-                        mergedDictionaries.Add(new AlternativeTheme());
-                        break;
-                    case ThemeEnum.Default:
-                    default:
-                        mergedDictionaries.Add(new DefaultTheme());
-                        break;
-                }
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { SetProperty(ref name, value); SetProperty(ref personalizedTitle, value); }
+        }
 
-                Debug.WriteLine($"Changed theme to: {theme.ToString()}");
-            }
+        private ThemeEnum theme;
+        public ThemeEnum Theme
+        {
+            get { return theme; }
+            set { SetProperty(ref theme, value); }
         }
     }
 }
