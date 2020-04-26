@@ -1,14 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:extensions="clr-namespace:myOApp.Extensions"
-             mc:Ignorable="d"
-             x:Class="myOApp.App">
+<Application
+    x:Class="myOApp.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:extensions="clr-namespace:myOApp.Extensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
+            <!--  Extensions  -->
             <extensions:FavoriteIconConverter x:Key="boolToFavoriteIcon" />
+
+            <!--  Main colors  -->
+            <Color x:Key="MainBackgroundColor">#f8f8f7</Color>
+            <Color x:Key="AccentColor">DarkOrange</Color>
+            <Color x:Key="SecondaryColor">Green</Color>
+            <Color x:Key="MainTextColor">Black</Color>
+
+            <!--  Global styles  -->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -22,12 +22,9 @@
                 </BindableLayout.ItemTemplate>
             </FlexLayout>
         </ScrollView>
-        <!--<StackLayout Padding="10">
-             <Label FontSize="Large" Text="Happening nearby" TextColor="Black" />
-             --><!--<ImageButton Source="tab_about"/>--><!--
-             </StackLayout>-->
         <Grid Padding="10" MinimumHeightRequest="30">
             <Label FontSize="Large" Text="Happening nearby" TextColor="Black"/>
+            <!-- Fix the icon size on iOS -->
             <Image Source="settings" Margin="15, 0, 0, 0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding GoToSettingsCommand}"/>
