@@ -27,6 +27,9 @@ namespace myOApp
             DependencyService.Register<IFavoriteService, FavoriteService>();
 
             MainPage = new AppShell();
+
+            // set user's theme
+            ThemeHelper.ChangeTheme(Settings.Current.Theme);
         }
 
         protected override void OnStart()

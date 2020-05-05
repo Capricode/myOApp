@@ -7,6 +7,7 @@
     <!--  Main colors  -->
     <Color x:Key="MainBackgroundColor">#f8f8f7</Color>
     <Color x:Key="CardBackgroundColor">#ffffff</Color>
+    <Color x:Key="ContentBackgroundColor">#ffffff</Color>
 
     <Color x:Key="AccentColor">#DC8635</Color>
     <Color x:Key="SecondaryColor">Green</Color>

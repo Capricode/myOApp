@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using myOApp.Controls;
+using myOApp.Services;
 using myOApp.Themes;
 using myOApp.ViewModels;
 using Xamarin.Forms;
@@ -22,23 +23,9 @@ namespace myOApp.Views
             Picker picker = sender as Picker;
             ThemeEnum theme = (ThemeEnum)picker.SelectedItem;
 
-            ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
-            if (mergedDictionaries != null)
-            {
-                mergedDictionaries.Clear();
+            Settings.Current.Theme = theme;
 
-                switch (theme)
-                {
-                    case ThemeEnum.Alternative:
-                        mergedDictionaries.Add(new AlternativeTheme());
-                        break;
-                    case ThemeEnum.Default:
-                    default:
-                        mergedDictionaries.Add(new DefaultTheme());
-                        break;
-                }
-                Debug.WriteLine($"Changed theme to: {theme.ToString()}");
-            }
+            ThemeHelper.ChangeTheme(theme);
         }
     }
 }

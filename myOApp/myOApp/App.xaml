@@ -10,22 +10,31 @@
     <Application.Resources>
         <ResourceDictionary Source="Themes/DefaultTheme.xaml">
 
-            <!--  Extensions  -->
-            <extensions:FavoriteIconConverter x:Key="boolToFavoriteIcon" />
-
             <!--  Global styles  -->
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{DynamicResource ContrastTextColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
+            </Style>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
             </Style>
             <Style x:Key="CardLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
             </Style>
+            <Style x:Key="TagLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
+            </Style>
+
             <!-- Icons -->
             <x:String x:Key="Home">&#xf015;</x:String>
             <x:String x:Key="Browse">&#xf022;</x:String>
             <x:String x:Key="UserProfile">&#xf2bd;</x:String>
             <x:String x:Key="Settings">&#xf013;</x:String>
             <x:String x:Key="Heart">&#xf004;</x:String>
+
+            <!-- Colors -->
+            <Color x:Key="FavoritedColor">#ff6243</Color>
+            <Color x:Key="NotFavoritedColor">#e1e1e1</Color>
 
         </ResourceDictionary>
     </Application.Resources>

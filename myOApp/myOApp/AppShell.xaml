@@ -31,10 +31,16 @@
 
     <!--  Your Pages  -->
     <TabBar>
-        <Tab Title="Home" Icon="tab_dashboard.png">
+        <Tab Title="Home">
+            <Tab.Icon>
+                <FontImageSource Glyph="{StaticResource Home}" FontFamily="FA-S" />
+            </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:DashboardPage}" />
         </Tab>
-        <Tab Title="Browse" Icon="tab_browse.png">
+        <Tab Title="Browse">
+            <Tab.Icon>
+                <FontImageSource Glyph="{StaticResource Browse}" FontFamily="FA-R" />
+            </Tab.Icon>
             <ShellContent
                 Title="Upcoming"
                 ContentTemplate="{DataTemplate local:ItemsPage}"
@@ -46,8 +52,10 @@
         </Tab>
         <Tab
             Title="Profile"
-            Icon="tab_account.png"
             Route="accountsettings">
+            <Tab.Icon>
+                <FontImageSource Glyph="{StaticResource UserProfile}" FontFamily="FA-R" />
+            </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
     </TabBar>
