@@ -1,52 +1,99 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Windows.Input;
 using myOApp.Controls;
 using myOApp.Extensions;
 using myOApp.Models;
+using myOApp.Services;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using Region = myOApp.Models.Region;
 
 namespace myOApp.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
         private IEnumerable<Region> Regions = new List<Region> {
-            new Region{Name="AG", Description=""},
-            new Region{Name="BE/SO", Description=""},
-            new Region{Name="GL/GR", Description=""},
-            new Region{Name="NOS", Description=""},
-            new Region{Name="NWS", Description=""},
-            new Region{Name="SR", Description=""},
-            new Region{Name="TI", Description=""},
-            new Region{Name="ZH/SH", Description=""},
-            new Region{Name="ZS", Description=""},
-            new Region{Name="AUSL.", Description=""}
+            new Region{ Name = "AG", Description = "Aargau" },
+            new Region{ Name = "BE/SO", Description = "Bern & Solothurn" },
+            new Region{ Name = "GL/GR", Description = "Glarus & Graubünden" },
+            new Region{ Name = "NOS", Description = "Nordostschweiz" },
+            new Region{ Name = "NWS", Description = "Nordwestschweiz" },
+            new Region{ Name = "SR", Description = "Suisse Romand (Westschweiz)" },
+            new Region{ Name = "TI", Description = "Ticino" },
+            new Region{ Name = "ZS", Description = "Zentralschweiz" },
+            new Region{ Name = "ZH/SH", Description = "Zürich & Schaffhausen" },
+            new Region{ Name = "AUSL.", Description = "Ausland" }
         };
 
-        public List<SelectableData<Region>> RegionsData { get; set; }
+        public ObservableCollection<RegionViewModel> RegionsData { get; } = new ObservableCollection<RegionViewModel>();
+
+        ICommand updateUserRegionsCommand;
+        public ICommand UpdateUserRegionCommand => updateUserRegionsCommand ?? (updateUserRegionsCommand = new Command<RegionViewModel>((selectedRegion) => this.UpdateUserRegions(selectedRegion)));
+
+        public Settings Settings { get; set; }
 
         public AboutViewModel()
         {
-            RegionsData = Regions.Select(x => new SelectableData<Region> { Data = x, Selected = false }).ToList();
+            var anyUserRegions = Settings.Current.UserRegions.Any();
+            foreach (var region in Regions)
+            {
+                RegionsData.Add(new RegionViewModel
+                {
+                    Region = region,
+                    Selected = !anyUserRegions ? false : (Settings.Current.UserRegions.FirstOrDefault(x => x.Region.Name == region.Name) != null ? true : false)
+                });
+            }
         }
 
-        private string personalizedTitle;
         public string PersonalizedTitle
         {
-            get { return personalizedTitle; }
-            set { SetProperty(ref name, $"Hello { (!string.IsNullOrWhiteSpace(this.Name) ? this.Name : "Stranger!")}"); }
+            get => $"Hello, {(string.IsNullOrEmpty(this.Name) ? "Stranger" : this.Name )}!";
         }
 
-        private string name;
         public string Name
         {
-            get { return name; }
-            set { SetProperty(ref name, value); SetProperty(ref personalizedTitle, value); }
+            get => Settings.Current.Username;
+            set
+            {
+                Settings.Current.Username = value;
+                this.OnPropertyChanged(nameof(PersonalizedTitle));
+            }
         }
 
-        private ThemeEnum theme;
         public ThemeEnum Theme
         {
-            get { return theme; }
-            set { SetProperty(ref theme, value); }
+            get
+            {
+                var theme = Preferences.Get(nameof(Theme), nameof(ThemeEnum.Default));
+                return (ThemeEnum)Enum.Parse(typeof(ThemeEnum), theme);
+            }
+            set
+            {
+                Preferences.Set(nameof(Theme), value.ToString());
+                this.OnPropertyChanged(nameof(ThemeEnum));
+            }
+        }
+
+        void UpdateUserRegions(RegionViewModel selectedRegion)
+        {
+            selectedRegion.Selected = !selectedRegion.Selected;
+
+            var userRegions = new List<RegionViewModel>(Settings.Current.UserRegions);
+
+            if (selectedRegion.Selected)
+            {
+                userRegions.Add(selectedRegion);
+            }
+            else
+            {
+                userRegions.Remove(selectedRegion);
+            }
+
+            Settings.Current.UserRegions = new ObservableCollection<RegionViewModel>(userRegions);
         }
     }
 }
