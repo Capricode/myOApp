@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Application
     x:Class="myOApp.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -20,6 +20,13 @@
             <Style x:Key="CardLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
             </Style>
+            <!-- Icons -->
+            <x:String x:Key="Home">&#xf015;</x:String>
+            <x:String x:Key="Browse">&#xf022;</x:String>
+            <x:String x:Key="UserProfile">&#xf2bd;</x:String>
+            <x:String x:Key="Settings">&#xf013;</x:String>
+            <x:String x:Key="Heart">&#xf004;</x:String>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

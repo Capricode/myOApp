@@ -5,13 +5,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="clr-namespace:myOApp.Extensions"
     mc:Ignorable="d">
     <Frame
         Padding="10"
         CornerRadius="5"
         HasShadow="True"
         HorizontalOptions="Center"
-        VerticalOptions="Center">
+        VerticalOptions="Center"
+        >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -31,6 +33,7 @@
                 Grid.RowSpan="3"
                 Grid.Column="0"
                 FontSize="48"
+                FontFamily="Roboto"
                 HorizontalTextAlignment="Center"
                 Text="31"
                 TextColor="{DynamicResource AccentColor}"
@@ -76,19 +79,28 @@
                 VerticalTextAlignment="Start" />
 
             <!--  Favicon  -->
-
-            <Image
-                x:Name="FavoriteIcon"
+            <Label 
                 Grid.RowSpan="4"
                 Grid.Column="2"
                 HorizontalOptions="Center"
-                Source="{Binding IsFavorite, Converter={StaticResource boolToFavoriteIcon}}"
                 VerticalOptions="Center"
-                WidthRequest="40">
-                <Image.GestureRecognizers>
+                FontFamily="FA-S"
+                FontSize="26"
+                Text="{StaticResource Heart}"
+                >
+                <Label.TextColor>
+                    <Binding Path="IsFavorite">
+                        <Binding.Converter>
+                            <converters:BoolToObjectConverter x:TypeArguments="d:Color"
+                                                              TrueObject="{StaticResource FavoritedColor}"
+                                                              FalseObject="{StaticResource NotFavoritedColor}" />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.TextColor>
+                <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
-                </Image.GestureRecognizers>
-            </Image>
+                </Label.GestureRecognizers>
+            </Label>
 
             <!--<controls:FavoriteIcon
                  IsFavorited="{Binding IsFavorite}"

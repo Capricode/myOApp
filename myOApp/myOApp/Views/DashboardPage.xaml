@@ -6,9 +6,11 @@
     xmlns:controls="clr-namespace:myOApp.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="clr-namespace:myOApp.Extensions"
     Title="MyOApp"
     BackgroundColor="{DynamicResource MainBackgroundColor}"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
     <ScrollView>
         <StackLayout BackgroundColor="{DynamicResource MainBackgroundColor}">
             <StackLayout Padding="10">
@@ -26,14 +28,32 @@
                 </FlexLayout>
             </ScrollView>
             <Grid Padding="10" MinimumHeightRequest="30">
-                <Label FontSize="Large" Text="Happening nearby" />
-                <!--  Todo: Fix the icon size on iOS  -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                    FontSize="Large" 
+                    Text="Happening nearby"
+                    Grid.Column="0" />
+                <!--  Todo: Fix the icon size on iOS, on Android also it's not best => Yanli  -->
                 <!--  Todo: Use https://forums.xamarin.com/discussion/72417/setting-tint-color-of-an-image FFImageLoading and change color of icon  -->
-                <Image Margin="15,0,0,0" Source="settings">
-                    <Image.GestureRecognizers>
+                <Label
+                    FontFamily="FA-S"
+                    FontSize="Large"
+                    Text="{StaticResource Settings}"
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
-                    </Image.GestureRecognizers>
-                </Image>
+                    </Label.GestureRecognizers>
+                </Label>
+                <!--<Image Margin="15,0,0,0" Source="settings">
+                     <Image.GestureRecognizers>
+                     <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
+                     </Image.GestureRecognizers>
+                     </Image>-->
             </Grid>
             <CollectionView ItemsSource="{Binding Items}">
                 <CollectionView.ItemsLayout>
@@ -60,6 +80,7 @@
                                 Grid.RowSpan="3"
                                 Grid.Column="0"
                                 FontSize="54"
+                                FontFamily="Roboto"
                                 HorizontalTextAlignment="Center"
                                 Text="31"
                                 TextColor="{DynamicResource AccentColor}"
@@ -106,18 +127,28 @@
 
                             <!--  Favicon  -->
 
-                            <Image
-                                x:Name="FavoriteIcon"
-                                Grid.RowSpan="4"
-                                Grid.Column="2"
-                                HorizontalOptions="Center"
-                                Source="{Binding IsFavorite, Converter={StaticResource boolToFavoriteIcon}}"
-                                VerticalOptions="Center"
-                                WidthRequest="40">
-                                <Image.GestureRecognizers>
+                            <Label 
+                Grid.RowSpan="4"
+                Grid.Column="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontFamily="FA-S"
+                FontSize="26"
+                Text="{StaticResource Heart}"
+                >
+                                <Label.TextColor>
+                                    <Binding Path="IsFavorite">
+                                        <Binding.Converter>
+                                            <converters:BoolToObjectConverter x:TypeArguments="d:Color"
+                                                              TrueObject="{StaticResource FavoritedColor}"
+                                                              FalseObject="{StaticResource NotFavoritedColor}" />
+                                        </Binding.Converter>
+                                    </Binding>
+                                </Label.TextColor>
+                                <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
-                                </Image.GestureRecognizers>
-                            </Image>
+                                </Label.GestureRecognizers>
+                            </Label>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
