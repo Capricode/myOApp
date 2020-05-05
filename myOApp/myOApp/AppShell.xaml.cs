@@ -13,7 +13,6 @@ namespace myOApp
             InitializeComponent();
 
             Routing.RegisterRoute("itemdetails", typeof(ItemDetailPage));
-            //Routing.RegisterRoute("accountsettings", typeof(AboutPage));
         }
     }
 }

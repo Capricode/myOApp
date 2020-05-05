@@ -155,14 +155,30 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ImageAsset Include="Assets.xcassets\Favorite.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite.png" />
-    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite-1.png" />
-    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite-2.png" />
-    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite.png" />
-    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite-1.png" />
-    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite-2.png" />
+    <ImageAsset Include="Assets.xcassets\Favorite.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Favorite.imageset\favorite-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\NotFavorite.imageset\not_favorite-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -174,10 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
-      <Version>3.0.4</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
