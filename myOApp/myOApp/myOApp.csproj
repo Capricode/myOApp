@@ -36,6 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\MyOApp.DataAccess\MyOApp.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Views\BrowsePage.xaml.cs">
       <DependentUpon>BrowsePage.xaml</DependentUpon>
     </Compile>

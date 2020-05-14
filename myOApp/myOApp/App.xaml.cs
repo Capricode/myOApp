@@ -1,7 +1,7 @@
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using myOApp.Services;
+using myOApp.DependencyInjection;
+using MyOApp.DataAccess;
 using myOApp.Themes;
 
 [assembly: ExportFont("fa-regular-400.ttf", Alias = "FA-R")]
@@ -18,21 +18,26 @@ namespace myOApp
 {
     public partial class App : Application
     {
+        IEventsService EventsService { get; set; }
 
         public App()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            DependencyService.Register<IFavoriteService, FavoriteService>();
+
+            ServiceConfigurator.Configure();
+            MyOApp.DataAccess.DependencyInjection.ServiceConfigurator.Configure();
+
+            EventsService = DependencyService.Get<IEventsService>();
 
             MainPage = new AppShell();
 
             ThemeHelper.ChangeTheme(Settings.Current.Theme);
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
+            await EventsService.ForceRefresh();
         }
 
         protected override void OnSleep()
