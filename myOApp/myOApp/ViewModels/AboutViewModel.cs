@@ -4,10 +4,10 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Input;
-using myOApp.Controls;
 using myOApp.Extensions;
 using myOApp.Models;
 using myOApp.Services;
+using myOApp.Themes;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Region = myOApp.Models.Region;
@@ -90,7 +90,8 @@ namespace myOApp.ViewModels
             }
             else
             {
-                userRegions.Remove(selectedRegion);
+                var userRegion = userRegions.First(x => x.Region.Name.Equals(selectedRegion.Region.Name));
+                userRegions.Remove(userRegion);
             }
 
             Settings.Current.UserRegions = new ObservableCollection<RegionViewModel>(userRegions);
