@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="myOApp.Views.DashboardPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:myOApp.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:myOApp.Controls"
     xmlns:converters="clr-namespace:myOApp.Extensions"
     Title="MyOApp"
     BackgroundColor="{DynamicResource MainBackgroundColor}"
@@ -45,6 +45,7 @@
                     FontFamily="FA-S"
                     FontSize="Large"
                     Text="{StaticResource Settings}"
+                    TextColor="{DynamicResource AccentColor}"
                     Grid.Column="1"
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="Center">
@@ -59,95 +60,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10" BackgroundColor="{DynamicResource CardBackgroundColor}">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="3*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <!--  Event date  -->
-                            <Label
-                                Grid.Row="0"
-                                Grid.RowSpan="3"
-                                Grid.Column="0"
-                                FontSize="54"
-                                FontFamily="Roboto"
-                                HorizontalTextAlignment="Center"
-                                Text="31"
-                                TextColor="{DynamicResource AccentColor}"
-                                VerticalTextAlignment="Center" />
-                            <Label
-                                Grid.Row="2"
-                                Grid.RowSpan="2"
-                                Grid.Column="0"
-                                FontSize="22"
-                                HorizontalTextAlignment="Center"
-                                Text="SEP"
-                                TextColor="{DynamicResource AccentColor}"
-                                VerticalTextAlignment="Center" />
-
-                            <!--  Event info  -->
-                            <Label
-                                Grid.Row="0"
-                                Grid.RowSpan="2"
-                                Grid.Column="1"
-                                FontSize="17"
-                                HorizontalTextAlignment="Start"
-                                LineBreakMode="WordWrap"
-                                Style="{DynamicResource CardLabel}"
-                                Text="45. Swiss International Mountain Marathon"
-                                VerticalTextAlignment="End" />
-                            <Label
-                                Grid.Row="2"
-                                Grid.Column="1"
-                                FontSize="15"
-                                HorizontalTextAlignment="Start"
-                                LineBreakMode="TailTruncation"
-                                Style="{DynamicResource CardLabel}"
-                                Text="Map: Konstanz/Kreuzlingen"
-                                VerticalTextAlignment="End" />
-                            <Label
-                                Grid.Row="3"
-                                Grid.Column="1"
-                                FontSize="13"
-                                HorizontalTextAlignment="Start"
-                                LineBreakMode="TailTruncation"
-                                Style="{DynamicResource CardLabel}"
-                                Text="GL/GR | OLK Argus, Argus Bikers"
-                                VerticalTextAlignment="Start" />
-
-                            <!--  Favicon  -->
-
-                            <Label 
-                Grid.RowSpan="4"
-                Grid.Column="2"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                FontFamily="FA-S"
-                FontSize="26"
-                Text="{StaticResource Heart}"
-                >
-                                <Label.TextColor>
-                                    <Binding Path="IsFavorite">
-                                        <Binding.Converter>
-                                            <converters:BoolToObjectConverter x:TypeArguments="d:Color"
-                                                              TrueObject="{StaticResource FavoritedColor}"
-                                                              FalseObject="{StaticResource NotFavoritedColor}" />
-                                        </Binding.Converter>
-                                    </Binding>
-                                </Label.TextColor>
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </Grid>
+                        <controls:EventView />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.EmptyView>
