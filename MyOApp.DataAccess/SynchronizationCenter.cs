@@ -2,12 +2,9 @@
 using MyOApp.DataAccess.Database;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Internals;
 
 namespace MyOApp.DataAccess
 {
@@ -17,23 +14,25 @@ namespace MyOApp.DataAccess
 
         private readonly IEventsClient EventsClient = DependencyService.Get<IEventsClient>();
 
-        public async Task RefreshData()
+        public async Task RefreshData(IEnumerable<string> favoritedEvents)
         {
             // call for new data from EventsClient
             var events = await this.EventsClient.GetEvents();
 
             // map it to EventEntity
-            var eventsEntities = events.Select(x => this.MapToEventEntity(x));
+            var eventsEntities = events.Select(x => this.MapToEventEntity(x, favoritedEvents));
 
             // update in database
             await this.EventsDatabase.SaveEvents(eventsEntities);
         }
 
-        private EventEntity MapToEventEntity(Event singleEvent)
+        private EventEntity MapToEventEntity(Event singleEvent, IEnumerable<string> favoritedEventsIds)
         {
+            var id = $"{singleEvent.source}-{singleEvent.idSource}";
+
             return new EventEntity
             {
-                Id = $"{singleEvent.source}-{singleEvent.idSource}",
+                Id = id,
                 Name = singleEvent.name,
                 Club = singleEvent.organiser,
                 Date = DateTimeOffset.FromUnixTimeMilliseconds(singleEvent.date).UtcDateTime.Date,
@@ -41,7 +40,8 @@ namespace MyOApp.DataAccess
                 Region = singleEvent.region,
                 Source = singleEvent.source,
                 Link = singleEvent.url,
-                LastModificationDate = DateTimeOffset.FromUnixTimeMilliseconds(singleEvent.lastModification).UtcDateTime.Date
+                LastModificationDate = DateTimeOffset.FromUnixTimeMilliseconds(singleEvent.lastModification).UtcDateTime.Date,
+                IsFavorite = favoritedEventsIds.Any(x => x.Equals(id))
             };
         }
     }

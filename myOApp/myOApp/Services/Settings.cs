@@ -2,13 +2,10 @@
 using myOApp.Themes;
 using myOApp.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Xamarin.Essentials;
 
 namespace myOApp.Services
@@ -31,7 +28,7 @@ namespace myOApp.Services
             set
             {
                 Preferences.Set(nameof(Theme), value.ToString());
-                this.OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -41,7 +38,7 @@ namespace myOApp.Services
             set
             {
                 Preferences.Set(nameof(Username), value);
-                this.OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -60,9 +57,32 @@ namespace myOApp.Services
             }
             set
             {
-                var regions = string.Join(Separator.ToString(), value.Select(x=>x.Region.Name));
+                var regions = string.Join(Separator.ToString(), value.Select(x => x.Region.Name));
                 Preferences.Set(nameof(UserRegions), regions);
-                this.OnPropertyChanged();
+                OnPropertyChanged();
+            }
+        }
+
+        static readonly string FavoritedEventsDefaultValue = string.Empty;
+        // does it need to be Observable? yea I guess
+        // nume ids
+        // oder?...
+        public ObservableCollection<string> FavoritedEvents
+        {
+            get
+            {
+                var favoritedEventsIds = Preferences.Get(nameof(FavoritedEvents), FavoritedEventsDefaultValue);
+                if (favoritedEventsIds == FavoritedEventsDefaultValue) return new ObservableCollection<string>();
+
+                return new ObservableCollection<string>(
+                    favoritedEventsIds.Split(Separator)
+                    .ToList());
+            }
+            set
+            {
+                var favoritedEventsIds = string.Join(Separator.ToString(), value);
+                Preferences.Set(nameof(FavoritedEvents), favoritedEventsIds);
+                OnPropertyChanged();
             }
         }
 

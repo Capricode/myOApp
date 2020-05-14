@@ -1,11 +1,10 @@
-﻿using myOApp.Models;
-using myOApp.ViewModels;
+﻿using myOApp.ViewModels;
 using MyOApp.DataAccess;
 using MyOApp.DataAccess.Database;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -50,14 +49,33 @@ namespace myOApp.Services
 
             var eventAfter = this.EventMapper.MapToViewModel(eventDbAfter);
 
+            this.ToggleFavoritedEventsSettings(eventAfter);
+
             MessagingCenter.Send(this, Constants.Favorites.FavoritesToggledMessage, eventAfter);
         }
 
         public async Task ForceRefresh()
         {
-            await this.SynchronizationCenter.RefreshData();
+            var favoritedEvents = Settings.Current.FavoritedEvents.ToList();
+            await this.SynchronizationCenter.RefreshData(favoritedEvents);
 
             MessagingCenter.Send(this, Constants.Synchronization.NewDataAvailableMessage);
+        }
+
+        private void ToggleFavoritedEventsSettings(EventViewModel eventAfter)
+        {
+            var favoritedEvents = new List<string>(Settings.Current.FavoritedEvents);
+
+            if (eventAfter.IsFavorite)
+            {
+                favoritedEvents.Add(eventAfter.Id);
+            }
+            else
+            {
+                favoritedEvents.Remove(eventAfter.Id);
+            }
+
+            Settings.Current.FavoritedEvents = new ObservableCollection<string>(favoritedEvents);
         }
     }
 }
