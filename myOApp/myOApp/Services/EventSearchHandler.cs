@@ -1,4 +1,5 @@
 ﻿using myOApp.Models;
+using myOApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,12 @@ namespace myOApp.Services
             }
             else
             {
-                var dataStore = DependencyService.Get<IDataStore<Item>>();
-                var items = await dataStore.GetItemsAsync();
+                var eventsService = DependencyService.Get<IEventsService>();
+                var events = await eventsService.GetEvents();
 
-                // I guess I should change this to ItemViewModel here everywhere, but should work still
-                ItemsSource = items
-                    .Where(i => i.Text.ToLower().Contains(newValue.ToLower()))
-                    .ToList<Item>();
+                ItemsSource = events
+                    .Where(x => x.Name.ToLower().Contains(newValue.ToLower()))
+                    .ToList<EventViewModel>();
             }
         }
 
