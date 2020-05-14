@@ -34,18 +34,22 @@
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:DashboardPage}" />
         </Tab>
-        <Tab Title="Browse">
+        <Tab Title="Browse" x:Name="BrowseTab">
             <Tab.Icon>
                 <FontImageSource Glyph="{StaticResource Browse}" FontFamily="FA-R" />
             </Tab.Icon>
             <ShellContent
                 Title="Upcoming"
-                ContentTemplate="{DataTemplate local:ItemsPage}"
+                ContentTemplate="{DataTemplate local:BrowsePage}"
                 Icon="tab_future" />
             <ShellContent
                 Title="Past"
-                ContentTemplate="{DataTemplate local:ItemsPage}"
+                ContentTemplate="{DataTemplate local:BrowsePage}"
                 Icon="tab_past" />
+            <ShellContent
+                Title="Favorited"
+                ContentTemplate="{DataTemplate local:BrowsePage}"
+                Icon="tab_future" />
         </Tab>
         <Tab
             Title="Profile"

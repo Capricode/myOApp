@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:services="clr-namespace:myOApp.Services"
+             xmlns:controls="clr-namespace:myOApp.Controls"
+             mc:Ignorable="d"
+             x:Class="myOApp.Views.BrowsePage"
+             Title="{Binding Title}"
+             x:Name="BrowseEventsPage">
+<!-- Sessions page for handling loading and empty message-->
+    <Shell.SearchHandler>
+        <services:EventSearchHandler Placeholder="Enter search term"
+                                     ShowsResults="true"
+                                     DisplayMemberName="Text" >
+            <services:EventSearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.15*" />
+                            <ColumnDefinition Width="0.85*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0"
+                               Text="{Binding ShortDate}"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="1"
+                               Text="{Binding Name}"
+                               FontAttributes="Bold" />
+                    </Grid>
+                </DataTemplate>
+            </services:EventSearchHandler.ItemTemplate>
+        </services:EventSearchHandler>
+    </Shell.SearchHandler>
+
+    <RefreshView IsRefreshing="{Binding IsRefresh, Mode=TwoWay}" Command="{Binding ForceRefreshEventsCommand}">
+        <CollectionView x:Name="EventsCollectionView" ItemsSource="{Binding Events}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <controls:EventView />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
