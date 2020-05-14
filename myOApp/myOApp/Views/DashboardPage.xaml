@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="myOApp.Views.DashboardPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -11,6 +11,9 @@
     BackgroundColor="{DynamicResource MainBackgroundColor}"
     mc:Ignorable="d"
     >
+
+    <!-- Sessions page for handling loading and empty message-->
+
     <ScrollView>
         <StackLayout BackgroundColor="{DynamicResource MainBackgroundColor}">
             <StackLayout Padding="10">
@@ -29,8 +32,8 @@
             </ScrollView>
             <Grid Padding="10" MinimumHeightRequest="30">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Label 
                     FontSize="Large" 
@@ -49,13 +52,8 @@
                         <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
-                <!--<Image Margin="15,0,0,0" Source="settings">
-                     <Image.GestureRecognizers>
-                     <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
-                     </Image.GestureRecognizers>
-                     </Image>-->
             </Grid>
-            <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView ItemsSource="{Binding NearbyEvents}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="1" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>

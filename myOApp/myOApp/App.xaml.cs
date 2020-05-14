@@ -2,7 +2,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using myOApp.Services;
-using myOApp.Views;
+using myOApp.Themes;
 
 [assembly: ExportFont("fa-regular-400.ttf", Alias = "FA-R")]
 [assembly: ExportFont("fa-solid-900.ttf", Alias = "FA-S")]
@@ -28,7 +28,6 @@ namespace myOApp
 
             MainPage = new AppShell();
 
-            // set user's theme
             ThemeHelper.ChangeTheme(Settings.Current.Theme);
         }
 

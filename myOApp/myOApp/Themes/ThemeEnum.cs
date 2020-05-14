@@ -1,4 +1,4 @@
-﻿namespace myOApp.Controls
+﻿namespace myOApp.Themes
 {
     public enum ThemeEnum
     {

@@ -1,12 +1,10 @@
-﻿using myOApp.Controls;
-using myOApp.Themes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Xamarin.Forms;
 
-namespace myOApp.Services
+namespace myOApp.Themes
 {
     public static class ThemeHelper
     {

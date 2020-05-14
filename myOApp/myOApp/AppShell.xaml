@@ -9,9 +9,6 @@
     Title="myOApp"
     mc:Ignorable="d">
 
-    <!--
-        Styles and Resources
-    -->
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">

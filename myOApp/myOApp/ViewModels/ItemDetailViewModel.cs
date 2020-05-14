@@ -7,11 +7,11 @@ namespace myOApp.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public ItemViewModel Item { get; set; }
-        public ItemDetailViewModel(ItemViewModel item = null)
-        {
-            Title = item?.Text;
-            Item = item;
-        }
+        //public ItemViewModel Item { get; set; }
+        //public ItemDetailViewModel(ItemViewModel item = null)
+        //{
+        //    Title = item?.Text;
+        //    Item = item;
+        //}
     }
 }

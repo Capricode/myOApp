@@ -1,11 +1,4 @@
-﻿using myOApp.Services;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
-
-namespace myOApp.Models
+﻿namespace myOApp.Models
 {
     public class Item
     {

@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:themes="clr-namespace:myOApp.Themes"
     xmlns:controls="clr-namespace:myOApp.Controls"
     xmlns:converters="clr-namespace:myOApp.Extensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -48,7 +49,7 @@
             Grid.Column="1"
             Margin="10"
             ios:Picker.UpdateMode="WhenFinished"
-            EnumType="{x:Type controls:ThemeEnum}"
+            EnumType="{x:Type themes:ThemeEnum}"
             SelectedIndexChanged="OnThemeChanged"
             SelectedItem="{Binding Theme}"
             TextColor="{DynamicResource ContrastTextColor}" />

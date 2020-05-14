@@ -22,23 +22,23 @@ namespace myOApp.Views
         {
             set
             {
-                var dataStore = DependencyService.Get<IDataStore<Item>>();
+                //var dataStore = DependencyService.Get<IDataStore<Item>>();
 
-                Task.Run(async () =>
-                {
-                    var item = await dataStore.GetItemAsync(value);
+                //Task.Run(async () =>
+                //{
+                //    var item = await dataStore.GetItemAsync(value);
 
-                    BindingContext = new ItemDetailViewModel
-                    {
-                        Item = new ItemViewModel
-                        {
-                            Id = item.Id,
-                            Text = item.Text,
-                            Description = item.Description,
-                            IsFavorite = item.IsFavorite
-                        }
-                    };
-                });
+                //    BindingContext = new ItemDetailViewModel
+                //    {
+                //        Item = new ItemViewModel
+                //        {
+                //            Id = item.Id,
+                //            Text = item.Text,
+                //            Description = item.Description,
+                //            IsFavorite = item.IsFavorite
+                //        }
+                //    };
+                //});
             }
         }
 
@@ -53,14 +53,14 @@ namespace myOApp.Views
         {
             InitializeComponent();
 
-            var item = new ItemViewModel
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
+            //var item = new ItemViewModel
+            //{
+            //    Text = "Item 1",
+            //    Description = "This is an item description."
+            //};
 
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
+            //viewModel = new ItemDetailViewModel(item);
+            //BindingContext = viewModel;
         }
     }
 }
