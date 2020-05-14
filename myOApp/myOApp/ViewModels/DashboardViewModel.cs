@@ -1,11 +1,8 @@
-﻿using myOApp.Models;
+﻿using myOApp.Extensions;
 using myOApp.Services;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -14,50 +11,82 @@ namespace myOApp.ViewModels
 {
     public class DashboardViewModel : BaseViewModel
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IEventsService EventsService => DependencyService.Get<IEventsService>();
 
-        //this should be a singleton? now we don't update when there is something
-        public ObservableCollection<ItemViewModel> Items { get; } = new ObservableCollection<ItemViewModel>();
+        public ObservableRangeCollection<EventViewModel> NearbyEvents { get; } = new ObservableRangeCollection<EventViewModel>();
 
-        public ObservableCollection<ItemViewModel> FavoritedEvents { get; } = new ObservableCollection<ItemViewModel>();
+        public ObservableRangeCollection<EventViewModel> FavoritedEvents { get; } = new ObservableRangeCollection<EventViewModel>();
 
-        public DashboardViewModel()
-        {
-            //if ((ViewModel?.Sessions?.Count ?? 0) == 0 || forceRefresh)
-            {
-                LoadItemsCommand.Execute(null);
-            }
+        ICommand loadNearbyEventsCommand;
+        public ICommand LoadNearbyEventsCommand => loadNearbyEventsCommand ?? (loadNearbyEventsCommand = new Command(async () => await ExecuteLoadNearbyEventsCommand()));
 
-            foreach (var item in this.Items) //.Where(x => x.IsFavorite)
-            {
-                FavoritedEvents.Add(item);
-            }
-        }
-
-        // see SessionsViewModel from app-conference
-        ICommand loadItemsCommand;
-        public ICommand LoadItemsCommand => loadItemsCommand ?? (loadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand()));
-
-        async Task ExecuteLoadItemsCommand()
+        async Task ExecuteLoadNearbyEventsCommand()
         {
             IsBusy = true;
 
             try
             {
-                if (Items.Any()) return;
+                var events = await this.EventsService.GetNearbyEvents();
+                NearbyEvents.ReplaceRange(events);
 
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                Debug.WriteLine("Weszlem Get Nearby");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        ICommand loadFavoriteEventsCommand;
+        public ICommand LoadFavoriteEventsCommand => loadFavoriteEventsCommand ?? (loadFavoriteEventsCommand = new Command(async () => await ExecuteLoadFavoriteEventsCommand()));
+
+        async Task ExecuteLoadFavoriteEventsCommand()
+        {
+            IsBusy = true;
+
+            try
+            {
+                var events = await this.EventsService.GetFavoritedEvents();
+                this.FavoritedEvents.ReplaceRange(events);
+
+                Debug.WriteLine("Weszlem Get Favorited");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        ICommand toggleFavoriteCommand;
+        public ICommand ToggleFavoriteCommand => toggleFavoriteCommand ?? (toggleFavoriteCommand = new Command<EventViewModel>(async (singleEvent) => await ExecuteToggleFavoriteCommand(singleEvent)));
+
+        async Task ExecuteToggleFavoriteCommand(EventViewModel singleEvent)
+        {
+            IsBusy = true;
+
+            try
+            {
+
+                var favEvent = this.FavoritedEvents.FirstOrDefault(x => x.Id == singleEvent.Id);
+                if (favEvent == null)
                 {
-                    Items.Add(new ItemViewModel
-                    {
-                        Id = item.Id,
-                        Description = item.Description,
-                        Text = item.Text,
-                        IsFavorite = item.IsFavorite
-                    });
+                    this.FavoritedEvents.Add(singleEvent);
                 }
-                Debug.WriteLine("Weszlem");
+                else
+                {
+                    this.FavoritedEvents.Remove(favEvent);
+                }
+
+                var nearbyEvent = this.NearbyEvents.First(x => x.Id == singleEvent.Id);
+                nearbyEvent.IsFavorite = singleEvent.IsFavorite;
             }
             catch (Exception ex)
             {
