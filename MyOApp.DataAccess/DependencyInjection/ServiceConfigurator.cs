@@ -1,4 +1,4 @@
-using MyOApp.DataAccess.Client;
+﻿using MyOApp.DataAccess.Client;
 using MyOApp.DataAccess.Database;
 using System;
 using System.Collections.Generic;
@@ -13,6 +13,7 @@ namespace MyOApp.DataAccess.DependencyInjection
         {
             DependencyService.Register<IEventsClient, EventsClient>();
             DependencyService.Register<IEventsDatabase, EventsDatabase>();
+            DependencyService.Register<ISynchronizationCenter, SynchronizationCenter>();
         }
     }
 }
