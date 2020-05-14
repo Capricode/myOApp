@@ -3,16 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using Xamarin.Forms;
-
-using myOApp.Models;
-using myOApp.Services;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using System.Linq;
-
 namespace myOApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged

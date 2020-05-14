@@ -1,9 +1,5 @@
-﻿using myOApp.Models;
-using myOApp.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using myOApp.ViewModels;
 using System.Linq;
-using System.Text;
 using Xamarin.Forms;
 
 namespace myOApp.Services
@@ -29,11 +25,11 @@ namespace myOApp.Services
             }
         }
 
-        protected override async void OnItemSelected(object item)
+        protected override async void OnItemSelected(object singleEvent)
         {
-            base.OnItemSelected(item);
+            base.OnItemSelected(singleEvent);
 
-            await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"itemdetails?id={((Item)item).Id}");
+            await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"itemdetails?id={((EventViewModel)singleEvent).Id}");
         }
     }
 }
