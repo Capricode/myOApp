@@ -1,4 +1,4 @@
-﻿using MyOApp.DataAccess.Client;
+using MyOApp.DataAccess.Client;
 using MyOApp.DataAccess.Database;
 using System;
 using System.Collections.Generic;
@@ -40,6 +40,7 @@ namespace MyOApp.DataAccess
                 Region = singleEvent.region,
                 Source = singleEvent.source,
                 Link = singleEvent.url,
+                ResultsId = singleEvent.resultsId,
                 LastModificationDate = DateTimeOffset.FromUnixTimeMilliseconds(singleEvent.lastModification).UtcDateTime.Date,
                 IsFavorite = favoritedEventsIds.Any(x => x.Equals(id))
             };

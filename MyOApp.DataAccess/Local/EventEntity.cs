@@ -1,4 +1,4 @@
-﻿using MyOApp.DataAccess.Local;
+using MyOApp.DataAccess.Local;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
 using System;
@@ -24,7 +24,7 @@ namespace MyOApp.DataAccess.Database
 
         public string Link { get; set; }
 
-        public bool IsFavorite { get; set; }
+        public int? ResultsId { get; set; }
 
         public DateTime LastModificationDate { get; set; }
 

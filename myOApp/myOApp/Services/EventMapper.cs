@@ -33,6 +33,7 @@ namespace myOApp.Services
                 Date = eventEntity.Date,
                 Region = eventEntity.Region,
                 Link = eventEntity.Link,
+                ResultsId = eventEntity.ResultsId,
                 IsFavorite = eventEntity.IsFavorite
             };
         }

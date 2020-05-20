@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace myOApp.ViewModels
@@ -12,6 +13,8 @@ namespace myOApp.ViewModels
     public class EventViewModel : INotifyPropertyChanged
     {
         private readonly IEventsService EventsService = DependencyService.Get<IEventsService>();
+
+        private const string ResultUrl = "https://www.o-l.ch/cgi-bin/results?rl_id=";
 
         public string Id { get; set; }
 
@@ -27,7 +30,13 @@ namespace myOApp.ViewModels
 
         public string Link { get; set; }
 
-        public string ShortDate => Date.ToString("dd.MM");
+        public int? ResultsId { get; set; }
+
+        public bool HasResults => !string.IsNullOrEmpty(this.ResultsUrl);
+
+        public string ResultsUrl => ResultsId == null ? string.Empty : $"{ResultUrl}{ResultsId}";
+
+        public string ShortDate => Date.ToString("dd.MM.yy");
 
         public string Day => Date.ToString("dd");
 
@@ -76,6 +85,23 @@ namespace myOApp.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        ICommand goToEventDetailsCommand;
+        public ICommand GoToEventDetailsCommand => goToEventDetailsCommand ?? (goToEventDetailsCommand = new Command<EventViewModel>(async (tappedEvent) => await ExecuteGoToEventDetailsCommand(tappedEvent)));
+
+        private async Task ExecuteGoToEventDetailsCommand(EventViewModel tappedEvent)
+        {
+            await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"eventdetails?id={((EventViewModel)tappedEvent).Id}");
+        }
+
+        ICommand goToBrowserCommand;
+        public ICommand GoToBrowserCommand => goToBrowserCommand ?? (goToBrowserCommand = new Command<string>(async (url) => await ExecuteGoToBrowserCommand(url)));
+
+        private async Task ExecuteGoToBrowserCommand(string url)
+        {
+            var uri = new Uri(url);
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
