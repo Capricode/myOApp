@@ -1,4 +1,4 @@
-using MyOApp.DataAccess.Local;
+﻿using MyOApp.DataAccess.Local;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -48,10 +48,20 @@ namespace MyOApp.DataAccess.Database
             }
         }
 
-
-        public Task<List<EventEntity>> GetAllEvents(DateTime? lastSynchronizationDate = null)
+        public Task<List<EventEntity>> GetAllEvents(Expression<Func<EventEntity, bool>> predicate = null, bool shouldSortDescending = false, DateTime? lastSynchronizationDate = null)
+        {
+            if (predicate == null)
             {
-            return Database.Table<EventEntity>().ToListAsync();
+                // if no filter specified we just return all
+                predicate = DefaultWherePredicate;
+            }
+
+            if (shouldSortDescending)
+            {
+                return Database.Table<EventEntity>().Where(predicate).OrderByDescending(x => x.Date).ToListAsync();
+            }
+
+            return Database.Table<EventEntity>().Where(predicate).OrderBy(x => x.Date).ToListAsync();
             //return Database.Table<EventEntity>().Where(x => x.LastModificationDate > lastSynchronizationDate).ToListAsync();
         }
 
@@ -178,5 +188,10 @@ namespace MyOApp.DataAccess.Database
 
         //    return await AttemptAndRetry(() => databaseConnection.DeleteAllAsync<EventEntity>()).ConfigureAwait(false);
         //}
+
+        private Expression<Func<EventEntity, bool>> DefaultWherePredicate
+        {
+            get { return x => true; }
+        }
     }
 }

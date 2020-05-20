@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using myOApp.ViewModels;
 using myOApp.Services;
+using myOApp.Models;
 
 namespace myOApp.Views
 {
@@ -11,6 +12,8 @@ namespace myOApp.Views
     {
         BrowseViewModel viewModel;
 
+        EventsFilter eventsFilter;
+
         public BrowsePage()
         {
             InitializeComponent();
@@ -18,11 +21,34 @@ namespace myOApp.Views
             BindingContext = viewModel = new BrowseViewModel();
         }
 
-        async void OnItemSelected(object sender, EventArgs args)
+        public BrowsePage(string filter)
         {
-            //var layout = (BindableObject)sender;
-            //var item = (EventViewModel)layout.BindingContext;
-            //await Navigation.PushAsync(new ItemDetailPage(new EventViewModel(item)));
+            var now = DateTime.Today;
+
+            eventsFilter = new EventsFilter();
+
+            if (!Enum.TryParse<Filter>(filter, out Filter filterValue)) return;
+            switch (filterValue)
+            {
+                case Filter.FavoritedEvents:
+                    eventsFilter.Predicate = x => x.IsFavorite;
+                    eventsFilter.ShouldSortDescending = true;
+                    break;
+                case Filter.PastEvents:
+                    eventsFilter.Predicate = x => x.Date <= now;
+                    eventsFilter.ShouldSortDescending = true;
+                    break;
+                case Filter.UpcomingEvents:
+                    eventsFilter.Predicate = x => x.Date >= now;
+                    break;
+                default:
+                    eventsFilter.Predicate = null;
+                    break;
+            };
+
+            InitializeComponent();
+
+            BindingContext = viewModel = new BrowseViewModel();
         }
 
         protected override void OnAppearing()
@@ -31,7 +57,12 @@ namespace myOApp.Views
 
             MessagingCenter.Subscribe<EventsService>(this, Constants.Synchronization.NewDataAvailableMessage, async (sender) =>
             {
-                viewModel.LoadEventsCommand.Execute(null);
+                viewModel.LoadEventsCommand.Execute(eventsFilter);
+            });
+
+            MessagingCenter.Subscribe<EventsService, EventViewModel>(this, Constants.Favorites.FavoritesToggledMessage, async (sender, singleEvent) =>
+            {
+                viewModel.ToggleFavoriteCommand.Execute(singleEvent);
             });
 
             //bool forceRefresh = (DateTime.UtcNow > (ViewModel?.NextForceRefresh ?? DateTime.UtcNow)) ||
@@ -44,7 +75,7 @@ namespace myOApp.Views
             //}
 
             // for now we refresh always
-            viewModel.LoadEventsCommand.Execute(null);
+            viewModel.LoadEventsCommand.Execute(eventsFilter);
         }
 
         protected override void OnDisappearing()
@@ -52,6 +83,7 @@ namespace myOApp.Views
             base.OnDisappearing();
 
             MessagingCenter.Unsubscribe<EventsService>(this, Constants.Synchronization.NewDataAvailableMessage);
+            MessagingCenter.Unsubscribe<EventsService, EventViewModel>(this, Constants.Favorites.FavoritesToggledMessage);
         }
     }
 }

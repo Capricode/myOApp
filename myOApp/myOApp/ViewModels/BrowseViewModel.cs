@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using System.Windows.Input;
 using myOApp.Services;
+using myOApp.Extensions;
+using System.Linq;
+using myOApp.Models;
 
 namespace myOApp.ViewModels
 {
@@ -13,7 +15,7 @@ namespace myOApp.ViewModels
     {
         public IEventsService EventsService = DependencyService.Get<IEventsService>();
 
-        public ObservableCollection<EventViewModel> Events { get; } = new ObservableCollection<EventViewModel>();
+        public ObservableRangeCollection<EventViewModel> Events { get; } = new ObservableRangeCollection<EventViewModel>();
 
         private bool isRefresh;
         public bool IsRefresh
@@ -43,21 +45,16 @@ namespace myOApp.ViewModels
 
         // see SessionsViewModel from app-conference
         ICommand loadEventsCommand;
-        public ICommand LoadEventsCommand => loadEventsCommand ?? (loadEventsCommand = new Command(async () => await ExecuteLoadEventsCommand()));
+        public ICommand LoadEventsCommand => loadEventsCommand ?? (loadEventsCommand = new Command<EventsFilter>(async (eventsFilter) => await ExecuteLoadEventsCommand(eventsFilter)));
 
-        async Task ExecuteLoadEventsCommand()
+        async Task ExecuteLoadEventsCommand(EventsFilter eventsFilter)
         {
             try
             {
                 IsBusy = true;
 
-                var events = await this.EventsService.GetEvents();
-                foreach (var singleEvent in events)
-                {
-                    Events.Add(singleEvent);
-                }
-
-                Debug.WriteLine("Weszlem Browse");
+                var events = await this.EventsService.GetEvents(eventsFilter);
+                this.Events.ReplaceRange(events);
             }
             catch (Exception ex)
             {
@@ -74,6 +71,28 @@ namespace myOApp.ViewModels
                 {
                     IsBusy = false;
                 }
+            }
+        }
+
+        ICommand toggleFavoriteCommand;
+        public ICommand ToggleFavoriteCommand => toggleFavoriteCommand ?? (toggleFavoriteCommand = new Command<EventViewModel>(async (singleEvent) => await ExecuteToggleFavoriteCommand(singleEvent)));
+
+        async Task ExecuteToggleFavoriteCommand(EventViewModel singleEvent)
+        {
+            IsBusy = true;
+
+            try
+            {
+                var toggledEvent = this.Events.First<EventViewModel>(x => x.Id == singleEvent.Id);
+                toggledEvent.IsFavorite = singleEvent.IsFavorite;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 

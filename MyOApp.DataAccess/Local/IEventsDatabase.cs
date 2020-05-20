@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MyOApp.DataAccess.Database
 {
     public interface IEventsDatabase
     {
-        Task<List<EventEntity>> GetAllEvents(DateTime? lastSynchronizationDate);
+        Task<List<EventEntity>> GetAllEvents(Expression<Func<EventEntity, bool>> predicate = null, bool shouldSortDescending = false, DateTime? lastSynchronizationDate = null);
 
         Task<List<EventEntity>> GetNearbyEvents(IEnumerable<string> userRegions);
         

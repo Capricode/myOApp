@@ -1,7 +1,7 @@
-﻿using myOApp.ViewModels;
+﻿using myOApp.Models;
+using myOApp.ViewModels;
 using MyOApp.DataAccess;
 using MyOApp.DataAccess.Database;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -18,9 +18,11 @@ namespace myOApp.Services
 
         private readonly ISynchronizationCenter SynchronizationCenter = DependencyService.Get<ISynchronizationCenter>();
 
-        public async Task<IEnumerable<EventViewModel>> GetEvents(DateTime? lastSynchronizationDate = null)
+        public async Task<IEnumerable<EventViewModel>> GetEvents(EventsFilter eventsFilter = null)
         {
-            var eventEntities = await this.EventsDatabase.GetAllEvents(lastSynchronizationDate);
+            if (eventsFilter == null) eventsFilter = new EventsFilter();
+
+            var eventEntities = await this.EventsDatabase.GetAllEvents(eventsFilter.Predicate, eventsFilter.ShouldSortDescending);
             return this.EventMapper.MapToViewModel(eventEntities);
         }
 

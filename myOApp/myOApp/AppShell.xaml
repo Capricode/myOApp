@@ -34,22 +34,52 @@
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:DashboardPage}" />
         </Tab>
-        <Tab Title="Browse" x:Name="BrowseTab">
+        <Tab Title="Browse" x:Name="BrowseTab" Route="browse">
             <Tab.Icon>
                 <FontImageSource Glyph="{StaticResource Browse}" FontFamily="FA-R" />
             </Tab.Icon>
             <ShellContent
                 Title="Upcoming"
-                ContentTemplate="{DataTemplate local:BrowsePage}"
-                Icon="tab_future" />
+                Icon="tab_future"
+                Route="upcoming">
+                <ShellContent.ContentTemplate>
+                    <DataTemplate>
+                        <local:BrowsePage>
+                            <x:Arguments>
+                                <x:String>UpcomingEvents</x:String>
+                            </x:Arguments>
+                        </local:BrowsePage>
+                    </DataTemplate>
+                </ShellContent.ContentTemplate>
+            </ShellContent>
             <ShellContent
                 Title="Past"
-                ContentTemplate="{DataTemplate local:BrowsePage}"
-                Icon="tab_past" />
+                Icon="tab_past"
+                Route="past">
+                <ShellContent.ContentTemplate>
+                    <DataTemplate>
+                        <local:BrowsePage>
+                            <x:Arguments>
+                                <x:String>PastEvents</x:String>
+                            </x:Arguments>
+                        </local:BrowsePage>
+                    </DataTemplate>
+                </ShellContent.ContentTemplate>
+            </ShellContent>
             <ShellContent
                 Title="Favorited"
-                ContentTemplate="{DataTemplate local:BrowsePage}"
-                Icon="tab_future" />
+                Icon="tab_future"
+                Route="favorited">
+                <ShellContent.ContentTemplate>
+                    <DataTemplate>
+                        <local:BrowsePage>
+                            <x:Arguments>
+                                <x:String>FavoritedEvents</x:String>
+                            </x:Arguments>
+                        </local:BrowsePage>
+                    </DataTemplate>
+                </ShellContent.ContentTemplate>
+            </ShellContent>
         </Tab>
         <Tab
             Title="Profile"
