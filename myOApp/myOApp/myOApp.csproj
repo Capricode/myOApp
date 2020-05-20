@@ -9,11 +9,10 @@
     <None Remove="Resources\fa-brands-400.ttf" />
     <None Remove="Resources\fa-regular-400.ttf" />
     <None Remove="Resources\fa-solid-900.ttf" />
-    <None Remove="Resources\RobotoCondensed-Bold.ttf" />
-    <None Remove="Resources\RobotoCondensed-BoldItalic.ttf" />
-    <None Remove="Resources\RobotoCondensed-Italic.ttf" />
+    <None Remove="Resources\nearbyEvents.svg" />
+    <None Remove="Resources\noFavorites.svg" />
+    <None Remove="Resources\Roboto-Light.ttf" />
     <None Remove="Resources\RobotoCondensed-Light.ttf" />
-    <None Remove="Resources\RobotoCondensed-LightItalic.ttf" />
     <None Remove="Resources\RobotoCondensed-Regular.ttf" />
   </ItemGroup>
 
@@ -21,22 +20,25 @@
     <EmbeddedResource Include="Resources\fa-brands-400.ttf" />
     <EmbeddedResource Include="Resources\fa-regular-400.ttf" />
     <EmbeddedResource Include="Resources\fa-solid-900.ttf" />
-    <EmbeddedResource Include="Resources\RobotoCondensed-Bold.ttf" />
-    <EmbeddedResource Include="Resources\RobotoCondensed-BoldItalic.ttf" />
-    <EmbeddedResource Include="Resources\RobotoCondensed-Italic.ttf" />
+    <EmbeddedResource Include="Resources\noFavorites.svg" />
+    <EmbeddedResource Include="Resources\Roboto-Light.ttf" />
     <EmbeddedResource Include="Resources\RobotoCondensed-Light.ttf" />
-    <EmbeddedResource Include="Resources\RobotoCondensed-LightItalic.ttf" />
     <EmbeddedResource Include="Resources\RobotoCondensed-Regular.ttf" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.1.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\MyOApp.DataAccess\MyOApp.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\nearbyEvents.svg" />
   </ItemGroup>
 
   <ItemGroup>

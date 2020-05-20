@@ -13,7 +13,7 @@
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{DynamicResource MainBackgroundColor}" />
-                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource ContrastTextColor}" />
                 <Setter Property="Shell.TitleColor" Value="{DynamicResource ContrastTextColor}" />
                 <Setter Property="Shell.DisabledColor" Value="LightGray" />
                 <Setter Property="Shell.UnselectedColor" Value="DimGray" />

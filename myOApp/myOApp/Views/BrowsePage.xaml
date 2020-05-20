@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -10,17 +10,18 @@
              x:Class="myOApp.Views.BrowsePage"
              Title="{Binding Title}"
              x:Name="BrowseEventsPage">
-<!-- Sessions page for handling loading and empty message-->
+    <!-- See Sessions page in app conference for handling loading and empty message-->
     <Shell.SearchHandler>
-        <services:EventSearchHandler Placeholder="Enter search term"
+        <services:EventSearchHandler Placeholder="Search for events..."
                                      ShowsResults="true"
-                                     DisplayMemberName="Text" >
+                                     DisplayMemberName="Text"
+                                     QueryIconName="Search">
             <services:EventSearchHandler.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.15*" />
-                            <ColumnDefinition Width="0.85*" />
+                            <ColumnDefinition Width="0.2*" />
+                            <ColumnDefinition Width="0.8*" />
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0"
                                Text="{Binding ShortDate}"

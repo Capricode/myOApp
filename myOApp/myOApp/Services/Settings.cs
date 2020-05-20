@@ -64,9 +64,6 @@ namespace myOApp.Services
         }
 
         static readonly string FavoritedEventsDefaultValue = string.Empty;
-        // does it need to be Observable? yea I guess
-        // nume ids
-        // oder?...
         public ObservableCollection<string> FavoritedEvents
         {
             get

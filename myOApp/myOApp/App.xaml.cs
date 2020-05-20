@@ -8,12 +8,9 @@ using myOApp.Themes;
 [assembly: ExportFont("fa-solid-900.ttf", Alias = "FA-S")]
 [assembly: ExportFont("fa-brands-400.ttf", Alias = "FA-B")]
 
-[assembly: ExportFont("RobotoCondensed-Bold.ttf", Alias = "Roboto-B")]
-[assembly: ExportFont("RobotoCondensed-BoldItalic.ttf", Alias = "Roboto-BI")]
-[assembly: ExportFont("RobotoCondensed-Regular.ttf", Alias = "Roboto")]
-[assembly: ExportFont("RobotoCondensed-Italic.ttf", Alias = "Roboto-I")]
-[assembly: ExportFont("RobotoCondensed-Light.ttf", Alias = "Roboto-L")]
-[assembly: ExportFont("RobotoCondensed-LightItalic.ttf", Alias = "Roboto-LI")]
+[assembly: ExportFont("RobotoCondensed-Regular.ttf", Alias = "RobotoCondensed")]
+[assembly: ExportFont("RobotoCondensed-Light.ttf", Alias = "RobotoCondensed-L")]
+[assembly: ExportFont("Roboto-Light.ttf", Alias = "Roboto-L")]
 namespace myOApp
 {
     public partial class App : Application

@@ -12,7 +12,7 @@ namespace myOApp
         {
             InitializeComponent();
 
-            Routing.RegisterRoute("itemdetails", typeof(ItemDetailPage));
+            Routing.RegisterRoute("eventdetails", typeof(EventDetailsPage));
 
             CurrentItem.CurrentItem = BrowseTab;
         }

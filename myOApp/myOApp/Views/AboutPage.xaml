@@ -29,36 +29,37 @@
             Grid.Row="0"
             Grid.Column="0"
             Padding="10"
-            FontSize="Large"
+            Style="{StaticResource MainLabelStyle}"
             Text="What's your name?" />
         <Entry
             Grid.Row="0"
             Grid.Column="1"
             Placeholder="Your name..."
-            Text="{Binding Name}" />
+            Text="{Binding Name}"
+            HorizontalOptions="StartAndExpand"/>
 
         <Label
             Grid.Row="1"
             Grid.Column="0"
             Padding="10"
-            FontSize="Large"
+            Style="{StaticResource MainLabelStyle}"
             Text="Choose layout:" />
         <controls:EnumPicker
             Title="Select Theme"
             Grid.Row="1"
             Grid.Column="1"
-            Margin="10"
             ios:Picker.UpdateMode="WhenFinished"
             EnumType="{x:Type themes:ThemeEnum}"
             SelectedIndexChanged="OnThemeChanged"
             SelectedItem="{Binding Theme}"
-            TextColor="{DynamicResource ContrastTextColor}" />
+            TextColor="{DynamicResource ContrastTextColor}"
+            HorizontalOptions="StartAndExpand"/>
 
         <Label
             Grid.Row="2"
             Grid.Column="0"
             Padding="10"
-            FontSize="Large"
+            Style="{StaticResource MainLabelStyle}"
             Text="Pick regions" />
 
         <FlexLayout x:Name="regionTags"

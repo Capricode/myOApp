@@ -14,7 +14,7 @@
         HorizontalOptions="Center"
         VerticalOptions="Center"
         >
-        <Grid Padding="5" ColumnSpacing="10">
+        <Grid Padding="5" ColumnSpacing="11" RowSpacing="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -33,7 +33,7 @@
                 Grid.RowSpan="3"
                 Grid.Column="0"
                 FontSize="48"
-                FontFamily="Roboto"
+                FontFamily="RobotoCondensed"
                 HorizontalTextAlignment="Center"
                 Text="{Binding Day}"
                 TextColor="{DynamicResource AccentColor}"
@@ -79,28 +79,31 @@
                 VerticalTextAlignment="Start" />
 
             <!--  Favicon  -->
-            <Label 
-                Grid.RowSpan="4"
-                Grid.Column="2"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                FontFamily="FA-S"
-                FontSize="26"
-                Text="{StaticResource Heart}"
-                >
-                <Label.TextColor>
-                    <Binding Path="IsFavorite">
-                        <Binding.Converter>
-                            <converters:BoolToObjectConverter x:TypeArguments="d:Color"
-                                                              TrueObject="{StaticResource FavoritedColor}"
-                                                              FalseObject="{StaticResource NotFavoritedColor}" />
-                        </Binding.Converter>
-                    </Binding>
-                </Label.TextColor>
-                <Label.GestureRecognizers>
+            <ContentView HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Grid.Column="2"
+                         Grid.RowSpan="4">
+                <ContentView.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
+                </ContentView.GestureRecognizers>
+                <Label 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontFamily="FA-S"
+                    FontSize="26"
+                    Text="{StaticResource Heart}"
+                    >
+                    <Label.TextColor>
+                        <Binding Path="IsFavorite">
+                            <Binding.Converter>
+                                <converters:BoolToObjectConverter x:TypeArguments="d:Color"
+                                                                  TrueObject="{StaticResource FavoritedColor}"
+                                                                  FalseObject="{StaticResource NotFavoritedColor}" />
+                            </Binding.Converter>
+                        </Binding>
+                    </Label.TextColor>
+                </Label>
+            </ContentView>
 
             <!--<controls:FavoriteIcon
                  IsFavorited="{Binding IsFavorite}"

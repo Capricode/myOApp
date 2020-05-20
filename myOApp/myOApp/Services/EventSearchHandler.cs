@@ -20,7 +20,8 @@ namespace myOApp.Services
                 var events = await eventsService.GetEvents();
 
                 ItemsSource = events
-                    .Where(x => x.Name.ToLower().Contains(newValue.ToLower()))
+                    .Where(x => x.Name.ToLower()
+                    .Contains(newValue.ToLower()))
                     .ToList<EventViewModel>();
             }
         }
@@ -29,7 +30,7 @@ namespace myOApp.Services
         {
             base.OnItemSelected(singleEvent);
 
-            await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"itemdetails?id={((EventViewModel)singleEvent).Id}");
+            await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"eventdetails?id={((EventViewModel)singleEvent).Id}");
         }
     }
 }
