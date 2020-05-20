@@ -28,15 +28,21 @@
 
     <!--  Your Pages  -->
     <TabBar>
-        <Tab Title="Home">
+        <Tab
+            x:Name="HomeTab"
+            Title="Home"
+            Route="home">
             <Tab.Icon>
-                <FontImageSource Glyph="{StaticResource Home}" FontFamily="FA-S" />
+                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource Home}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:DashboardPage}" />
         </Tab>
-        <Tab Title="Browse" x:Name="BrowseTab" Route="browse">
+        <Tab
+            x:Name="BrowseTab"
+            Title="Browse"
+            Route="browse">
             <Tab.Icon>
-                <FontImageSource Glyph="{StaticResource Browse}" FontFamily="FA-R" />
+                <FontImageSource FontFamily="FA-R" Glyph="{StaticResource Browse}" />
             </Tab.Icon>
             <ShellContent
                 Title="Upcoming"
@@ -82,10 +88,11 @@
             </ShellContent>
         </Tab>
         <Tab
+            x:Name="profileTab"
             Title="Profile"
             Route="accountsettings">
             <Tab.Icon>
-                <FontImageSource Glyph="{StaticResource UserProfile}" FontFamily="FA-R" />
+                <FontImageSource FontFamily="FA-R" Glyph="{StaticResource UserProfile}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>

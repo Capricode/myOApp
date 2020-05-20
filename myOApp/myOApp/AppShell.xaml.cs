@@ -1,7 +1,4 @@
 ﻿using myOApp.Views;
-using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace myOApp
@@ -14,7 +11,7 @@ namespace myOApp
 
             Routing.RegisterRoute("eventdetails", typeof(EventDetailsPage));
 
-            CurrentItem.CurrentItem = BrowseTab;
+            CurrentItem.CurrentItem = profileTab;
         }
     }
 }

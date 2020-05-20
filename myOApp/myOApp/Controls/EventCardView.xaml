@@ -3,18 +3,21 @@
     x:Class="myOApp.Controls.EventCardView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:myOApp.Extensions"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:converters="clr-namespace:myOApp.Extensions"
     mc:Ignorable="d">
     <Frame
         Padding="5"
+        BackgroundColor="{DynamicResource CardBackgroundColor}"
         CornerRadius="5"
         HasShadow="True"
         HorizontalOptions="Center"
-        VerticalOptions="Center"
-        >
-        <Grid Padding="5" ColumnSpacing="11" RowSpacing="5">
+        VerticalOptions="Center">
+        <Grid
+            Padding="5"
+            ColumnSpacing="11"
+            RowSpacing="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -32,8 +35,8 @@
                 Grid.Row="0"
                 Grid.RowSpan="3"
                 Grid.Column="0"
-                FontSize="48"
                 FontFamily="RobotoCondensed"
+                FontSize="48"
                 HorizontalTextAlignment="Center"
                 Text="{Binding Day}"
                 TextColor="{DynamicResource AccentColor}"
@@ -79,26 +82,27 @@
                 VerticalTextAlignment="Start" />
 
             <!--  Favicon  -->
-            <ContentView HorizontalOptions="FillAndExpand"
-                         VerticalOptions="FillAndExpand"
-                         Grid.Column="2"
-                         Grid.RowSpan="4">
+            <ContentView
+                Grid.RowSpan="4"
+                Grid.Column="2"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
                 <ContentView.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
                 </ContentView.GestureRecognizers>
-                <Label 
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
+                <Label
                     FontFamily="FA-S"
                     FontSize="26"
+                    HorizontalOptions="Center"
                     Text="{StaticResource Heart}"
-                    >
+                    VerticalOptions="Center">
                     <Label.TextColor>
                         <Binding Path="IsFavorite">
                             <Binding.Converter>
-                                <converters:BoolToObjectConverter x:TypeArguments="d:Color"
-                                                                  TrueObject="{StaticResource FavoritedColor}"
-                                                                  FalseObject="{StaticResource NotFavoritedColor}" />
+                                <converters:BoolToObjectConverter
+                                    x:TypeArguments="d:Color"
+                                    FalseObject="{StaticResource NotFavoritedColor}"
+                                    TrueObject="{StaticResource FavoritedColor}" />
                             </Binding.Converter>
                         </Binding>
                     </Label.TextColor>

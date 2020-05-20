@@ -3,22 +3,22 @@
     x:Class="myOApp.Views.AboutPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:themes="clr-namespace:myOApp.Themes"
     xmlns:controls="clr-namespace:myOApp.Controls"
     xmlns:converters="clr-namespace:myOApp.Extensions"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:themes="clr-namespace:myOApp.Themes"
     Title="{Binding PersonalizedTitle}"
     BackgroundColor="{DynamicResource ContentBackgroundColor}"
     mc:Ignorable="d">
 
     <Grid BackgroundColor="{DynamicResource ContentBackgroundColor}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="300" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -34,9 +34,11 @@
         <Entry
             Grid.Row="0"
             Grid.Column="1"
+            BackgroundColor="{DynamicResource ContentBackgroundColor}"
+            HorizontalOptions="FillAndExpand"
             Placeholder="Your name..."
             Text="{Binding Name}"
-            HorizontalOptions="StartAndExpand"/>
+            TextColor="{DynamicResource ContrastTextColor}" />
 
         <Label
             Grid.Row="1"
@@ -49,11 +51,12 @@
             Grid.Row="1"
             Grid.Column="1"
             ios:Picker.UpdateMode="WhenFinished"
+            BackgroundColor="{DynamicResource ContentBackgroundColor}"
             EnumType="{x:Type themes:ThemeEnum}"
+            HorizontalOptions="FillAndExpand"
             SelectedIndexChanged="OnThemeChanged"
             SelectedItem="{Binding Theme}"
-            TextColor="{DynamicResource ContrastTextColor}"
-            HorizontalOptions="StartAndExpand"/>
+            TextColor="{DynamicResource ContrastTextColor}" />
 
         <Label
             Grid.Row="2"
@@ -61,71 +64,83 @@
             Padding="10"
             Style="{StaticResource MainLabelStyle}"
             Text="Pick regions" />
-
-        <FlexLayout x:Name="regionTags"
-                    Grid.Row="3"
-                    Grid.ColumnSpan="2"
-                    BindableLayout.ItemsSource="{Binding RegionsData}"
-                    Padding="4"
-                    AlignItems="Center"
-                    Direction="Row"
-                    JustifyContent="SpaceEvenly"
-                    Wrap="Wrap">
+        <FlexLayout
+            x:Name="regionTags"
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Padding="4"
+            AlignItems="Center"
+            BindableLayout.ItemsSource="{Binding RegionsData}"
+            Direction="Row"
+            JustifyContent="SpaceAround"
+            Wrap="Wrap">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <Frame 
-                        Padding="3, 3"
-                        Margin="3"
-                        CornerRadius="{OnPlatform Android='30', iOS='16'}"
+                    <Frame
+                        Margin="5"
+                        Padding="10"
+                        CornerRadius="{OnPlatform Android='30',
+                                                  iOS='16'}"
                         HasShadow="True"
-                        Opacity="0.9"
-                        IsClippedToBounds="True"
                         HorizontalOptions="FillAndExpand"
+                        IsClippedToBounds="True"
+                        Opacity="0.9"
                         VerticalOptions="FillAndExpand"
                         Visual="Material">
                         <Frame.BackgroundColor>
                             <Binding Path="Selected">
                                 <Binding.Converter>
-                                    <converters:BoolToObjectConverter x:TypeArguments="d:Color"
-                                                                      TrueObject="{StaticResource AccentColor}"
-                                                                      FalseObject="{StaticResource MainBackgroundColor}" />
+                                    <converters:BoolToObjectConverter
+                                        x:TypeArguments="d:Color"
+                                        FalseObject="{StaticResource MainBackgroundColor}"
+                                        TrueObject="{StaticResource OpaqueAccentColor}" />
                                 </Binding.Converter>
                             </Binding>
                         </Frame.BackgroundColor>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Path=BindingContext.UpdateUserRegionCommand, Source={x:Reference regionTags}}"
+                                CommandParameter="{Binding .}"
+                                NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer
-                                    Command="{Binding Path=BindingContext.UpdateUserRegionCommand, Source={x:Reference regionTags}}"
-                                    CommandParameter="{Binding .}"
-                                    NumberOfTapsRequired="1" />
-                            </Grid.GestureRecognizers>
-                            <Frame 
+                            <!--<Frame
                                 Grid.Column="0"
-                                CornerRadius="{OnPlatform Android='30', iOS='16'}"
-                                BackgroundColor="White" 
-                                Padding="10">
+                                Padding="10"
+                                BackgroundColor="White"
+                                CornerRadius="{OnPlatform Android='30',
+                                                          iOS='16'}">
                                 <Label
                                     FontSize="Caption"
-                                    Text="{Binding Region.Name}"
-                                    Style="{DynamicResource TagLabel}"
-                                    HorizontalTextAlignment="Center"
                                     HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Style="{DynamicResource TagLabel}"
+                                    Text="{Binding Region.Name}"
                                     VerticalOptions="FillAndExpand" />
-                            </Frame>
-                            <Label 
-                                Padding="0,0,4,0"
-                                Grid.Column="1"
-                                FontSize="Small"
-                                Text="{Binding Region.Description}"
-                                Style="{DynamicResource TagLabel}"
-                                HorizontalTextAlignment="Center"
-                                VerticalTextAlignment="Center"
+                            </Frame>-->
+                            <Label
+                                FontSize="Caption"
                                 HorizontalOptions="FillAndExpand"
-                                VerticalOptions="FillAndExpand"/>
+                                HorizontalTextAlignment="Center"
+                                Style="{DynamicResource TagLabel}"
+                                Text="{Binding Region.Name}"
+                                TextColor="{DynamicResource CaptionTextColor}"
+                                VerticalOptions="FillAndExpand" />
+                            <Label
+                                Grid.Column="1"
+                                Padding="0,0,4,0"
+                                FontSize="Small"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Style="{DynamicResource TagLabel}"
+                                Text="{Binding Region.Description}"
+                                VerticalOptions="FillAndExpand"
+                                VerticalTextAlignment="Center" />
+
                         </Grid>
                     </Frame>
                 </DataTemplate>

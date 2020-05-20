@@ -1,5 +1,4 @@
-﻿using MyOApp.DataAccess.Local;
-using SQLite;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

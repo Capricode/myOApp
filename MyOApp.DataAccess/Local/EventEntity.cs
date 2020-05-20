@@ -1,6 +1,4 @@
-﻿using MyOApp.DataAccess.Local;
-using SQLite;
-using SQLiteNetExtensions.Attributes;
+﻿using SQLite;
 using System;
 
 namespace MyOApp.DataAccess.Database

@@ -23,8 +23,13 @@
             <Style x:Key="TagLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
             </Style>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource ContentBackgroundColor}" />
+            </Style>
 
-            <!-- Custom styles -->
+
+            <!--  Custom styles  -->
             <Style x:Key="LabelDetailsPageStyle" TargetType="Span">
                 <Setter Property="FontSize" Value="13" />
                 <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
@@ -40,14 +45,14 @@
                 <Setter Property="FontFamily" Value="Roboto-L" />
             </Style>
 
-            <!-- Icons -->
+            <!--  Icons  -->
             <x:String x:Key="Home">&#xf015;</x:String>
             <x:String x:Key="Browse">&#xf022;</x:String>
             <x:String x:Key="UserProfile">&#xf2bd;</x:String>
             <x:String x:Key="Settings">&#xf013;</x:String>
             <x:String x:Key="Heart">&#xf004;</x:String>
 
-            <!-- Colors -->
+            <!--  Colors  -->
             <Color x:Key="FavoritedColor">#ff6243</Color>
             <Color x:Key="NotFavoritedColor">#e1e1e1</Color>
 

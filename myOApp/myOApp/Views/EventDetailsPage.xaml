@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:MyOApp.Controls"
-             mc:Ignorable="d"
-             x:Class="myOApp.Views.EventDetailsPage">
+<ContentPage
+    x:Class="myOApp.Views.EventDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MyOApp.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="{DynamicResource ContentBackgroundColor}"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout Margin="20,20,20,25">
             <controls:EventLabel Label="Name" Text="{Binding Name}" />
@@ -14,8 +16,33 @@
             <controls:EventLabel Label="Club" Text="{Binding Club}" />
             <controls:EventLabel Label="Region" Text="{Binding Region}" />
 
-            <Button Text="Show results (opens a browser)" IsVisible="{Binding HasResults}" Command="{Binding GoToBrowserCommand}" CommandParameter="{Binding ResultsUrl}" />
-            <Button Text="Show event page (opens a browser)" Command="{Binding GoToBrowserCommand}" CommandParameter="{Binding Link}" />
+            <Frame
+                Margin="10"
+                Padding="5"
+                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                CornerRadius="{OnPlatform Android='30',
+                                          iOS='16'}"
+                HasShadow="True"
+                IsVisible="{Binding HasResults}">
+                <Button
+                    Command="{Binding GoToBrowserCommand}"
+                    CommandParameter="{Binding ResultsUrl}"
+                    Text="Show results (opens a browser)" />
+            </Frame>
+
+            <Frame
+                Margin="10"
+                Padding="5"
+                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                CornerRadius="{OnPlatform Android='30',
+                                          iOS='16'}"
+                HasShadow="True">
+                <Button
+                    Command="{Binding GoToBrowserCommand}"
+                    CommandParameter="{Binding Link}"
+                    Text="Show event page (opens a browser)" />
+            </Frame>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
