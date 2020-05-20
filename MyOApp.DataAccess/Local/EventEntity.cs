@@ -1,4 +1,4 @@
-using MyOApp.DataAccess.Local;
+﻿using MyOApp.DataAccess.Local;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
 using System;
@@ -28,8 +28,10 @@ namespace MyOApp.DataAccess.Database
 
         public DateTime LastModificationDate { get; set; }
 
-        //[OneToOne(inverseProperty: "EventId")]
-        [OneToOne]
-        public FavoritedEvent IsFavoritedEvent { get; set; }
+        public bool IsFavorite { get; set; }
+
+        ////[OneToOne(inverseProperty: "EventId")]
+        //[OneToOne]
+        //public FavoritedEvent IsFavoritedEvent { get; set; }
     }
 }

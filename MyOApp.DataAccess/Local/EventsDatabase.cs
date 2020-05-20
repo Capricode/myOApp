@@ -1,10 +1,10 @@
-﻿using MyOApp.DataAccess.Local;
+using MyOApp.DataAccess.Local;
 using SQLite;
-using SQLiteNetExtensionsAsync.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MyOApp.DataAccess.Database
@@ -35,11 +35,12 @@ namespace MyOApp.DataAccess.Database
 
                     try
                     {
-                        await Database.CreateTablesAsync(CreateFlags.None, typeof(EventEntity), typeof(FavoritedEvent)).ConfigureAwait(false);
+                        // await Database.CreateTablesAsync(CreateFlags.None, typeof(EventEntity), typeof(FavoritedEvent)).ConfigureAwait(false);
+                        await Database.CreateTablesAsync(CreateFlags.None, typeof(EventEntity)).ConfigureAwait(false);
                     }
                     catch (Exception ex)
                     {
-
+                        Debug.WriteLine(ex);
                     }
 
                     initialized = true;
@@ -49,7 +50,7 @@ namespace MyOApp.DataAccess.Database
 
 
         public Task<List<EventEntity>> GetAllEvents(DateTime? lastSynchronizationDate = null)
-        {
+            {
             return Database.Table<EventEntity>().ToListAsync();
             //return Database.Table<EventEntity>().Where(x => x.LastModificationDate > lastSynchronizationDate).ToListAsync();
         }
