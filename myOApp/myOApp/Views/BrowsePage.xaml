@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:services="clr-namespace:myOApp.Services"
              xmlns:controls="clr-namespace:myOApp.Controls"
              mc:Ignorable="d"
@@ -40,6 +41,33 @@
                     <controls:EventView />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <StackLayout BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <Label
+                        Margin="10,50,10,10"
+                        FontSize="18"
+                        HorizontalOptions="Fill"
+                        HorizontalTextAlignment="Center"
+                        Text="You have not favorited any events yet." />
+                    <Label
+                        FontSize="12"
+                        HorizontalOptions="Fill"
+                        HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Try tapping the heart next to an event." TextColor="{DynamicResource AccentColor}"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <ffsvg:SvgCachedImage
+                    WidthRequest="200"
+                    HeightRequest="200"
+                    Source="resource://myOApp.Resources.noFavorites.svg"
+                    VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </CollectionView.EmptyView>
         </CollectionView>
     </RefreshView>
 </ContentPage>

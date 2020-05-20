@@ -100,5 +100,8 @@ namespace myOApp.ViewModels
 
         ICommand goToSettingsCommand;
         public ICommand GoToSettingsCommand => goToSettingsCommand ?? (goToSettingsCommand = new Command(async () => await Shell.Current.GoToAsync("//accountsettings")));
+
+        ICommand goToFavoritesCommand;
+        public ICommand GoToFavoritesCommand => goToFavoritesCommand ?? (goToFavoritesCommand = new Command(async () => await Shell.Current.GoToAsync("//browse/upcoming")));
     }
 }

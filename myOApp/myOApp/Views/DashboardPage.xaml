@@ -1,12 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="myOApp.Views.DashboardPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:controls="clr-namespace:myOApp.Controls"
-    xmlns:converters="clr-namespace:myOApp.Extensions"
+    xmlns:extensions="clr-namespace:myOApp.Extensions"
     Title="MyOApp"
     BackgroundColor="{DynamicResource MainBackgroundColor}"
     mc:Ignorable="d"
@@ -19,7 +20,7 @@
             <StackLayout Padding="10">
                 <Label FontSize="Large" Text="Favorited events" />
             </StackLayout>
-            <ScrollView MinimumHeightRequest="200" Orientation="Horizontal">
+            <ScrollView MinimumHeightRequest="200" HeightRequest="120" Orientation="Horizontal">
                 <FlexLayout BindableLayout.ItemsSource="{Binding FavoritedEvents}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
@@ -28,6 +29,36 @@
                             </Grid>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
+                    <BindableLayout.EmptyView>
+                        <StackLayout BackgroundColor="{DynamicResource CardBackgroundColor}" FlexLayout.Grow="1">
+                            <Label
+                                Margin="10,25,10,10"
+                                FontSize="18"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Center"
+                                Text="You didn't favorite any events yet." />
+                            <Label
+                                FontSize="12"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="Try " />
+                                            <Span
+                                                FontAttributes="Italic"
+                                                Text="adding some to your favorites!"
+                                                TextColor="{DynamicResource AccentColor}">
+                                                <Span.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToFavoritesCommand}" />
+                                                </Span.GestureRecognizers>
+                                            </Span>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </BindableLayout.EmptyView>
                 </FlexLayout>
             </ScrollView>
             <Grid Padding="10" MinimumHeightRequest="30">
@@ -67,11 +98,10 @@
                     <StackLayout BackgroundColor="{DynamicResource CardBackgroundColor}">
                         <Label
                             Margin="10,25,10,10"
-                            FontAttributes="Bold"
                             FontSize="18"
                             HorizontalOptions="Fill"
                             HorizontalTextAlignment="Center"
-                            Text="No events are happening near you." />
+                            Text="Customize your dashboard" />
                         <Label
                             FontSize="12"
                             HorizontalOptions="Fill"
@@ -79,10 +109,10 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <FormattedString.Spans>
-                                        <Span Text="Try " />
+                                        <Span Text="by " />
                                         <Span
                                             FontAttributes="Italic"
-                                            Text="choosing more regions?"
+                                            Text="choosing regions near you"
                                             TextColor="{DynamicResource AccentColor}">
                                             <Span.GestureRecognizers>
                                                 <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
@@ -92,6 +122,7 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
+                        <ffsvg:SvgCachedImage WidthRequest="200" HeightRequest="200" Source="resource://myOApp.Resources.nearbyEvents.svg"/>
                     </StackLayout>
                 </CollectionView.EmptyView>
             </CollectionView>

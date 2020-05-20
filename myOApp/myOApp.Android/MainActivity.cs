@@ -1,11 +1,10 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using FFImageLoading.Svg.Forms;
+using FFImageLoading.Forms.Platform;
 
 namespace myOApp.Droid
 {
@@ -21,9 +20,11 @@ namespace myOApp.Droid
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);         
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            CachedImageRenderer.Init(null);
+            var ignore = typeof(SvgCachedImage);
 
             LoadApplication(new App());
         }
