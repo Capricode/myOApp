@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:system="clr-namespace:System;assembly=netstandard"
              mc:Ignorable="d"
-             x:Class="MyOApp.Controls.EventLabel">
+             x:Class="myOApp.Controls.EventLabel">
     <Label.FormattedText>
         <FormattedString>
             <FormattedString.Spans>

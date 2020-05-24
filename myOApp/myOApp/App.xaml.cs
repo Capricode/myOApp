@@ -1,7 +1,6 @@
 using Xamarin.Forms;
 using myOApp.Services;
 using myOApp.DependencyInjection;
-using MyOApp.DataAccess;
 using myOApp.Themes;
 
 [assembly: ExportFont("fa-regular-400.ttf", Alias = "FA-R")]
