@@ -15,11 +15,21 @@
 
     <ScrollView>
         <StackLayout BackgroundColor="{DynamicResource MainBackgroundColor}">
-            <StackLayout Padding="10,10,10,0">
+            <StackLayout Padding="10,10,10,0" Orientation="Horizontal">
                 <Label
                     Style="{StaticResource MainLabelStyle}"
                     Text="Favorited events"
                     />
+                <Label
+                    FontSize="Caption"
+                    TextColor="{DynamicResource AccentColor}"
+                    Text="Show all"
+                    VerticalTextAlignment="Center"
+                    >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToFavoritesCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
             <ScrollView MinimumHeightRequest="200" HeightRequest="120" Orientation="Horizontal">
                 <FlexLayout BindableLayout.ItemsSource="{Binding FavoritedEvents}">
@@ -51,7 +61,7 @@
                                                 Text="adding some to your favorites!"
                                                 TextColor="{DynamicResource AccentColor}">
                                                 <Span.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding GoToFavoritesCommand}" />
+                                                    <TapGestureRecognizer Command="{Binding GoToUpcomingCommand}" />
                                                 </Span.GestureRecognizers>
                                             </Span>
                                         </FormattedString.Spans>
@@ -72,7 +82,6 @@
                     Style="{StaticResource MainLabelStyle}"
                     Text="Happening nearby"
                     Grid.Column="0" />
-                <!--  Todo: Fix the icon size on iOS, on Android also it's not best => Yanli  -->
                 <Label
                     FontFamily="FA-S"
                     FontSize="Large"

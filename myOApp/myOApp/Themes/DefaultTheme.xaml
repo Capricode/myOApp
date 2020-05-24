@@ -15,10 +15,10 @@
 
     <Color x:Key="SecondaryColor">Green</Color>
     <Color x:Key="SpecialColor">#D96B2B</Color>
+    <Color x:Key="UnselectedColor">#FF696969</Color>
 
-    <Color x:Key="MainTextColor">#4B4B4B</Color>
-    <Color x:Key="ContrastTextColor">#4B4B4B</Color>
+    <Color x:Key="MainTextColor">#2E2E2E</Color>
+    <Color x:Key="ContrastTextColor">#2E2E2E</Color>
     <Color x:Key="CaptionTextColor">#828282</Color>
-    <Color x:Key="CaptionContrastTextColor">#F2F2F2</Color>
-
+    <Color x:Key="CaptionContrastTextColor">#333333</Color>
 </ResourceDictionary>

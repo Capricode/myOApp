@@ -15,10 +15,10 @@
 
     <Color x:Key="SecondaryColor">#878C61</Color>
     <Color x:Key="SpecialColor">#D96B2B</Color>
+    <Color x:Key="UnselectedColor">#FFD3D3D3</Color>
 
-    <Color x:Key="MainTextColor">Black</Color>
+    <Color x:Key="MainTextColor">#2E2E2E</Color>
     <Color x:Key="ContrastTextColor">#EBDECE</Color>
     <Color x:Key="CaptionTextColor">#F2F2F2</Color>
-    <Color x:Key="CaptionContrastTextColor">#F2F2F2</Color>
-
+    <Color x:Key="CaptionContrastTextColor">#333333</Color>
 </ResourceDictionary>

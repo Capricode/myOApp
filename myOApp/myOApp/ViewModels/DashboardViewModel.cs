@@ -1,4 +1,4 @@
-using myOApp.Extensions;
+﻿using myOApp.Extensions;
 using myOApp.Services;
 using System;
 using System.Diagnostics;
@@ -101,7 +101,10 @@ namespace myOApp.ViewModels
         ICommand goToSettingsCommand;
         public ICommand GoToSettingsCommand => goToSettingsCommand ?? (goToSettingsCommand = new Command(async () => await Shell.Current.GoToAsync("//profile")));
 
+        ICommand goToUpcomingCommand;
+        public ICommand GoToUpcomingCommand => goToUpcomingCommand ?? (goToUpcomingCommand = new Command(async () => await Shell.Current.GoToAsync("//browse/upcoming")));
+
         ICommand goToFavoritesCommand;
-        public ICommand GoToFavoritesCommand => goToFavoritesCommand ?? (goToFavoritesCommand = new Command(async () => await Shell.Current.GoToAsync("//browse/upcoming")));
+        public ICommand GoToFavoritesCommand => goToFavoritesCommand ?? (goToFavoritesCommand = new Command(async () => await Shell.Current.GoToAsync("//browse/favorited")));
     }
 }

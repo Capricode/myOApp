@@ -7,7 +7,10 @@
              mc:Ignorable="d"
              x:Class="myOApp.Controls.EventView">
     <ContentView.Content>
-        <Grid Padding="10" BackgroundColor="{DynamicResource CardBackgroundColor}">
+        <Grid
+            Padding="10" 
+            RowSpacing="3"
+            BackgroundColor="{DynamicResource CardBackgroundColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -30,7 +33,7 @@
                 Grid.Row="0"
                 Grid.RowSpan="3"
                 Grid.Column="0"
-                FontSize="54"
+                FontSize="50"
                 FontFamily="RobotoCondensed"
                 HorizontalTextAlignment="Center"
                 Text="{Binding Day}"
@@ -54,6 +57,7 @@
                 FontSize="17"
                 HorizontalTextAlignment="Start"
                 LineBreakMode="WordWrap"
+                MaxLines="2"
                 Style="{DynamicResource CardLabel}"
                 Text="{Binding Name}"
                 VerticalTextAlignment="End" />
@@ -87,12 +91,12 @@
                 <ContentView.Triggers>
                 </ContentView.Triggers>
                 <Label x:Name="FavoriteIcon"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    FontFamily="FA-S"
-                    FontSize="26"
-                    Text="{StaticResource Heart}"
-                    >
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontFamily="FA-S"
+                       FontSize="26"
+                       Text="{StaticResource Heart}"
+                       >
                     <Label.TextColor>
                         <Binding Path="IsFavorite">
                             <Binding.Converter>

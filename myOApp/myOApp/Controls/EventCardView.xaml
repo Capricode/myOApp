@@ -16,7 +16,6 @@
         VerticalOptions="Center">
         <Grid
             Padding="5"
-            ColumnSpacing="11"
             RowSpacing="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -26,9 +25,14 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="160" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="0.7*" />
             </Grid.ColumnDefinitions>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding GoToEventDetailsCommand}"
+                    CommandParameter="{Binding .}" />
+            </Grid.GestureRecognizers>
 
             <!--  Event date  -->
             <Label
@@ -56,7 +60,7 @@
                 Grid.Row="0"
                 Grid.RowSpan="2"
                 Grid.Column="1"
-                FontSize="17"
+                FontSize="15"
                 HorizontalTextAlignment="Start"
                 LineBreakMode="WordWrap"
                 Style="{DynamicResource CardLabel}"
