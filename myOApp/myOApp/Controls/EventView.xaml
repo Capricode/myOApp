@@ -81,33 +81,30 @@
                 VerticalTextAlignment="Start" />
 
             <!--  Favicon  -->
-            <ContentView HorizontalOptions="FillAndExpand"
-                         VerticalOptions="FillAndExpand"
-                         Grid.Column="2"
-                         Grid.RowSpan="4">
-                <ContentView.GestureRecognizers>
+            <Label x:Name="FavoriteIcon"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Grid.Column="2"
+                   Grid.RowSpan="4"
+                   FontFamily="FA-S"
+                   FontSize="26"
+                   Text="{StaticResource Heart}"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   >
+                <Label.TextColor>
+                    <Binding Path="IsFavorite">
+                        <Binding.Converter>
+                            <converters:BoolToObjectConverter x:TypeArguments="d:Color"
+                                                              TrueObject="{StaticResource FavoritedColor}"
+                                                              FalseObject="{StaticResource NotFavoritedColor}" />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.TextColor>
+                <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
-                </ContentView.GestureRecognizers>
-                <ContentView.Triggers>
-                </ContentView.Triggers>
-                <Label x:Name="FavoriteIcon"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       FontFamily="FA-S"
-                       FontSize="26"
-                       Text="{StaticResource Heart}"
-                       >
-                    <Label.TextColor>
-                        <Binding Path="IsFavorite">
-                            <Binding.Converter>
-                                <converters:BoolToObjectConverter x:TypeArguments="d:Color"
-                                                                  TrueObject="{StaticResource FavoritedColor}"
-                                                                  FalseObject="{StaticResource NotFavoritedColor}" />
-                            </Binding.Converter>
-                        </Binding>
-                    </Label.TextColor>
-                </Label>
-            </ContentView>
+                </Label.GestureRecognizers>
+            </Label>
         </Grid>
     </ContentView.Content>
 </ContentView>
