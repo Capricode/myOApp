@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -104,6 +104,9 @@
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
                 </Label.GestureRecognizers>
+                <Label.Behaviors>
+                    <converters:ViewTappedBehavior AnimationType="Scale" />
+                </Label.Behaviors>
             </Label>
         </Grid>
     </ContentView.Content>

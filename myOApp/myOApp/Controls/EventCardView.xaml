@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
     x:Class="myOApp.Controls.EventCardView"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -86,32 +86,30 @@
                 VerticalTextAlignment="Start" />
 
             <!--  Favicon  -->
-            <ContentView
-                Grid.RowSpan="4"
-                Grid.Column="2"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand">
-                <ContentView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
-                </ContentView.GestureRecognizers>
-                <Label
-                    FontFamily="FA-S"
-                    FontSize="26"
-                    HorizontalOptions="Center"
-                    Text="{StaticResource Heart}"
-                    VerticalOptions="Center">
-                    <Label.TextColor>
-                        <Binding Path="IsFavorite">
-                            <Binding.Converter>
-                                <converters:BoolToObjectConverter
-                                    x:TypeArguments="d:Color"
-                                    FalseObject="{StaticResource NotFavoritedColor}"
-                                    TrueObject="{StaticResource FavoritedColor}" />
-                            </Binding.Converter>
-                        </Binding>
-                    </Label.TextColor>
-                </Label>
-            </ContentView>
+            <Label x:Name="FavoriteIcon"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Grid.Column="2"
+                   Grid.RowSpan="4"
+                   FontFamily="FA-S"
+                   FontSize="26"
+                   Text="{StaticResource Heart}"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   >
+                <Label.TextColor>
+                    <Binding Path="IsFavorite">
+                        <Binding.Converter>
+                            <converters:BoolToObjectConverter x:TypeArguments="d:Color"
+                                                              TrueObject="{StaticResource FavoritedColor}"
+                                                              FalseObject="{StaticResource NotFavoritedColor}" />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.TextColor>
+                <Label.Behaviors>
+                    <converters:ViewTappedBehavior AnimationType="Scale" Command="{Binding ToggleFavoriteItemCommand}" />
+                </Label.Behaviors>
+            </Label>
 
             <!--<controls:FavoriteIcon
                  IsFavorited="{Binding IsFavorite}"
