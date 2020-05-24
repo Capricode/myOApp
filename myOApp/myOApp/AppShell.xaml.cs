@@ -10,8 +10,9 @@ namespace myOApp
             InitializeComponent();
 
             Routing.RegisterRoute("eventdetails", typeof(EventDetailsPage));
+            Routing.RegisterRoute("about", typeof(AboutPage));
 
-            CurrentItem.CurrentItem = profileTab;
+            CurrentItem.CurrentItem = HomeTab;
         }
     }
 }

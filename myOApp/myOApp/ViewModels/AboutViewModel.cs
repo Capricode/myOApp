@@ -1,97 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
-using myOApp.Services;
-using myOApp.Themes;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using Region = myOApp.Models.Region;
 
 namespace myOApp.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        private IEnumerable<Region> Regions = new List<Region> {
-            new Region{ Name = "AG", Description = "Aargau" },
-            new Region{ Name = "BE/SO", Description = "Bern & Solothurn" },
-            new Region{ Name = "GL/GR", Description = "Glarus & Graubünden" },
-            new Region{ Name = "NOS", Description = "Nordostschweiz" },
-            new Region{ Name = "NWS", Description = "Nordwestschweiz" },
-            new Region{ Name = "SR", Description = "Suisse Romand (Westschweiz)" },
-            new Region{ Name = "TI", Description = "Ticino" },
-            new Region{ Name = "ZS", Description = "Zentralschweiz" },
-            new Region{ Name = "ZH/SH", Description = "Zürich & Schaffhausen" },
-            new Region{ Name = "AUSL.", Description = "Ausland" }
-        };
+        ICommand sendEmailCommand;
+        public ICommand SendEmailCommand => sendEmailCommand ?? (sendEmailCommand = new Command(async () => await ExecuteSendEmailCommand()));
 
-        public ObservableCollection<RegionViewModel> RegionsData { get; } = new ObservableCollection<RegionViewModel>();
-
-        ICommand updateUserRegionsCommand;
-        public ICommand UpdateUserRegionCommand => updateUserRegionsCommand ?? (updateUserRegionsCommand = new Command<RegionViewModel>((selectedRegion) => this.UpdateUserRegions(selectedRegion)));
-
-        public Settings Settings { get; set; }
-
-        public AboutViewModel()
+        private async Task ExecuteSendEmailCommand()
         {
-            var anyUserRegions = Settings.Current.UserRegions.Any();
-            foreach (var region in Regions)
+            try
             {
-                RegionsData.Add(new RegionViewModel
+                var message = new EmailMessage
                 {
-                    Region = region,
-                    Selected = !anyUserRegions ? false : (Settings.Current.UserRegions.FirstOrDefault(x => x.Region.Name == region.Name) != null ? true : false)
-                });
+                    Subject = "MyOApp Feedback",
+                    Body = "",
+                    To = new System.Collections.Generic.List<string> { "contact@capricode.ch" },
+                };
+                await Email.ComposeAsync(message);
             }
-        }
-
-        public string PersonalizedTitle
-        {
-            get => $"Hello, {(string.IsNullOrEmpty(this.Name) ? "Stranger" : this.Name )}!";
-        }
-
-        public string Name
-        {
-            get => Settings.Current.Username;
-            set
+            catch (FeatureNotSupportedException fbsEx)
             {
-                Settings.Current.Username = value;
-                this.OnPropertyChanged(nameof(PersonalizedTitle));
+                await Application.Current.MainPage.DisplayAlert("Alert", "We could not find e-mail app. Please try contacting us manually: contact@capricode.ch", "Cancel", "Ok");
             }
-        }
-
-        public ThemeEnum Theme
-        {
-            get
+            catch (Exception ex)
             {
-                var theme = Preferences.Get(nameof(Theme), nameof(ThemeEnum.Default));
-                return (ThemeEnum)Enum.Parse(typeof(ThemeEnum), theme);
+                // Some other exception occurred
             }
-            set
-            {
-                Preferences.Set(nameof(Theme), value.ToString());
-                this.OnPropertyChanged(nameof(ThemeEnum));
-            }
-        }
-
-        void UpdateUserRegions(RegionViewModel selectedRegion)
-        {
-            selectedRegion.Selected = !selectedRegion.Selected;
-
-            var userRegions = new List<RegionViewModel>(Settings.Current.UserRegions);
-
-            if (selectedRegion.Selected)
-            {
-                userRegions.Add(selectedRegion);
-            }
-            else
-            {
-                var userRegion = userRegions.First(x => x.Region.Name.Equals(selectedRegion.Region.Name));
-                userRegions.Remove(userRegion);
-            }
-
-            Settings.Current.UserRegions = new ObservableCollection<RegionViewModel>(userRegions);
         }
     }
 }

@@ -13,13 +13,13 @@
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{DynamicResource MainBackgroundColor}" />
-                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource ContrastTextColor}" />
-                <Setter Property="Shell.TitleColor" Value="{DynamicResource ContrastTextColor}" />
-                <Setter Property="Shell.DisabledColor" Value="LightGray" />
-                <Setter Property="Shell.UnselectedColor" Value="DimGray" />
+                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource AccentColor}" />
+                <Setter Property="Shell.TitleColor" Value="{DynamicResource SpecialColor}" />
+                <Setter Property="Shell.DisabledColor" Value="Blue" />
+                <Setter Property="Shell.UnselectedColor" Value="{DynamicResource UnselectedColor}" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource MainBackgroundColor}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="Green" />
-                <Setter Property="Shell.TabBarUnselectedColor" Value="DimGray" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource UnselectedColor}" />
                 <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource AccentColor}" />
             </Style>
             <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
@@ -88,13 +88,13 @@
             </ShellContent>
         </Tab>
         <Tab
-            x:Name="profileTab"
+            x:Name="ProfileTab"
             Title="Profile"
-            Route="accountsettings">
+            Route="profile">
             <Tab.Icon>
                 <FontImageSource FontFamily="FA-R" Glyph="{StaticResource UserProfile}" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
         </Tab>
     </TabBar>
 
