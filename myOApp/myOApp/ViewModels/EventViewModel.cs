@@ -30,6 +30,8 @@ namespace myOApp.ViewModels
 
         public string Link { get; set; }
 
+        public bool HasLink => !string.IsNullOrEmpty(this.Link);
+
         public int? ResultsId { get; set; }
 
         public bool HasResults => !string.IsNullOrEmpty(this.ResultsUrl);
@@ -92,7 +94,9 @@ namespace myOApp.ViewModels
 
         private async Task ExecuteGoToEventDetailsCommand(EventViewModel tappedEvent)
         {
-            await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"eventdetails?id={((EventViewModel)tappedEvent).Id}");
+            var state = Shell.Current.CurrentState;
+            await Shell.Current.GoToAsync($"{state.Location}/eventdetails?id={((EventViewModel)tappedEvent).Id}");
+            //await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"eventdetails?id={((EventViewModel)tappedEvent).Id}");
         }
 
         ICommand goToBrowserCommand;
