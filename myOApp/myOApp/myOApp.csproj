@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\aboutUs.svg" />
     <None Remove="Resources\fa-brands-400.ttf" />
     <None Remove="Resources\fa-regular-400.ttf" />
     <None Remove="Resources\fa-solid-900.ttf" />
@@ -17,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\aboutUs.svg" />
     <EmbeddedResource Include="Resources\fa-brands-400.ttf" />
     <EmbeddedResource Include="Resources\fa-regular-400.ttf" />
     <EmbeddedResource Include="Resources\fa-solid-900.ttf" />
