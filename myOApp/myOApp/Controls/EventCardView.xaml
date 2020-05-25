@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
     x:Class="myOApp.Controls.EventCardView"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -16,12 +16,9 @@
         VerticalOptions="Center">
         <Grid
             Padding="5"
-            RowSpacing="5">
+            ColumnSpacing="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -35,62 +32,71 @@
             </Grid.GestureRecognizers>
 
             <!--  Event date  -->
-            <Label
-                Grid.Row="0"
-                Grid.RowSpan="3"
-                Grid.Column="0"
-                FontFamily="RobotoCondensed"
-                FontSize="48"
-                HorizontalTextAlignment="Center"
-                Text="{Binding Day}"
-                TextColor="{DynamicResource AccentColor}"
-                VerticalTextAlignment="Center" />
-            <Label
-                Grid.Row="2"
-                Grid.RowSpan="2"
-                Grid.Column="0"
-                FontSize="22"
-                HorizontalTextAlignment="Center"
-                Text="{Binding Month}"
-                TextColor="{DynamicResource AccentColor}"
-                VerticalTextAlignment="Center" />
+            <StackLayout 
+                Grid.Column="0" 
+                Orientation="Vertical" 
+                HorizontalOptions="CenterAndExpand" 
+                VerticalOptions="StartAndExpand"
+                Spacing="0"    
+                Padding="0"
+                Margin="0"
+                >
+                <Label
+                    FontFamily="RobotoCondensed"
+                    FontSize="48"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Day}"
+                    TextColor="{DynamicResource AccentColor}"
+                    VerticalTextAlignment="Start"
+                    Padding="0,-11, 0, 0"
+                    Margin="0"/>
+                <Label
+                    FontSize="20"
+                    Text="{Binding Month}"
+                    TextColor="{DynamicResource AccentColor}"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Start" 
+                    Padding="0"
+                    Margin="0,-15,0,0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start" />
+            </StackLayout>
 
             <!--  Event info  -->
-            <Label
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Grid.Column="1"
-                FontSize="15"
-                HorizontalTextAlignment="Start"
-                LineBreakMode="WordWrap"
-                Style="{DynamicResource CardLabel}"
-                Text="{Binding Name}"
-                VerticalTextAlignment="End" />
-            <Label
-                Grid.Row="2"
-                Grid.Column="1"
-                FontSize="14"
-                HorizontalTextAlignment="Start"
-                LineBreakMode="TailTruncation"
-                Style="{DynamicResource CardLabel}"
-                Text="{Binding Map}"
-                VerticalTextAlignment="End" />
-            <Label
-                Grid.Row="3"
-                Grid.Column="1"
-                FontSize="12"
-                HorizontalTextAlignment="Start"
-                LineBreakMode="TailTruncation"
-                Style="{DynamicResource CardLabel}"
-                Text="{Binding RegionAndClub}"
-                VerticalTextAlignment="Start" />
+            <StackLayout 
+                Grid.Column="1" 
+                Orientation="Vertical" 
+                HorizontalOptions="FillAndExpand" 
+                Spacing="0">
+                <Label
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="WordWrap"
+                    MaxLines="2"
+                    Style="{DynamicResource CardLabel}"
+                    Text="{Binding Name}"
+                    VerticalTextAlignment="Start" />
+                <Label
+                    FontSize="14"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="TailTruncation"
+                    Style="{DynamicResource CardLabel}"
+                    Text="{Binding Map}"
+                    VerticalTextAlignment="End" />
+                <Label
+                    FontSize="12"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="TailTruncation"
+                    Style="{DynamicResource CardLabel}"
+                    Text="{Binding RegionAndClub}"
+                    VerticalTextAlignment="Start" />
+            </StackLayout>
 
             <!--  Favicon  -->
             <Label x:Name="FavoriteIcon"
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="FillAndExpand"
                    Grid.Column="2"
-                   Grid.RowSpan="4"
                    FontFamily="FA-S"
                    FontSize="26"
                    Text="{StaticResource Heart}"

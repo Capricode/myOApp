@@ -73,7 +73,7 @@
                 </FlexLayout>
             </ScrollView>
           
-            <Grid Padding="10" MinimumHeightRequest="30">
+            <Grid Padding="10,0" MinimumHeightRequest="30">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
