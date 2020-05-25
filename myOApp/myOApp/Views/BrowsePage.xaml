@@ -12,6 +12,7 @@
     Title="{Binding Title}"
     BackgroundColor="{DynamicResource MainBackgroundColor}"
     mc:Ignorable="d">
+
     <!--  See Sessions page in app conference for handling loading and empty message  -->
     <Shell.SearchHandler>
         <services:EventSearchHandler

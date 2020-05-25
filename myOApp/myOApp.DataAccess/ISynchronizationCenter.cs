@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MyOApp.DataAccess
+namespace myOApp.DataAccess
 {
     public interface ISynchronizationCenter
     {

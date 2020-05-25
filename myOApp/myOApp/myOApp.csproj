@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -36,11 +36,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MyOApp.DataAccess\MyOApp.DataAccess.csproj" />
+    <EmbeddedResource Include="Resources\nearbyEvents.svg" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\nearbyEvents.svg" />
+    <ProjectReference Include="..\myOApp.DataAccess\myOApp.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>

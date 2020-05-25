@@ -1,4 +1,4 @@
-﻿namespace MyOApp.DataAccess.Client
+﻿namespace myOApp.DataAccess.Client
 {
     public class Event
     {

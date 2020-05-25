@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>myOApp.DataAccess</AssemblyName>
+    <RootNamespace>myOApp.DataAccess</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,9 +1,9 @@
-using MyOApp.DataAccess.Client;
+using myOApp.DataAccess.Client;
 using NUnit.Framework;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyOApp.DataAccess.Tests
+namespace myOApp.DataAccess.Tests
 {
     [TestFixture]
     public class RemoteTests

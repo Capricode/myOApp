@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace MyOApp.DataAccess
+namespace myOApp.DataAccess
 {
     public struct Constants
     {

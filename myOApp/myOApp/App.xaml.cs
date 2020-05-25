@@ -22,7 +22,7 @@ namespace myOApp
 
 
             ServiceConfigurator.Configure();
-            MyOApp.DataAccess.DependencyInjection.ServiceConfigurator.Configure();
+            myOApp.DataAccess.DependencyInjection.ServiceConfigurator.Configure();
 
             EventsService = DependencyService.Get<IEventsService>();
 

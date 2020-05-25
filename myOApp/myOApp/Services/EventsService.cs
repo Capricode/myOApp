@@ -1,7 +1,7 @@
 ﻿using myOApp.Models;
 using myOApp.ViewModels;
-using MyOApp.DataAccess;
-using MyOApp.DataAccess.Database;
+using myOApp.DataAccess;
+using myOApp.DataAccess.Database;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;

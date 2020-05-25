@@ -1,12 +1,12 @@
-using MyOApp.DataAccess.Client;
-using MyOApp.DataAccess.Database;
+using myOApp.DataAccess.Client;
+using myOApp.DataAccess.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace MyOApp.DataAccess
+namespace myOApp.DataAccess
 {
     public class SynchronizationCenter : ISynchronizationCenter
     {

@@ -12,9 +12,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myOApp.iOS", "myOApp\myOApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myOApp", "myOApp\myOApp\myOApp.csproj", "{150A613B-F26A-4CD8-952B-099A53363411}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOApp.DataAccess", "MyOApp.DataAccess\MyOApp.DataAccess.csproj", "{C75B6974-8DFD-4487-9B8B-61942AAF7D30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myOApp.DataAccess", "myOApp\myOApp.DataAccess\myOApp.DataAccess.csproj", "{C75B6974-8DFD-4487-9B8B-61942AAF7D30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOApp.DataAccess.Tests", "MyOApp.DataAccess.Tests\MyOApp.DataAccess.Tests.csproj", "{03FD697F-3855-4546-BFFF-1C0786E02716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myOApp.DataAccess.Tests", "myOApp\myOApp.DataAccess.Tests\myOApp.DataAccess.Tests.csproj", "{03FD697F-3855-4546-BFFF-1C0786E02716}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

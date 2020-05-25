@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace MyOApp.DataAccess.Database
+namespace myOApp.DataAccess.Database
 {
     public interface IEventsDatabase
     {

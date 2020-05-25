@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using System;
 
-namespace MyOApp.DataAccess.Database
+namespace myOApp.DataAccess.Database
 {
     public class EventEntity
     {

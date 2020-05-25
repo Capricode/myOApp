@@ -1,8 +1,8 @@
-﻿using MyOApp.DataAccess.Client;
-using MyOApp.DataAccess.Database;
+﻿using myOApp.DataAccess.Client;
+using myOApp.DataAccess.Database;
 using Xamarin.Forms;
 
-namespace MyOApp.DataAccess.DependencyInjection
+namespace myOApp.DataAccess.DependencyInjection
 {
     public static class ServiceConfigurator
     {

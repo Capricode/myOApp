@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace MyOApp.DataAccess.Client
 {
     public class EventsClient : IEventsClient
     {
@@ -21,11 +20,11 @@ namespace MyOApp.DataAccess.Client
                 eventsApiUrl += $"&{Constants.EventsApi.YearQueryKey}={year}";
             }
 
-            var client = new HttpClient();
-            var response = await client.GetStringAsync(eventsApiUrl);
+                var client = new HttpClient();
+                var response = await client.GetStringAsync(eventsApiUrl);
 
-            var result = JsonConvert.DeserializeObject<List<Event>>(JObject.Parse(response)["events"].ToString());
-            return result;
-        }
+                var result = JsonConvert.DeserializeObject<List<Event>>(JObject.Parse(response)["events"].ToString());
+                return result;
+            }
     }
 }
