@@ -1,8 +1,5 @@
 ﻿using MyOApp.DataAccess.Client;
 using MyOApp.DataAccess.Database;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace MyOApp.DataAccess.DependencyInjection
