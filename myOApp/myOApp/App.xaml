@@ -30,13 +30,13 @@
 
             <!--  Custom styles  -->
             <Style x:Key="LabelDetailsPageStyle" TargetType="Span">
-                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontSize" Value="Caption" />
+                <Setter Property="FontFamily" Value="Roboto-L" />
                 <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
                 <Setter Property="CharacterSpacing" Value="2" />
-                <Setter Property="FontAttributes" Value="Bold" />
             </Style>
             <Style x:Key="TextDetailsPageStyle" TargetType="Span">
-                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontSize" Value="18" />
                 <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
             </Style>
             <Style x:Key="MainLabelStyle" TargetType="Label">
