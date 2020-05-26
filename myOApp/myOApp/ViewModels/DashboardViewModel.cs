@@ -28,8 +28,6 @@ namespace myOApp.ViewModels
             {
                 var events = await this.EventsService.GetNearbyEvents();
                 NearbyEvents.ReplaceRange(events);
-
-                Debug.WriteLine("Weszlem Get Nearby");
             }
             catch (Exception ex)
             {
@@ -52,8 +50,6 @@ namespace myOApp.ViewModels
             {
                 var events = await this.EventsService.GetFavoritedEvents();
                 this.FavoritedEvents.ReplaceRange(events);
-
-                Debug.WriteLine("Weszlem Get Favorited");
             }
             catch (Exception ex)
             {
