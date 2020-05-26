@@ -1,4 +1,5 @@
-﻿using System;
+﻿using myOApp.Services;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -8,6 +9,8 @@ namespace myOApp.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
+        private readonly IDialogService DialogService = DependencyService.Get<IDialogService>();
+
         ICommand sendEmailCommand;
         public ICommand SendEmailCommand => sendEmailCommand ?? (sendEmailCommand = new Command(async () => await ExecuteSendEmailCommand()));
 
@@ -23,13 +26,13 @@ namespace myOApp.ViewModels
                 };
                 await Email.ComposeAsync(message);
             }
-            catch (FeatureNotSupportedException fbsEx)
+            catch (FeatureNotSupportedException)
             {
-                await Application.Current.MainPage.DisplayAlert("Alert", "We could not find e-mail app. Please try contacting us manually: contact@capricode.ch", "Cancel", "Ok");
+                await this.DialogService.ShowMessage("We could not find e-mail app. Please try contacting us manually: contact@capricode.ch", "Alert");
             }
             catch (Exception ex)
             {
-                // Some other exception occurred
+                await this.DialogService.ShowMessage("We could not open e-mail app. Please try contacting us manually: contact@capricode.ch", "Alert");
             }
         }
     }

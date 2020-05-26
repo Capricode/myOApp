@@ -5,6 +5,6 @@ namespace myOApp.DataAccess
 {
     public interface ISynchronizationCenter
     {
-        Task RefreshData(IEnumerable<string> favoritedEvents);
+        Task<bool> RefreshData(IEnumerable<string> favoritedEvents);
     }
 }

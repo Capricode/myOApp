@@ -31,10 +31,9 @@ namespace myOApp.DataAccess.Client
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Could not synchronize. Error message: {ex.Message}.");
+                System.Diagnostics.Debug.WriteLine($"Could not load events from remote. Error message: {ex.Message}.");
+                throw;
             }
-
-            return new List<Event>();
         }
     }
 }

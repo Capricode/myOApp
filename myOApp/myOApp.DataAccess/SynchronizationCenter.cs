@@ -14,16 +14,26 @@ namespace myOApp.DataAccess
 
         private readonly IEventsClient EventsClient = DependencyService.Get<IEventsClient>();
 
-        public async Task RefreshData(IEnumerable<string> favoritedEvents)
+        public async Task<bool> RefreshData(IEnumerable<string> favoritedEvents)
         {
             // call for new data from EventsClient
-            var events = await this.EventsClient.GetEvents();
+            IEnumerable<Event> events;
+            try
+            {
+                events = await this.EventsClient.GetEvents();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
             // map it to EventEntity
             var eventsEntities = events.Select(x => this.MapToEventEntity(x, favoritedEvents));
 
             // update in database
             await this.EventsDatabase.SaveEvents(eventsEntities);
+
+            return true;
         }
 
         private EventEntity MapToEventEntity(Event singleEvent, IEnumerable<string> favoritedEventsIds)

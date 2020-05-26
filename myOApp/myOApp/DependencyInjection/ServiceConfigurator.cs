@@ -7,6 +7,7 @@ namespace myOApp.DependencyInjection
     {
         public static void Configure()
         {
+            DependencyService.Register<IDialogService, DialogService>();
             DependencyService.Register<IEventsService, EventsService>();
             DependencyService.Register<IEventMapper, EventMapper>();
         }

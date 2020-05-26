@@ -16,15 +16,17 @@ namespace myOApp
     {
         IEventsService EventsService { get; set; }
 
+        IDialogService DialogService { get; set; }
+
         public App()
         {
             InitializeComponent();
-
 
             ServiceConfigurator.Configure();
             myOApp.DataAccess.DependencyInjection.ServiceConfigurator.Configure();
 
             EventsService = DependencyService.Get<IEventsService>();
+            DialogService = DependencyService.Get<IDialogService>();
 
             MainPage = new AppShell();
 
@@ -36,12 +38,17 @@ namespace myOApp
             await EventsService.ForceRefresh();
         }
 
-        protected override void OnSleep()
-        {
-        }
-
         protected override void OnResume()
         {
+            MessagingCenter.Subscribe<EventsService>(this, Constants.Synchronization.NoConnectionMessage, async (sender) =>
+            {
+                await this.DialogService.ShowMessage("Sorry, events data could not be refreshed. We can't find Internet connection.", "Alert");
+            });
+        }
+
+        protected override void OnSleep()
+        {
+            MessagingCenter.Unsubscribe<EventsService>(this, Constants.Synchronization.NoConnectionMessage);
         }
     }
 }

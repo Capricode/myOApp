@@ -10,6 +10,8 @@
         public struct Synchronization
         {
             public static readonly string NewDataAvailableMessage = "NewDataAvailable";
+
+            public static readonly string NoConnectionMessage = "NoConnection";
         }
     }
 }

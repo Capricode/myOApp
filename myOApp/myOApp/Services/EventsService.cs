@@ -59,9 +59,14 @@ namespace myOApp.Services
         public async Task ForceRefresh()
         {
             var favoritedEvents = Settings.Current.FavoritedEvents.ToList();
-            await this.SynchronizationCenter.RefreshData(favoritedEvents);
-
-            MessagingCenter.Send(this, Constants.Synchronization.NewDataAvailableMessage);
+            if (await this.SynchronizationCenter.RefreshData(favoritedEvents))
+            {
+                MessagingCenter.Send(this, Constants.Synchronization.NewDataAvailableMessage);
+            }
+            else
+            {
+                MessagingCenter.Send(this, Constants.Synchronization.NoConnectionMessage);
+            }
         }
 
         private void ToggleFavoritedEventsSettings(EventViewModel eventAfter)
