@@ -14,11 +14,9 @@
         HasShadow="True"
         HorizontalOptions="Center"
         VerticalOptions="Center">
-        <Grid
-            Padding="5"
-            ColumnSpacing="5">
+        <Grid Padding="5" ColumnSpacing="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -26,47 +24,50 @@
                 <ColumnDefinition Width="0.7*" />
             </Grid.ColumnDefinitions>
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer
-                    Command="{Binding GoToEventDetailsCommand}"
-                    CommandParameter="{Binding .}" />
+                <TapGestureRecognizer Command="{Binding GoToEventDetailsCommand}" CommandParameter="{Binding .}" />
             </Grid.GestureRecognizers>
 
             <!--  Event date  -->
-            <StackLayout 
-                Grid.Column="0" 
-                Orientation="Vertical" 
-                HorizontalOptions="CenterAndExpand" 
-                VerticalOptions="StartAndExpand"
-                Spacing="0"    
-                Padding="0"
+            <StackLayout
+                Grid.Column="0"
                 Margin="0"
-                >
+                Padding="0"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Vertical"
+                Spacing="0"
+                VerticalOptions="StartAndExpand">
                 <Label
+                    Margin="0"
                     FontFamily="RobotoCondensed"
                     FontSize="48"
                     HorizontalTextAlignment="Center"
                     Text="{Binding Day}"
                     TextColor="{DynamicResource AccentColor}"
-                    VerticalTextAlignment="Start"
-                    Padding="0,-11, 0, 0"
-                    Margin="0"/>
+                    VerticalTextAlignment="Start">
+                    <Label.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0, -6, 0, 0" />
+                            <On Platform="Android, UWP" Value="0,-11, 0, 0" />
+                        </OnPlatform>
+                    </Label.Padding>
+                </Label>
                 <Label
+                    Margin="0,-15,0,0"
+                    Padding="0"
                     FontSize="20"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Start"
                     Text="{Binding Month}"
                     TextColor="{DynamicResource AccentColor}"
-                    HorizontalTextAlignment="Start"
-                    VerticalTextAlignment="Start" 
-                    Padding="0"
-                    Margin="0,-15,0,0"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Start" />
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Start" />
             </StackLayout>
 
             <!--  Event info  -->
-            <StackLayout 
-                Grid.Column="1" 
-                Orientation="Vertical" 
-                HorizontalOptions="FillAndExpand" 
+            <StackLayout
+                Grid.Column="1"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
                 Spacing="0">
                 <Label
                     FontSize="15"
@@ -93,22 +94,23 @@
             </StackLayout>
 
             <!--  Favicon  -->
-            <Label x:Name="FavoriteIcon"
-                   HorizontalOptions="FillAndExpand"
-                   VerticalOptions="FillAndExpand"
-                   Grid.Column="2"
-                   FontFamily="FA-S"
-                   FontSize="26"
-                   Text="{StaticResource Heart}"
-                   VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="Center"
-                   >
+            <Label
+                x:Name="FavoriteIcon"
+                Grid.Column="2"
+                FontFamily="FA-S"
+                FontSize="26"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="{StaticResource Heart}"
+                VerticalOptions="FillAndExpand"
+                VerticalTextAlignment="Center">
                 <Label.TextColor>
                     <Binding Path="IsFavorite">
                         <Binding.Converter>
-                            <converters:BoolToObjectConverter x:TypeArguments="d:Color"
-                                                              TrueObject="{StaticResource FavoritedColor}"
-                                                              FalseObject="{StaticResource NotFavoritedColor}" />
+                            <converters:BoolToObjectConverter
+                                x:TypeArguments="d:Color"
+                                FalseObject="{StaticResource NotFavoritedColor}"
+                                TrueObject="{StaticResource FavoritedColor}" />
                         </Binding.Converter>
                     </Binding>
                 </Label.TextColor>

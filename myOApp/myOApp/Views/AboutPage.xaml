@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             mc:Ignorable="d"
-             Title="About MyOApp"
-             x:Class="myOApp.Views.AboutPage">
+<ContentPage
+    x:Class="myOApp.Views.AboutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="About MyOApp"
+    mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="{DynamicResource ContentBackgroundColor}">
             <Label
                 Margin="10,25,10,10"
                 FontSize="18"
                 HorizontalOptions="Fill"
-                HorizontalTextAlignment="Center"
-                >
+                HorizontalTextAlignment="Center">
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
-                            <Span Text="Brought to you by "/>
+                            <Span Text="Brought to you by " />
                             <Span
                                 FontAttributes="Bold"
                                 Text="Capricode"
@@ -32,15 +32,17 @@
                 </Label.FormattedText>
             </Label>
 
-            <ffsvg:SvgCachedImage WidthRequest="200" HeightRequest="200" Source="resource://myOApp.Resources.aboutUs.svg"/>
+            <ffsvg:SvgCachedImage
+                HeightRequest="200"
+                Source="resource://myOApp.Resources.aboutUs.svg"
+                WidthRequest="200" />
 
             <Label
                 Margin="10,25,10,10"
                 FontSize="18"
                 HorizontalOptions="Fill"
                 HorizontalTextAlignment="Center"
-                Text="We want to make the app better. Send us some praise, bug reports and feature requests!"
-                />
+                Text="We want to make the app better. Send us some praise, bug reports and feature requests!" />
             <Frame
                 Margin="10"
                 Padding="5"

@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:converters="clr-namespace:myOApp.Extensions"
-             mc:Ignorable="d"
-             x:Class="myOApp.Controls.EventView">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="myOApp.Controls.EventView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:myOApp.Extensions"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <ContentView.Content>
         <Grid
-            Padding="10" 
+            Padding="10"
             BackgroundColor="{DynamicResource CardBackgroundColor}"
             ColumnSpacing="5">
             <Grid.RowDefinitions>
@@ -20,104 +21,105 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer
-                    Command="{Binding GoToEventDetailsCommand}"
-                    CommandParameter="{Binding .}" />
+                <TapGestureRecognizer Command="{Binding GoToEventDetailsCommand}" CommandParameter="{Binding .}" />
             </Grid.GestureRecognizers>
 
             <!--  Event date  -->
-            <StackLayout 
-                Grid.Column="0" 
-                Orientation="Vertical" 
-                HorizontalOptions="CenterAndExpand" 
-                VerticalOptions="StartAndExpand"
-                Spacing="0"    
-                Padding="0"
+            <StackLayout
+                Grid.Column="0"
                 Margin="0"
-                >
+                Padding="0"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Vertical"
+                Spacing="0"
+                VerticalOptions="StartAndExpand">
                 <Label
-                    FontSize="55"
+                    Margin="0"
                     FontFamily="RobotoCondensed"
+                    FontSize="55"
+                    HorizontalOptions="StartAndExpand"
+                    HorizontalTextAlignment="Center"
                     Text="{Binding Day}"
                     TextColor="{DynamicResource AccentColor}"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Start" 
-                    Padding="0,-14, 0, 0"
-                    Margin="0"
-                    HorizontalOptions="StartAndExpand"
                     VerticalOptions="StartAndExpand"
-                    />
+                    VerticalTextAlignment="Start">
+                    <Label.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0, -7, 0, 0" />
+                            <On Platform="Android, UWP" Value="0,-14, 0, 0" />
+                        </OnPlatform>
+                    </Label.Padding>
+                </Label>
                 <Label
+                    Margin="0,-17,0,0"
+                    Padding="0"
                     FontSize="22"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Start"
                     Text="{Binding Month}"
                     TextColor="{DynamicResource AccentColor}"
-                    HorizontalTextAlignment="Start"
-                    VerticalTextAlignment="Start" 
-                    Padding="0"
-                    Margin="0,-17,0,0"
-                    HorizontalOptions="Center"
                     VerticalOptions="Start"
-                    />
+                    VerticalTextAlignment="Start" />
             </StackLayout>
 
             <!--  Event info  -->
-            <StackLayout 
-                Grid.Column="1" 
-                Orientation="Vertical"
+            <StackLayout
+                Grid.Column="1"
                 HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
                 Spacing="0">
                 <Label
                     FontSize="17"
+                    HorizontalTextAlignment="Start"
                     LineBreakMode="WordWrap"
                     MaxLines="2"
                     Style="{DynamicResource CardLabel}"
                     Text="{Binding Name}"
-                    VerticalTextAlignment="Start"
+                    VerticalTextAlignment="Start" />
+                <Label
+                    FontSize="15"
                     HorizontalTextAlignment="Start"
-                    />
-                    <Label
-                        FontSize="15"
-                        HorizontalTextAlignment="Start"
-                        LineBreakMode="TailTruncation"
-                        Style="{DynamicResource CardLabel}"
-                        Text="{Binding Map}"
-                        VerticalTextAlignment="End" />
-                    <Label
-                        FontSize="13"
-                        HorizontalTextAlignment="Start"
-                        LineBreakMode="TailTruncation"
-                        Style="{DynamicResource CardLabel}"
-                        Text="{Binding RegionAndClub}"
-                        VerticalTextAlignment="Start" />
-                </StackLayout>
+                    LineBreakMode="TailTruncation"
+                    Style="{DynamicResource CardLabel}"
+                    Text="{Binding Map}"
+                    VerticalTextAlignment="End" />
+                <Label
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="TailTruncation"
+                    Style="{DynamicResource CardLabel}"
+                    Text="{Binding RegionAndClub}"
+                    VerticalTextAlignment="Start" />
+            </StackLayout>
 
-                <!--  Favicon  -->
-                <Label x:Name="FavoriteIcon"
-                       HorizontalOptions="FillAndExpand"
-                       VerticalOptions="FillAndExpand"
-                       Grid.Column="2"
-                       FontFamily="FA-S"
-                       FontSize="26"
-                       Text="{StaticResource Heart}"
-                       VerticalTextAlignment="Center"
-                       HorizontalTextAlignment="Center"
-                       >
-                    <Label.TextColor>
-                        <Binding Path="IsFavorite">
-                            <Binding.Converter>
-                                <converters:BoolToObjectConverter x:TypeArguments="d:Color"
-                                                                  TrueObject="{StaticResource FavoritedColor}"
-                                                                  FalseObject="{StaticResource NotFavoritedColor}" />
-                            </Binding.Converter>
-                        </Binding>
-                    </Label.TextColor>
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
-                    </Label.GestureRecognizers>
-                    <Label.Behaviors>
-                        <converters:ViewTappedBehavior AnimationType="Scale" />
-                    </Label.Behaviors>
-                </Label>
-            </Grid>
-        </ContentView.Content>
-    </ContentView>
+            <!--  Favicon  -->
+            <Label
+                x:Name="FavoriteIcon"
+                Grid.Column="2"
+                FontFamily="FA-S"
+                FontSize="26"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="{StaticResource Heart}"
+                VerticalOptions="FillAndExpand"
+                VerticalTextAlignment="Center">
+                <Label.TextColor>
+                    <Binding Path="IsFavorite">
+                        <Binding.Converter>
+                            <converters:BoolToObjectConverter
+                                x:TypeArguments="d:Color"
+                                FalseObject="{StaticResource NotFavoritedColor}"
+                                TrueObject="{StaticResource FavoritedColor}" />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.TextColor>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ToggleFavoriteItemCommand}" />
+                </Label.GestureRecognizers>
+                <Label.Behaviors>
+                    <converters:ViewTappedBehavior AnimationType="Scale" />
+                </Label.Behaviors>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
