@@ -50,7 +50,7 @@
             <x:String x:Key="UserProfile">&#xf2bd;</x:String>
             <x:String x:Key="Settings">&#xf013;</x:String>
             <x:String x:Key="Heart">&#xf004;</x:String>
-            <x:String x:Key="Info">&#xf05a;</x:String> 
+            <x:String x:Key="Info">&#xf05a;</x:String>
 
             <!--  Colors  -->
             <Color x:Key="FavoritedColor">#ff6243</Color>
