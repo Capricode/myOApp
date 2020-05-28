@@ -14,17 +14,20 @@
     mc:Ignorable="d">
 
     <!--  See Sessions page in app conference for handling loading and empty message  -->
+    <!--  Colors for search for iOS don't work when using dynamicresource :(  -->
     <Shell.SearchHandler>
         <services:EventSearchHandler
             BackgroundColor="White"
+            CancelButtonColor="#DC8635"
             DisplayMemberName="Text"
             Placeholder="Search for events..."
-            PlaceholderColor="{DynamicResource CaptionContrastTextColor}"
+            PlaceholderColor="#333333"
             QueryIconName="Search"
-            ShowsResults="true">
+            ShowsResults="true"
+            TextColor="#DC8635">
             <services:EventSearchHandler.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" BackgroundColor="{DynamicResource ContentBackgroundColor}">
+                    <Grid Padding="10" BackgroundColor="White">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.2*" />
                             <ColumnDefinition Width="0.8*" />
