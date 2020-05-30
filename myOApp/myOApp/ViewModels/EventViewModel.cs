@@ -94,9 +94,15 @@ namespace myOApp.ViewModels
 
         private async Task ExecuteGoToEventDetailsCommand(EventViewModel tappedEvent)
         {
-            var state = Shell.Current.CurrentState;
-            await Shell.Current.GoToAsync($"{state.Location}/eventdetails?id={((EventViewModel)tappedEvent).Id}");
-            //await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"eventdetails?id={((EventViewModel)tappedEvent).Id}");
+            if (!isBusy)
+            {
+                IsBusy = true;
+
+                var state = Shell.Current.CurrentState;
+                await Shell.Current.GoToAsync($"{state.Location}/eventdetails?id={((EventViewModel)tappedEvent).Id}");
+
+                IsBusy = false;
+            }
         }
 
         ICommand goToBrowserCommand;
@@ -109,7 +115,6 @@ namespace myOApp.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged([CallerMemberName]string name = "") => 
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        void OnPropertyChanged([CallerMemberName]string name = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

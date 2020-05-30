@@ -1,5 +1,6 @@
 ﻿using myOApp.ViewModels;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace myOApp.Services
@@ -30,7 +31,12 @@ namespace myOApp.Services
         {
             base.OnItemSelected(singleEvent);
 
-            await (App.Current.MainPage as Xamarin.Forms.Shell).GoToAsync($"eventdetails?id={((EventViewModel)singleEvent).Id}");
+            // this line makes the search show the event details page
+            // https://github.com/xamarin/Xamarin.Forms/issues/5713
+            await Task.Delay(400);
+
+            var state = Shell.Current.CurrentState;
+            await Shell.Current.GoToAsync($"{state.Location}/eventdetails?id={((EventViewModel)singleEvent).Id}");
         }
     }
 }

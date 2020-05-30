@@ -1,4 +1,5 @@
 ﻿using myOApp.Services;
+using myOApp.ViewModels;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,6 +11,8 @@ namespace myOApp.Views
     public partial class EventDetailsPage : ContentPage
     {
         private readonly IEventsService EventsService = DependencyService.Get<IEventsService>();
+
+        EventViewModel vm;
 
         public EventDetailsPage()
         {
@@ -23,10 +26,9 @@ namespace myOApp.Views
                 Task.Run(async () =>
                 {
                     var eventDetails = await EventsService.GetEvent(value);
+                    BindingContext = vm = eventDetails;
 
-                    BindingContext = eventDetails;
-
-                    Title = eventDetails.Name;
+                    Title = vm.Name;
                 });
             }
         }
