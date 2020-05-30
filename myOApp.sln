@@ -99,11 +99,8 @@ Global
 		{03FD697F-3855-4546-BFFF-1C0786E02716}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{03FD697F-3855-4546-BFFF-1C0786E02716}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{03FD697F-3855-4546-BFFF-1C0786E02716}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03FD697F-3855-4546-BFFF-1C0786E02716}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03FD697F-3855-4546-BFFF-1C0786E02716}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{03FD697F-3855-4546-BFFF-1C0786E02716}.Release|iPhone.Build.0 = Release|Any CPU
 		{03FD697F-3855-4546-BFFF-1C0786E02716}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{03FD697F-3855-4546-BFFF-1C0786E02716}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
