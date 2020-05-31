@@ -58,7 +58,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
             <CollectionView.EmptyView>
-                <StackLayout BackgroundColor="{DynamicResource ContentBackgroundColor}">
+                <StackLayout BackgroundColor="{DynamicResource ContentBackgroundColor}" IsVisible="{Binding IsFavoritedFilterSelected}">
                     <Label
                         Margin="10,50,10,10"
                         FontSize="18"

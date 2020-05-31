@@ -15,6 +15,10 @@ namespace myOApp.ViewModels
     {
         public IEventsService EventsService = DependencyService.Get<IEventsService>();
 
+        public Filter SelectedFilter;
+
+        public bool IsFavoritedFilterSelected => SelectedFilter == Filter.FavoritedEvents;
+
         public ObservableRangeCollection<EventViewModel> Events { get; } = new ObservableRangeCollection<EventViewModel>();
 
         private bool isRefresh;

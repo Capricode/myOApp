@@ -10,7 +10,7 @@ namespace myOApp.Views
     [DesignTimeVisible(false)]
     public partial class BrowsePage : ContentPage
     {
-        BrowseViewModel viewModel;
+        BrowseViewModel vm;
 
         EventsFilter eventsFilter;
 
@@ -18,7 +18,7 @@ namespace myOApp.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new BrowseViewModel();
+            BindingContext = vm = new BrowseViewModel();
         }
 
         public BrowsePage(string filter)
@@ -26,8 +26,8 @@ namespace myOApp.Views
             var now = DateTime.Today;
 
             eventsFilter = new EventsFilter();
-
             if (!Enum.TryParse<Filter>(filter, out Filter filterValue)) return;
+
             switch (filterValue)
             {
                 case Filter.FavoritedEvents:
@@ -48,7 +48,8 @@ namespace myOApp.Views
 
             InitializeComponent();
 
-            BindingContext = viewModel = new BrowseViewModel();
+            BindingContext = vm = new BrowseViewModel();
+            vm.SelectedFilter = filterValue;
         }
 
         protected override void OnAppearing()
@@ -57,12 +58,12 @@ namespace myOApp.Views
 
             MessagingCenter.Subscribe<EventsService>(this, Constants.Synchronization.NewDataAvailableMessage, async (sender) =>
             {
-                viewModel.LoadEventsCommand.Execute(eventsFilter);
+                vm.LoadEventsCommand.Execute(eventsFilter);
             });
 
             MessagingCenter.Subscribe<EventsService, EventViewModel>(this, Constants.Favorites.FavoritesToggledMessage, async (sender, singleEvent) =>
             {
-                viewModel.ToggleFavoriteCommand.Execute(singleEvent);
+                vm.ToggleFavoriteCommand.Execute(singleEvent);
             });
 
             //bool forceRefresh = (DateTime.UtcNow > (ViewModel?.NextForceRefresh ?? DateTime.UtcNow)) ||
@@ -75,7 +76,7 @@ namespace myOApp.Views
             //}
 
             // for now we refresh always
-            viewModel.LoadEventsCommand.Execute(eventsFilter);
+            vm.LoadEventsCommand.Execute(eventsFilter);
         }
 
         protected override void OnDisappearing()
