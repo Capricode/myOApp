@@ -32,6 +32,8 @@ namespace myOApp
 
         protected override async void OnStart()
         {
+            this.OnResume();
+
             await EventsService.ForceRefresh();
         }
 
