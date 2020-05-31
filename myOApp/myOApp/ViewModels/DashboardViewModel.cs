@@ -15,6 +15,8 @@ namespace myOApp.ViewModels
 
         public ObservableRangeCollection<EventViewModel> NearbyEvents { get; } = new ObservableRangeCollection<EventViewModel>();
 
+        public bool ShouldShowAll => this.FavoritedEvents.Count() >= 3;
+
         public ObservableRangeCollection<EventViewModel> FavoritedEvents { get; } = new ObservableRangeCollection<EventViewModel>();
 
         ICommand loadNearbyEventsCommand;
@@ -50,6 +52,8 @@ namespace myOApp.ViewModels
             {
                 var events = await this.EventsService.GetFavoritedEvents();
                 this.FavoritedEvents.ReplaceRange(events);
+
+                this.OnPropertyChanged(nameof(ShouldShowAll));
             }
             catch (Exception ex)
             {
@@ -70,7 +74,6 @@ namespace myOApp.ViewModels
 
             try
             {
-
                 var favEvent = this.FavoritedEvents.FirstOrDefault(x => x.Id == singleEvent.Id);
                 if (favEvent == null)
                 {
@@ -83,6 +86,8 @@ namespace myOApp.ViewModels
 
                 var nearbyEvent = this.NearbyEvents.First(x => x.Id == singleEvent.Id);
                 nearbyEvent.IsFavorite = singleEvent.IsFavorite;
+
+                this.OnPropertyChanged(nameof(ShouldShowAll));
             }
             catch (Exception ex)
             {

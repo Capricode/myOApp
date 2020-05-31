@@ -90,10 +90,8 @@
                         CornerRadius="{OnPlatform Android='30',
                                                   iOS='16'}"
                         HasShadow="True"
-                        HorizontalOptions="FillAndExpand"
                         IsClippedToBounds="True"
                         Opacity="0.9"
-                        VerticalOptions="FillAndExpand"
                         Visual="Material">
                         <Frame.BackgroundColor>
                             <Binding Path="Selected">
@@ -118,21 +116,17 @@
                             </Grid.ColumnDefinitions>
                             <Label
                                 FontSize="Caption"
-                                HorizontalOptions="FillAndExpand"
                                 HorizontalTextAlignment="Center"
                                 Style="{DynamicResource TagLabel}"
                                 Text="{Binding Region.Name}"
-                                TextColor="{DynamicResource CaptionContrastTextColor}"
-                                VerticalOptions="FillAndExpand" />
+                                TextColor="{DynamicResource CaptionContrastTextColor}" />
                             <Label
                                 Grid.Column="1"
                                 Padding="0,0,4,0"
                                 FontSize="Small"
-                                HorizontalOptions="FillAndExpand"
                                 HorizontalTextAlignment="Center"
                                 Style="{DynamicResource TagLabel}"
                                 Text="{Binding Region.Description}"
-                                VerticalOptions="FillAndExpand"
                                 VerticalTextAlignment="Center" />
 
                         </Grid>

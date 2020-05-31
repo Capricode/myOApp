@@ -98,10 +98,8 @@
                 Grid.Column="2"
                 FontFamily="FA-S"
                 FontSize="26"
-                HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
                 Text="{StaticResource Heart}"
-                VerticalOptions="FillAndExpand"
                 VerticalTextAlignment="Center">
                 <Label.TextColor>
                     <Binding Path="IsFavorite">

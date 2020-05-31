@@ -34,7 +34,6 @@ namespace myOApp.DataAccess.Database
 
                     try
                     {
-                        // await Database.CreateTablesAsync(CreateFlags.None, typeof(EventEntity), typeof(FavoritedEvent)).ConfigureAwait(false);
                         await Database.CreateTablesAsync(CreateFlags.None, typeof(EventEntity)).ConfigureAwait(false);
                     }
                     catch (Exception ex)
@@ -73,8 +72,6 @@ namespace myOApp.DataAccess.Database
         public Task<List<EventEntity>> GetFavoritedEvents()
         {
             // the time span should be somehow limited
-            // return Database.GetAllWithChildrenAsync<EventEntity>(x => x.IsFavoritedEvent != null);
-            // return Database.Table<EventEntity>().Where(x => x.IsFavoritedEvent != null).ToListAsync();
             return Database.Table<EventEntity>().Where(x => x.IsFavorite).ToListAsync();
         }
 
@@ -86,23 +83,8 @@ namespace myOApp.DataAccess.Database
         public async Task<EventEntity> ToggleFavorite(string id)
         {
             var singleEvent = await Database.GetAsync<EventEntity>(id);
-
-            //var favoritedEvent = await Database.Table<FavoritedEvent>().Where(x => x.EventId == id).FirstOrDefaultAsync();
-            //if (favoritedEvent == null)
-            //{
-            //    favoritedEvent = new FavoritedEvent { Event = singleEvent };
-            //    await Database.InsertAsync(favoritedEvent);
-            //    singleEvent.IsFavoritedEvent = favoritedEvent;
-            //    await Database.UpdateAsync(singleEvent);
-            //}
-            //else
-            //{
-            //    singleEvent.IsFavoritedEvent = null;
-            //    await Database.UpdateAsync(singleEvent);
-
-            //    await Database.DeleteAsync(favoritedEvent);
-            //}
             singleEvent.IsFavorite = !singleEvent.IsFavorite;
+
             await Database.UpdateAsync(singleEvent);
 
             return singleEvent;
@@ -127,66 +109,6 @@ namespace myOApp.DataAccess.Database
         {
             return Database.DeleteAllAsync<EventEntity>();
         }
-
-        //public async Task<List<EventEntity>> GetAllEvents()
-        //{
-        //    var databaseConnection = await GetDatabaseConnection<EventEntity>().ConfigureAwait(false);
-
-        //    return await AttemptAndRetry(() => databaseConnection.Table<EventEntity>().ToListAsync()).ConfigureAwait(false);
-        //}
-
-        //public async Task<EventEntity> GetEvent(string id)
-        //{
-        //    var databaseConnection = await GetDatabaseConnection<EventEntity>().ConfigureAwait(false);
-
-        //    return await AttemptAndRetry(() => databaseConnection.GetAsync<EventEntity>(id)).ConfigureAwait(false);
-        //}
-
-        //public async Task<int> UpdateEvents(IEnumerable<EventEntity> events)
-        //{
-        //    var databaseConnection = await GetDatabaseConnection<EventEntity>().ConfigureAwait(false);
-
-        //    // or InsertOrReplace?
-        //    // return await AttemptAndRetry(() => databaseConnection.UpdateAllAsync(events)).ConfigureAwait(false);
-        //    return await databaseConnection.UpdateAllAsync(events);
-        //}
-
-        //public async Task<int> SaveEvents(IEnumerable<EventEntity> events)
-        //{
-        //    try
-        //    {
-        //        var databaseConnection = await GetDatabaseConnection<EventEntity>().ConfigureAwait(false);
-
-        //        //var repositoryDatabaseModels = events.Select(x => (RepositoryDatabaseModel)x);
-
-        //        return await AttemptAndRetry(() => databaseConnection.InsertAllAsync(events)).ConfigureAwait(false);
-        //    }
-        //    catch (SQLiteException e) when (e.Result is SQLite3.Result.Constraint)
-        //    {
-        //        int count = 0;
-
-        //        foreach (var singleEvent in events)
-        //        {
-        //            count += await SaveEvent(singleEvent).ConfigureAwait(false);
-        //        }
-
-        //        return count;
-        //    }
-        //}
-
-        //public async Task<int> SaveEvent(EventEntity singleEvent)
-        //{
-        //    var databaseConnection = await GetDatabaseConnection<EventEntity>().ConfigureAwait(false);
-
-        //    return await AttemptAndRetry(() => databaseConnection.InsertOrReplaceAsync(singleEvent)).ConfigureAwait(false);
-        //}
-
-        //public async Task<int> DeleteAll()
-        //{
-        //    var databaseConnection = await GetDatabaseConnection<EventEntity>().ConfigureAwait(false);
-
-        //    return await AttemptAndRetry(() => databaseConnection.DeleteAllAsync<EventEntity>()).ConfigureAwait(false);
-        //}
 
         private Expression<Func<EventEntity, bool>> DefaultWherePredicate
         {

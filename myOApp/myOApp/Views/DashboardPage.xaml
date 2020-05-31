@@ -19,7 +19,8 @@
                     FontSize="Caption"
                     Text="Show all"
                     TextColor="{DynamicResource AccentColor}"
-                    VerticalTextAlignment="Center">
+                    VerticalTextAlignment="Center"
+                    IsVisible="{Binding ShouldShowAll}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoToFavoritesCommand}" />
                     </Label.GestureRecognizers>
