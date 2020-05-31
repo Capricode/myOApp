@@ -143,4 +143,7 @@
     <Folder Include="Assets.xcassets\Favorite.imageset\" />
     <Folder Include="Assets.xcassets\NotFavorite.imageset\" />
   </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
 </Project>
