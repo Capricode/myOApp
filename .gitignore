@@ -358,3 +358,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Mac
+.DS_Store
+*.ipa
+
+# Secrets
+*.apk
+*.keys
