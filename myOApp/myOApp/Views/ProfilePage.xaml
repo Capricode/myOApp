@@ -21,119 +21,97 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
-    <Grid BackgroundColor="{DynamicResource ContentBackgroundColor}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="300" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="{DynamicResource ContentBackgroundColor}">
+                <Label
+                    Padding="10"
+                    Style="{StaticResource MainLabelStyle}"
+                    Text="What's your name?" />
+                <Entry
+                    Margin="10,0"
+                    BackgroundColor="{DynamicResource ContentBackgroundColor}"
+                    Placeholder="Your name..."
+                    Text="{Binding Name}"
+                    TextColor="{DynamicResource ContrastTextColor}" />
 
-        <Label
-            Grid.Row="0"
-            Grid.Column="0"
-            Padding="10"
-            Style="{StaticResource MainLabelStyle}"
-            Text="What's your name?" />
-        <Entry
-            Grid.Row="0"
-            Grid.Column="1"
-            BackgroundColor="{DynamicResource ContentBackgroundColor}"
-            HorizontalOptions="FillAndExpand"
-            Placeholder="Your name..."
-            Text="{Binding Name}"
-            TextColor="{DynamicResource ContrastTextColor}" />
+                <Label
+                    Padding="10"
+                    Style="{StaticResource MainLabelStyle}"
+                    Text="Choose layout:" />
+                <controls:EnumPicker
+                    Title="Select Theme"
+                    Margin="10,0"
+                    ios:Picker.UpdateMode="WhenFinished"
+                    BackgroundColor="{DynamicResource ContentBackgroundColor}"
+                    EnumType="{x:Type themes:ThemeEnum}"
+                    FontSize="Medium"
+                    SelectedIndexChanged="OnThemeChanged"
+                    SelectedItem="{Binding Theme}"
+                    TextColor="{DynamicResource ContrastTextColor}" />
 
-        <Label
-            Grid.Row="1"
-            Grid.Column="0"
-            Padding="10"
-            Style="{StaticResource MainLabelStyle}"
-            Text="Choose layout:" />
-        <controls:EnumPicker
-            Title="Select Theme"
-            Grid.Row="1"
-            Grid.Column="1"
-            ios:Picker.UpdateMode="WhenFinished"
-            BackgroundColor="{DynamicResource ContentBackgroundColor}"
-            EnumType="{x:Type themes:ThemeEnum}"
-            HorizontalOptions="FillAndExpand"
-            SelectedIndexChanged="OnThemeChanged"
-            SelectedItem="{Binding Theme}"
-            TextColor="{DynamicResource ContrastTextColor}" />
+                <Label
+                    Padding="10"
+                    Style="{StaticResource MainLabelStyle}"
+                    Text="Pick regions" />
+                <FlexLayout
+                    x:Name="regionTags"
+                    Padding="3"
+                    AlignItems="Center"
+                    BindableLayout.ItemsSource="{Binding RegionsData}"
+                    Direction="Row"
+                    JustifyContent="SpaceAround"
+                    Wrap="Wrap">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Margin="5"
+                                Padding="8"
+                                CornerRadius="{OnPlatform Android='30',
+                                                          iOS='16'}"
+                                HasShadow="True"
+                                IsClippedToBounds="False"
+                                Opacity="0.9"
+                                Visual="Material">
+                                <Frame.BackgroundColor>
+                                    <Binding Path="Selected">
+                                        <Binding.Converter>
+                                            <converters:BoolToObjectConverter
+                                                x:TypeArguments="d:Color"
+                                                FalseObject="{StaticResource MainBackgroundColor}"
+                                                TrueObject="{StaticResource AccentColor}" />
+                                        </Binding.Converter>
+                                    </Binding>
+                                </Frame.BackgroundColor>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Path=BindingContext.UpdateUserRegionCommand, Source={x:Reference regionTags}}"
+                                        CommandParameter="{Binding .}"
+                                        NumberOfTapsRequired="1" />
+                                </Frame.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                        FontSize="Caption"
+                                        HorizontalTextAlignment="Center"
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource TagLabel}"
+                                        Text="{Binding Region.Name}"
+                                        TextColor="{DynamicResource CaptionContrastTextColor}" />
+                                    <Label
+                                        Padding="0,0,4,0"
+                                        FontSize="Small"
+                                        HorizontalTextAlignment="Center"
+                                        LineBreakMode="TailTruncation"
+                                        Style="{DynamicResource TagLabel}"
+                                        Text="{Binding Region.Description}"
+                                        VerticalTextAlignment="Center" />
 
-        <Label
-            Grid.Row="2"
-            Grid.Column="0"
-            Padding="10"
-            Style="{StaticResource MainLabelStyle}"
-            Text="Pick regions" />
-        <FlexLayout
-            x:Name="regionTags"
-            Grid.Row="3"
-            Grid.ColumnSpan="2"
-            Padding="4"
-            AlignItems="Center"
-            BindableLayout.ItemsSource="{Binding RegionsData}"
-            Direction="Row"
-            JustifyContent="SpaceAround"
-            Wrap="Wrap">
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <Frame
-                        Margin="5"
-                        Padding="10"
-                        CornerRadius="{OnPlatform Android='30',
-                                                  iOS='16'}"
-                        HasShadow="True"
-                        IsClippedToBounds="True"
-                        Opacity="0.9"
-                        Visual="Material">
-                        <Frame.BackgroundColor>
-                            <Binding Path="Selected">
-                                <Binding.Converter>
-                                    <converters:BoolToObjectConverter
-                                        x:TypeArguments="d:Color"
-                                        FalseObject="{StaticResource MainBackgroundColor}"
-                                        TrueObject="{StaticResource AccentColor}" />
-                                </Binding.Converter>
-                            </Binding>
-                        </Frame.BackgroundColor>
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Command="{Binding Path=BindingContext.UpdateUserRegionCommand, Source={x:Reference regionTags}}"
-                                CommandParameter="{Binding .}"
-                                NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Label
-                                FontSize="Caption"
-                                HorizontalTextAlignment="Center"
-                                Style="{DynamicResource TagLabel}"
-                                Text="{Binding Region.Name}"
-                                TextColor="{DynamicResource CaptionContrastTextColor}" />
-                            <Label
-                                Grid.Column="1"
-                                Padding="0,0,4,0"
-                                FontSize="Small"
-                                HorizontalTextAlignment="Center"
-                                Style="{DynamicResource TagLabel}"
-                                Text="{Binding Region.Description}"
-                                VerticalTextAlignment="Center" />
-
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>
-        </FlexLayout>
-
-    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
