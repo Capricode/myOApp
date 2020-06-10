@@ -17,17 +17,17 @@
                 <Label Style="{StaticResource MainLabelStyle}" Text="Favorited events" />
                 <Label
                     FontSize="Caption"
+                    IsVisible="{Binding ShouldShowAll}"
                     Text="Show all"
-                    TextColor="{DynamicResource AccentColor}"
-                    VerticalTextAlignment="Center"
-                    IsVisible="{Binding ShouldShowAll}">
+                    TextColor="{StaticResource AccentColor}"
+                    VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoToFavoritesCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
             <ScrollView
-                HeightRequest="120"
+                HeightRequest="125"
                 MinimumHeightRequest="200"
                 Orientation="Horizontal">
                 <FlexLayout BindableLayout.ItemsSource="{Binding FavoritedEvents}">
@@ -39,25 +39,18 @@
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                     <BindableLayout.EmptyView>
-                        <StackLayout BackgroundColor="{DynamicResource CardBackgroundColor}" FlexLayout.Grow="1">
+                        <StackLayout BackgroundColor="{DynamicResource ContentBackgroundColor}" FlexLayout.Grow="1">
                             <Label
                                 Margin="10,25,10,10"
-                                FontSize="18"
-                                HorizontalOptions="Fill"
                                 HorizontalTextAlignment="Center"
-                                Text="You didn't favorite any events yet." />
-                            <Label
-                                FontSize="12"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Center">
+                                Style="{StaticResource MessageLabelStyle}"
+                                Text="No favorited events yet." />
+                            <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
-                                            <Span Text="Try " />
-                                            <Span
-                                                FontAttributes="Italic"
-                                                Text="adding some to your favorites!"
-                                                TextColor="{DynamicResource AccentColor}">
+                                            <Span Text="Try " TextColor="{StaticResource AccentColor}" />
+                                            <Span Style="{StaticResource MessageAccentSpanStyle}" Text="adding some to your favorites!">
                                                 <Span.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToUpcomingCommand}" />
                                                 </Span.GestureRecognizers>
@@ -86,7 +79,7 @@
                     FontSize="Large"
                     HorizontalTextAlignment="Start"
                     Text="{StaticResource Settings}"
-                    TextColor="{DynamicResource AccentColor}"
+                    TextColor="{StaticResource AccentColor}"
                     VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
@@ -106,22 +99,19 @@
                     <StackLayout BackgroundColor="{DynamicResource CardBackgroundColor}">
                         <Label
                             Margin="10,25,10,10"
-                            FontSize="18"
                             HorizontalOptions="Fill"
                             HorizontalTextAlignment="Center"
+                            Style="{StaticResource MessageLabelStyle}"
                             Text="Customize your dashboard" />
                         <Label
-                            FontSize="12"
                             HorizontalOptions="Fill"
-                            HorizontalTextAlignment="Center">
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource MessageAccentStyle}">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <FormattedString.Spans>
                                         <Span Text="by " />
-                                        <Span
-                                            FontAttributes="Italic"
-                                            Text="choosing regions near you"
-                                            TextColor="{DynamicResource AccentColor}">
+                                        <Span Style="{StaticResource MessageAccentSpanStyle}" Text="choosing regions near you">
                                             <Span.GestureRecognizers>
                                                 <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
                                             </Span.GestureRecognizers>
