@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
     x:Class="myOApp.Controls.EventCardView"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -11,15 +11,14 @@
         Padding="5"
         BackgroundColor="{DynamicResource CardBackgroundColor}"
         CornerRadius="5"
-        HasShadow="True"
-        >
+        HasShadow="True">
         <Grid Padding="5" ColumnSpacing="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="173" />
                 <ColumnDefinition Width="0.7*" />
             </Grid.ColumnDefinitions>
             <Grid.GestureRecognizers>
@@ -38,7 +37,7 @@
                 <Label
                     Margin="0"
                     FontFamily="RobotoCondensed"
-                    FontSize="48"
+                    FontSize="47"
                     HorizontalTextAlignment="Center"
                     Text="{Binding Day}"
                     TextColor="{StaticResource AccentColor}"
