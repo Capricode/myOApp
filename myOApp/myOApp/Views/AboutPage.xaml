@@ -12,9 +12,9 @@
         <StackLayout BackgroundColor="{DynamicResource ContentBackgroundColor}">
             <Label
                 Margin="10,25,10,10"
-                FontSize="18"
                 HorizontalOptions="Fill"
-                HorizontalTextAlignment="Center">
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource MessageLabelStyle}">
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
@@ -22,9 +22,10 @@
                             <Span
                                 FontAttributes="Bold"
                                 Text="Capricode"
-                                TextColor="{DynamicResource AccentColor}">
+                                TextColor="{StaticResource AccentColor}"
+                                TextDecorations="Underline">
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
+                                    <TapGestureRecognizer Command="{Binding GoToWebsiteCommand}" />
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString.Spans>
@@ -39,9 +40,9 @@
 
             <Label
                 Margin="10,25,10,10"
-                FontSize="18"
-                HorizontalOptions="Fill"
+                FontSize="Medium"
                 HorizontalTextAlignment="Center"
+                LineBreakMode="WordWrap"
                 Text="We want to make the app better. Send us some praise, bug reports and feature requests!" />
             <Frame
                 Margin="10"

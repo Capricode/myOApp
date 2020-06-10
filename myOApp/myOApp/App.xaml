@@ -13,6 +13,7 @@
             <Style TargetType="Entry">
                 <Setter Property="PlaceholderColor" Value="{DynamicResource ContrastTextColor}" />
                 <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
+                <Setter Property="FontSize" Value="Medium" />
             </Style>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource ContrastTextColor}" />
@@ -43,6 +44,19 @@
             <Style x:Key="MainLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="Large" />
                 <Setter Property="FontFamily" Value="Roboto-L" />
+            </Style>
+            <Style x:Key="MessageLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            <Style x:Key="MessageAccentStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+            </Style>
+            <Style x:Key="MessageAccentSpanStyle" TargetType="Span">
+                <Setter Property="TextDecorations" Value="Underline" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
             </Style>
 
             <!--  Icons  -->
