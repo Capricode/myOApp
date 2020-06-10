@@ -1,12 +1,12 @@
-﻿using System.ComponentModel;
-using myOApp.Services;
+﻿using myOApp.Services;
 using myOApp.Themes;
 using myOApp.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace myOApp.Views
 {
-    [DesignTimeVisible(false)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
         public ProfilePage()
