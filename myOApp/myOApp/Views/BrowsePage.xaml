@@ -4,10 +4,11 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:myOApp.Controls"
+    xmlns:extensions="clr-namespace:myOApp.Extensions"
+    xmlns:services="clr-namespace:myOApp.Services"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:services="clr-namespace:myOApp.Services"
     x:Name="BrowseEventsPage"
     Title="{Binding Title}"
     BackgroundColor="{DynamicResource MainBackgroundColor}"
@@ -20,7 +21,7 @@
             BackgroundColor="White"
             CancelButtonColor="#DC8635"
             DisplayMemberName="Text"
-            Placeholder="Search for events..."
+            Placeholder="{extensions:Translate BrowseSearchPlaceholder}"
             PlaceholderColor="#333333"
             QueryIconName="Search"
             ShowsResults="true"
@@ -64,12 +65,12 @@
                         HorizontalTextAlignment="Center"
                         LineBreakMode="WordWrap"
                         Style="{StaticResource MessageLabelStyle}"
-                        Text="You have not favorited any events yet." />
+                        Text="{extensions:Translate BrowseFavoritesNoFavorites}" />
                     <Label
                         HorizontalOptions="Fill"
                         HorizontalTextAlignment="Center"
                         Style="{DynamicResource MessageAccentStyle}"
-                        Text="Try tapping the heart next to an event." />
+                        Text="{extensions:Translate BrowseFavoritesNoFavoritesTip}" />
                     <ffsvg:SvgCachedImage
                         HeightRequest="200"
                         Source="resource://myOApp.Resources.images.noFavorites.svg"

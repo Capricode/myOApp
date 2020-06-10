@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:myOApp.Controls"
-    xmlns:converters="clr-namespace:myOApp.Extensions"
+    xmlns:extensions="clr-namespace:myOApp.Extensions"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -27,20 +27,20 @@
                 <Label
                     Padding="10"
                     Style="{StaticResource MainLabelStyle}"
-                    Text="What's your name?" />
+                    Text="{extensions:Translate ProfileWhatsYourNameLabel}" />
                 <Entry
                     Margin="10,0"
                     BackgroundColor="{DynamicResource ContentBackgroundColor}"
-                    Placeholder="Your name..."
+                    Placeholder="{extensions:Translate ProfileWhatsYourNamePlaceholder}"
                     Text="{Binding Name}"
                     TextColor="{DynamicResource ContrastTextColor}" />
 
                 <Label
                     Padding="10"
                     Style="{StaticResource MainLabelStyle}"
-                    Text="Choose layout:" />
+                    Text="{extensions:Translate ProfileThemeLabel}" />
                 <controls:EnumPicker
-                    Title="Select Theme"
+                    Title="{extensions:Translate ProfileThemePicker}"
                     Margin="10,0"
                     ios:Picker.UpdateMode="WhenFinished"
                     BackgroundColor="{DynamicResource ContentBackgroundColor}"
@@ -76,7 +76,7 @@
                                 <Frame.BackgroundColor>
                                     <Binding Path="Selected">
                                         <Binding.Converter>
-                                            <converters:BoolToObjectConverter
+                                            <extensions:BoolToObjectConverter
                                                 x:TypeArguments="d:Color"
                                                 FalseObject="{StaticResource MainBackgroundColor}"
                                                 TrueObject="{StaticResource AccentColor}" />

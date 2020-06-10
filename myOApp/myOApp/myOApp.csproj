@@ -36,6 +36,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\localization\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Views\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -53,6 +58,10 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\EventView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\localization\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Themes\AlternativeTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -77,6 +86,5 @@
     <Folder Include="Definitions\" />
     <Folder Include="Resources\fonts\" />
     <Folder Include="Resources\images\" />
-    <Folder Include="Resources\localization\" />
   </ItemGroup>
 </Project>

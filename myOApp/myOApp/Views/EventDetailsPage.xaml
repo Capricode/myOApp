@@ -4,17 +4,18 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:myOApp.Controls"
+    xmlns:extensions="clr-namespace:myOApp.Extensions"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     BackgroundColor="{DynamicResource ContentBackgroundColor}"
     mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout Margin="20,20,20,25">
-            <controls:EventLabel Label="Name" Text="{Binding Name}" />
-            <controls:EventLabel Label="Date" Text="{Binding Date, StringFormat='{0:dd.MM.yy}'}" />
-            <controls:EventLabel Label="Map" Text="{Binding Map}" />
-            <controls:EventLabel Label="Club" Text="{Binding Club}" />
-            <controls:EventLabel Label="Region" Text="{Binding Region}" />
+            <controls:EventLabel Label="{extensions:Translate EventDetailNameCaption}" Text="{Binding Name}" />
+            <controls:EventLabel Label="{extensions:Translate EventDetailDateCaption}" Text="{Binding Date, StringFormat='{0:dd.MM.yy}'}" />
+            <controls:EventLabel Label="{extensions:Translate EventDetailMapCaption}" Text="{Binding Map}" />
+            <controls:EventLabel Label="{extensions:Translate EventDetailClubCaption}" Text="{Binding Club}" />
+            <controls:EventLabel Label="{extensions:Translate EventDetailRegionCaption}" Text="{Binding Region}" />
 
             <Frame
                 Margin="10"
@@ -27,7 +28,7 @@
                 <Button
                     Command="{Binding GoToBrowserCommand}"
                     CommandParameter="{Binding ResultsUrl}"
-                    Text="Show results (opens a browser)" />
+                    Text="{extensions:Translate EventDetailResultsButton}" />
             </Frame>
 
             <Frame
@@ -41,7 +42,7 @@
                 <Button
                     Command="{Binding GoToBrowserCommand}"
                     CommandParameter="{Binding Link}"
-                    Text="Show event page (opens a browser)" />
+                    Text="{extensions:Translate EventDetailEventPageButton}" />
             </Frame>
 
         </StackLayout>

@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:myOApp.Controls"
+    xmlns:extensions="clr-namespace:myOApp.Extensions"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -14,11 +15,11 @@
     <ScrollView>
         <StackLayout BackgroundColor="{DynamicResource MainBackgroundColor}">
             <StackLayout Padding="10,10,10,0" Orientation="Horizontal">
-                <Label Style="{StaticResource MainLabelStyle}" Text="Favorited events" />
+                <Label Style="{StaticResource MainLabelStyle}" Text="{extensions:Translate DashboardFavoritedEventsLabel}" />
                 <Label
                     FontSize="Caption"
                     IsVisible="{Binding ShouldShowAll}"
-                    Text="Show all"
+                    Text="{extensions:Translate DashboardFavoritesShowAll}"
                     TextColor="{StaticResource AccentColor}"
                     VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
@@ -44,13 +45,13 @@
                                 Margin="10,25,10,10"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource MessageLabelStyle}"
-                                Text="No favorited events yet." />
+                                Text="{extensions:Translate DashboardFavoritesNoFavoritesLabel}" />
                             <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
-                                            <Span Text="Try " TextColor="{StaticResource AccentColor}" />
-                                            <Span Style="{StaticResource MessageAccentSpanStyle}" Text="adding some to your favorites!">
+                                            <Span Text="{extensions:Translate DashboardFavoritesNoFavoritesNoLink} " TextColor="{StaticResource AccentColor}" />
+                                            <Span Style="{StaticResource MessageAccentSpanStyle}" Text="{extensions:Translate DashboardFavoritesNoFavoritesLinked}">
                                                 <Span.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToUpcomingCommand}" />
                                                 </Span.GestureRecognizers>
@@ -72,7 +73,7 @@
                 <Label
                     Grid.Column="0"
                     Style="{StaticResource MainLabelStyle}"
-                    Text="Happening nearby" />
+                    Text="{extensions:Translate DashboardNearbyLabel}" />
                 <Label
                     Grid.Column="1"
                     FontFamily="FA-S"
@@ -102,7 +103,7 @@
                             HorizontalOptions="Fill"
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource MessageLabelStyle}"
-                            Text="Customize your dashboard" />
+                            Text="{extensions:Translate DashboardNearbyNoRegionsLabel}" />
                         <Label
                             HorizontalOptions="Fill"
                             HorizontalTextAlignment="Center"
@@ -110,8 +111,8 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <FormattedString.Spans>
-                                        <Span Text="by " />
-                                        <Span Style="{StaticResource MessageAccentSpanStyle}" Text="choosing regions near you">
+                                        <Span Text="{extensions:Translate DashboardNearbyNoRegionsNoLink}" />
+                                        <Span Style="{StaticResource MessageAccentSpanStyle}" Text="{extensions:Translate DashboardNearbyNoRegionsLink}">
                                             <Span.GestureRecognizers>
                                                 <TapGestureRecognizer Command="{Binding GoToSettingsCommand}" />
                                             </Span.GestureRecognizers>

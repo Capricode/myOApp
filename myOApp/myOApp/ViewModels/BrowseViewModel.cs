@@ -8,6 +8,7 @@ using myOApp.Services;
 using myOApp.Extensions;
 using System.Linq;
 using myOApp.Models;
+using myOApp.Resources.localization;
 
 namespace myOApp.ViewModels
 {
@@ -34,7 +35,7 @@ namespace myOApp.ViewModels
 
         public BrowseViewModel()
         {
-            Title = "Browse";
+            Title = AppResources.BrowsePageTitle;
 
             //if ((ViewModel?.Sessions?.Count ?? 0) == 0 || forceRefresh)
             //{

@@ -1,4 +1,5 @@
-using myOApp.Definitions;
+﻿using myOApp.Definitions;
+using myOApp.Resources.localization;
 using myOApp.Services;
 using System;
 using System.Threading.Tasks;
@@ -12,6 +13,11 @@ namespace myOApp.ViewModels
     {
         private readonly IDialogService DialogService = DependencyService.Get<IDialogService>();
 
+        public AboutViewModel()
+        {
+            Title = AppResources.AboutPageTitle;
+        }
+
         ICommand sendEmailCommand;
         public ICommand SendEmailCommand => sendEmailCommand ?? (sendEmailCommand = new Command(async () => await ExecuteSendEmailCommand()));
 
@@ -21,7 +27,7 @@ namespace myOApp.ViewModels
             {
                 var message = new EmailMessage
                 {
-                    Subject = "MyOApp Feedback",
+                    Subject = AppResources.EmailSubject,
                     Body = "",
                     To = new System.Collections.Generic.List<string> { Constants.Email },
                 };
@@ -29,11 +35,11 @@ namespace myOApp.ViewModels
             }
             catch (FeatureNotSupportedException)
             {
-                await this.DialogService.ShowMessage("We could not find e-mail app. Please try contacting us manually: contact@capricode.ch", "Alert");
+                await this.DialogService.ShowMessage($"{AppResources.EmailAppNotFoundAlertMessage} {AppResources.EmailContactUsMessage} {Constants.Email}", AppResources.DialogAlertTitle);
             }
             catch (Exception)
             {
-                await this.DialogService.ShowMessage("We could not open e-mail app. Please try contacting us manually: contact@capricode.ch", "Alert");
+                await this.DialogService.ShowMessage($"{AppResources.EmailAppErrorAlertMessage} {AppResources.EmailContactUsMessage} {Constants.Email}", AppResources.DialogAlertTitle);
             }
         }
 
