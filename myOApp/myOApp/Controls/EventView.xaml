@@ -40,7 +40,7 @@
                     HorizontalOptions="StartAndExpand"
                     HorizontalTextAlignment="Center"
                     Text="{Binding Day}"
-                    TextColor="{DynamicResource AccentColor}"
+                    TextColor="{StaticResource AccentColor}"
                     VerticalOptions="StartAndExpand"
                     VerticalTextAlignment="Start">
                     <Label.Padding>
@@ -57,7 +57,7 @@
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Start"
                     Text="{Binding Month}"
-                    TextColor="{DynamicResource AccentColor}"
+                    TextColor="{StaticResource AccentColor}"
                     VerticalOptions="Start"
                     VerticalTextAlignment="Start" />
             </StackLayout>

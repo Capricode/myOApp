@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
     x:Class="myOApp.Controls.EventCardView"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -41,7 +41,7 @@
                     FontSize="48"
                     HorizontalTextAlignment="Center"
                     Text="{Binding Day}"
-                    TextColor="{DynamicResource AccentColor}"
+                    TextColor="{StaticResource AccentColor}"
                     VerticalTextAlignment="Start">
                     <Label.Padding>
                         <OnPlatform x:TypeArguments="Thickness">
@@ -57,7 +57,7 @@
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Start"
                     Text="{Binding Month}"
-                    TextColor="{DynamicResource AccentColor}"
+                    TextColor="{StaticResource AccentColor}"
                     VerticalOptions="Start"
                     VerticalTextAlignment="Start" />
             </StackLayout>

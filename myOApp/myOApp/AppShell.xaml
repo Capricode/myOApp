@@ -13,14 +13,14 @@
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{DynamicResource MainBackgroundColor}" />
-                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource AccentColor}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource AccentColor}" />
                 <Setter Property="Shell.TitleColor" Value="{DynamicResource SpecialColor}" />
                 <Setter Property="Shell.DisabledColor" Value="Blue" />
                 <Setter Property="Shell.UnselectedColor" Value="{DynamicResource UnselectedColor}" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource MainBackgroundColor}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="Green" />
                 <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource UnselectedColor}" />
-                <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource AccentColor}" />
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource AccentColor}" />
             </Style>
             <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
         </ResourceDictionary>
