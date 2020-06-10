@@ -35,7 +35,7 @@
 
             <ffsvg:SvgCachedImage
                 HeightRequest="200"
-                Source="resource://myOApp.Resources.aboutUs.svg"
+                Source="resource://myOApp.Resources.images.aboutUs.svg"
                 WidthRequest="200" />
 
             <Label

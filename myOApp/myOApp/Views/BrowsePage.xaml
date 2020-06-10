@@ -72,7 +72,7 @@
                         Text="Try tapping the heart next to an event." />
                     <ffsvg:SvgCachedImage
                         HeightRequest="200"
-                        Source="resource://myOApp.Resources.noFavorites.svg"
+                        Source="resource://myOApp.Resources.images.noFavorites.svg"
                         VerticalOptions="CenterAndExpand"
                         WidthRequest="200" />
                 </StackLayout>
