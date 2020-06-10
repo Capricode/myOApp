@@ -1,4 +1,4 @@
-﻿using myOApp.Definitions;
+using myOApp.Definitions;
 using myOApp.Services;
 using System;
 using System.Threading.Tasks;
@@ -23,7 +23,7 @@ namespace myOApp.ViewModels
                 {
                     Subject = "MyOApp Feedback",
                     Body = "",
-                    To = new System.Collections.Generic.List<string> { "contact@capricode.ch" },
+                    To = new System.Collections.Generic.List<string> { Constants.Email },
                 };
                 await Email.ComposeAsync(message);
             }

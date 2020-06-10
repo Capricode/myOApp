@@ -3,6 +3,7 @@
     public static class Constants
     {
         public static readonly string WebsiteUrl = "http://capricode.ch";
+        public static readonly string Email = "contact@capricode.ch";
 
         public struct Favorites
         {
