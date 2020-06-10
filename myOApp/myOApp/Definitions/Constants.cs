@@ -1,7 +1,9 @@
-﻿namespace myOApp.Services
+﻿namespace myOApp.Definitions
 {
-    public class Constants
+    public static class Constants
     {
+        public static readonly string WebsiteUrl = "http://capricode.ch";
+
         public struct Favorites
         {
             public static readonly string FavoritesToggledMessage = "FavoritesToggled";
