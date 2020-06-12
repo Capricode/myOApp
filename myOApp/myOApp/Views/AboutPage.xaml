@@ -19,10 +19,10 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
-                            <Span Text="{extensions:Translate AboutCopyrightLabel}" />
+                            <Span Text="{extensions:Translate AboutCopyrightLabel} " />
                             <Span
                                 FontAttributes="Bold"
-                                Text="Capricode"
+                                Text=" Capricode"
                                 TextColor="{StaticResource AccentColor}"
                                 TextDecorations="Underline">
                                 <Span.GestureRecognizers>
