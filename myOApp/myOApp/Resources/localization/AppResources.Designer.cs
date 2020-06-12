@@ -22,7 +22,7 @@ namespace myOApp.Resources.localization {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResources {
+    public class AppResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace myOApp.Resources.localization {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("myOApp.Resources.localization.AppResources", typeof(AppResources).Assembly);
@@ -51,7 +51,7 @@ namespace myOApp.Resources.localization {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Brought to you by .
         /// </summary>
-        internal static string AboutCopyrightLabel {
+        public static string AboutCopyrightLabel {
             get {
                 return ResourceManager.GetString("AboutCopyrightLabel", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to We want to make the app better. Send us some praise, bug reports and feature requests!.
         /// </summary>
-        internal static string AboutFeedbackRequest {
+        public static string AboutFeedbackRequest {
             get {
                 return ResourceManager.GetString("AboutFeedbackRequest", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to About MyOApp.
         /// </summary>
-        internal static string AboutPageTitle {
+        public static string AboutPageTitle {
             get {
                 return ResourceManager.GetString("AboutPageTitle", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Send feedback (creates an e-mail).
         /// </summary>
-        internal static string AboutSendEmailButton {
+        public static string AboutSendEmailButton {
             get {
                 return ResourceManager.GetString("AboutSendEmailButton", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Sorry, events data could not be refreshed. We can&apos;t find Internet connection..
         /// </summary>
-        internal static string AppCouldNotRefreshDataNoInternetConnection {
+        public static string AppCouldNotRefreshDataNoInternetConnection {
             get {
                 return ResourceManager.GetString("AppCouldNotRefreshDataNoInternetConnection", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Favorited.
         /// </summary>
-        internal static string BrowseFavoritedTabTitle {
+        public static string BrowseFavoritedTabTitle {
             get {
                 return ResourceManager.GetString("BrowseFavoritedTabTitle", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to You have not favorited any events yet..
         /// </summary>
-        internal static string BrowseFavoritesNoFavorites {
+        public static string BrowseFavoritesNoFavorites {
             get {
                 return ResourceManager.GetString("BrowseFavoritesNoFavorites", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Try tapping the heart next to an event..
         /// </summary>
-        internal static string BrowseFavoritesNoFavoritesTip {
+        public static string BrowseFavoritesNoFavoritesTip {
             get {
                 return ResourceManager.GetString("BrowseFavoritesNoFavoritesTip", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
-        internal static string BrowsePageTitle {
+        public static string BrowsePageTitle {
             get {
                 return ResourceManager.GetString("BrowsePageTitle", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Past.
         /// </summary>
-        internal static string BrowsePastTabTitle {
+        public static string BrowsePastTabTitle {
             get {
                 return ResourceManager.GetString("BrowsePastTabTitle", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Search for events....
         /// </summary>
-        internal static string BrowseSearchPlaceholder {
+        public static string BrowseSearchPlaceholder {
             get {
                 return ResourceManager.GetString("BrowseSearchPlaceholder", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Upcoming.
         /// </summary>
-        internal static string BrowseUpcomingTabTitle {
+        public static string BrowseUpcomingTabTitle {
             get {
                 return ResourceManager.GetString("BrowseUpcomingTabTitle", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Favorited events.
         /// </summary>
-        internal static string DashboardFavoritedEventsLabel {
+        public static string DashboardFavoritedEventsLabel {
             get {
                 return ResourceManager.GetString("DashboardFavoritedEventsLabel", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to No favorited events yet..
         /// </summary>
-        internal static string DashboardFavoritesNoFavoritesLabel {
+        public static string DashboardFavoritesNoFavoritesLabel {
             get {
                 return ResourceManager.GetString("DashboardFavoritesNoFavoritesLabel", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to adding some to your favorites!.
         /// </summary>
-        internal static string DashboardFavoritesNoFavoritesLinked {
+        public static string DashboardFavoritesNoFavoritesLinked {
             get {
                 return ResourceManager.GetString("DashboardFavoritesNoFavoritesLinked", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Try .
         /// </summary>
-        internal static string DashboardFavoritesNoFavoritesNoLink {
+        public static string DashboardFavoritesNoFavoritesNoLink {
             get {
                 return ResourceManager.GetString("DashboardFavoritesNoFavoritesNoLink", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Show all.
         /// </summary>
-        internal static string DashboardFavoritesShowAll {
+        public static string DashboardFavoritesShowAll {
             get {
                 return ResourceManager.GetString("DashboardFavoritesShowAll", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Happening nearby.
         /// </summary>
-        internal static string DashboardNearbyLabel {
+        public static string DashboardNearbyLabel {
             get {
                 return ResourceManager.GetString("DashboardNearbyLabel", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Customize your dashboard.
         /// </summary>
-        internal static string DashboardNearbyNoRegionsLabel {
+        public static string DashboardNearbyNoRegionsLabel {
             get {
                 return ResourceManager.GetString("DashboardNearbyNoRegionsLabel", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to choosing regions near you.
         /// </summary>
-        internal static string DashboardNearbyNoRegionsLink {
+        public static string DashboardNearbyNoRegionsLink {
             get {
                 return ResourceManager.GetString("DashboardNearbyNoRegionsLink", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to by .
         /// </summary>
-        internal static string DashboardNearbyNoRegionsNoLink {
+        public static string DashboardNearbyNoRegionsNoLink {
             get {
                 return ResourceManager.GetString("DashboardNearbyNoRegionsNoLink", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
-        internal static string DashboardPageTitle {
+        public static string DashboardPageTitle {
             get {
                 return ResourceManager.GetString("DashboardPageTitle", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Alert.
         /// </summary>
-        internal static string DialogAlertTitle {
+        public static string DialogAlertTitle {
             get {
                 return ResourceManager.GetString("DialogAlertTitle", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to We could not open e-mail app..
         /// </summary>
-        internal static string EmailAppErrorAlertMessage {
+        public static string EmailAppErrorAlertMessage {
             get {
                 return ResourceManager.GetString("EmailAppErrorAlertMessage", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to We could not find e-mail app..
         /// </summary>
-        internal static string EmailAppNotFoundAlertMessage {
+        public static string EmailAppNotFoundAlertMessage {
             get {
                 return ResourceManager.GetString("EmailAppNotFoundAlertMessage", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Please try contacting us manually:.
         /// </summary>
-        internal static string EmailContactUsMessage {
+        public static string EmailContactUsMessage {
             get {
                 return ResourceManager.GetString("EmailContactUsMessage", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to MyOApp Feedback.
         /// </summary>
-        internal static string EmailSubject {
+        public static string EmailSubject {
             get {
                 return ResourceManager.GetString("EmailSubject", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Club.
         /// </summary>
-        internal static string EventDetailClubCaption {
+        public static string EventDetailClubCaption {
             get {
                 return ResourceManager.GetString("EventDetailClubCaption", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Date.
         /// </summary>
-        internal static string EventDetailDateCaption {
+        public static string EventDetailDateCaption {
             get {
                 return ResourceManager.GetString("EventDetailDateCaption", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Show event page (opens a browser).
         /// </summary>
-        internal static string EventDetailEventPageButton {
+        public static string EventDetailEventPageButton {
             get {
                 return ResourceManager.GetString("EventDetailEventPageButton", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Map.
         /// </summary>
-        internal static string EventDetailMapCaption {
+        public static string EventDetailMapCaption {
             get {
                 return ResourceManager.GetString("EventDetailMapCaption", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        internal static string EventDetailNameCaption {
+        public static string EventDetailNameCaption {
             get {
                 return ResourceManager.GetString("EventDetailNameCaption", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Region.
         /// </summary>
-        internal static string EventDetailRegionCaption {
+        public static string EventDetailRegionCaption {
             get {
                 return ResourceManager.GetString("EventDetailRegionCaption", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Show results (opens a browser).
         /// </summary>
-        internal static string EventDetailResultsButton {
+        public static string EventDetailResultsButton {
             get {
                 return ResourceManager.GetString("EventDetailResultsButton", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
-        internal static string ProfileHello {
+        public static string ProfileHello {
             get {
                 return ResourceManager.GetString("ProfileHello", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Stranger.
         /// </summary>
-        internal static string ProfileNoName {
+        public static string ProfileNoName {
             get {
                 return ResourceManager.GetString("ProfileNoName", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Profile.
         /// </summary>
-        internal static string ProfilePageTitle {
+        public static string ProfilePageTitle {
             get {
                 return ResourceManager.GetString("ProfilePageTitle", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Pick regions.
         /// </summary>
-        internal static string ProfileRegionLabel {
+        public static string ProfileRegionLabel {
             get {
                 return ResourceManager.GetString("ProfileRegionLabel", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Choose layout:.
         /// </summary>
-        internal static string ProfileThemeLabel {
+        public static string ProfileThemeLabel {
             get {
                 return ResourceManager.GetString("ProfileThemeLabel", resourceCulture);
             }
@@ -414,7 +414,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Select Theme.
         /// </summary>
-        internal static string ProfileThemePicker {
+        public static string ProfileThemePicker {
             get {
                 return ResourceManager.GetString("ProfileThemePicker", resourceCulture);
             }
@@ -423,7 +423,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to What&apos;s your name?.
         /// </summary>
-        internal static string ProfileWhatsYourNameLabel {
+        public static string ProfileWhatsYourNameLabel {
             get {
                 return ResourceManager.GetString("ProfileWhatsYourNameLabel", resourceCulture);
             }
@@ -432,7 +432,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Your name....
         /// </summary>
-        internal static string ProfileWhatsYourNamePlaceholder {
+        public static string ProfileWhatsYourNamePlaceholder {
             get {
                 return ResourceManager.GetString("ProfileWhatsYourNamePlaceholder", resourceCulture);
             }
@@ -441,16 +441,16 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Aargau.
         /// </summary>
-        internal static string RegionAG {
+        public static string RegionAG {
             get {
                 return ResourceManager.GetString("RegionAG", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ausland.
+        ///   Looks up a localized string similar to Abroad.
         /// </summary>
-        internal static string RegionAusland {
+        public static string RegionAusland {
             get {
                 return ResourceManager.GetString("RegionAusland", resourceCulture);
             }
@@ -459,7 +459,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Bern &amp; Solothurn.
         /// </summary>
-        internal static string RegionBESO {
+        public static string RegionBESO {
             get {
                 return ResourceManager.GetString("RegionBESO", resourceCulture);
             }
@@ -468,34 +468,34 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Glarus &amp; Graubünden.
         /// </summary>
-        internal static string RegionGLGR {
+        public static string RegionGLGR {
             get {
                 return ResourceManager.GetString("RegionGLGR", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nordostschweiz.
+        ///   Looks up a localized string similar to North-East Switzerland.
         /// </summary>
-        internal static string RegionNOS {
+        public static string RegionNOS {
             get {
                 return ResourceManager.GetString("RegionNOS", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nordwestschweiz.
+        ///   Looks up a localized string similar to North-West Switzerland.
         /// </summary>
-        internal static string RegionNWS {
+        public static string RegionNWS {
             get {
                 return ResourceManager.GetString("RegionNWS", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suisse Romand (Westschweiz).
+        ///   Looks up a localized string similar to Suisse Romand (West Switzerland).
         /// </summary>
-        internal static string RegionSR {
+        public static string RegionSR {
             get {
                 return ResourceManager.GetString("RegionSR", resourceCulture);
             }
@@ -504,7 +504,7 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Ticino.
         /// </summary>
-        internal static string RegionTI {
+        public static string RegionTI {
             get {
                 return ResourceManager.GetString("RegionTI", resourceCulture);
             }
@@ -513,16 +513,16 @@ namespace myOApp.Resources.localization {
         /// <summary>
         ///   Looks up a localized string similar to Zürich &amp; Schaffhausen.
         /// </summary>
-        internal static string RegionZHSH {
+        public static string RegionZHSH {
             get {
                 return ResourceManager.GetString("RegionZHSH", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zentralschweiz.
+        ///   Looks up a localized string similar to Central Switzerland.
         /// </summary>
-        internal static string RegionZS {
+        public static string RegionZS {
             get {
                 return ResourceManager.GetString("RegionZS", resourceCulture);
             }
