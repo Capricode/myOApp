@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutCopyrightLabel" xml:space="preserve">
+    <value>Aplikacja stworzona przez</value>
+  </data>
+  <data name="AboutFeedbackRequest" xml:space="preserve">
+    <value>Chcemy, żeby nasza aplikacja była coraz lepsza. Wyślij nam pochwały, raporty o błędach i prośby o funkcje!</value>
+  </data>
+  <data name="AboutPageTitle" xml:space="preserve">
+    <value>O MyOApp</value>
+  </data>
+  <data name="AboutSendEmailButton" xml:space="preserve">
+    <value>Wyślij feedback</value>
+  </data>
+  <data name="AppCouldNotRefreshDataNoInternetConnection" xml:space="preserve">
+    <value>Przepraszamy, dane o wydarzeniach nie mogły być załadowane. Nie wykryto połączenia z Internetem.</value>
+  </data>
+  <data name="BrowseFavoritedTabTitle" xml:space="preserve">
+    <value>Ulubione</value>
+  </data>
+  <data name="BrowseFavoritesNoFavorites" xml:space="preserve">
+    <value>Nie dodałeś jeszcze żadnych wydarzeń do swoich ulubionych.</value>
+  </data>
+  <data name="BrowseFavoritesNoFavoritesTip" xml:space="preserve">
+    <value>Spróbuj stuknąć w serce obok wydarzenia.</value>
+  </data>
+  <data name="BrowsePageTitle" xml:space="preserve">
+    <value>Przeglądaj</value>
+  </data>
+  <data name="BrowsePastTabTitle" xml:space="preserve">
+    <value>Minione</value>
+  </data>
+  <data name="BrowseSearchPlaceholder" xml:space="preserve">
+    <value>Szukaj wydarzeń...</value>
+  </data>
+  <data name="BrowseUpcomingTabTitle" xml:space="preserve">
+    <value>Nadchodzące</value>
+  </data>
+  <data name="DashboardFavoritedEventsLabel" xml:space="preserve">
+    <value>Ulubione wydarzenia</value>
+  </data>
+  <data name="DashboardFavoritesNoFavoritesLabel" xml:space="preserve">
+    <value>Nie masz żadnych ulubionych wydarzeń.</value>
+  </data>
+  <data name="DashboardFavoritesNoFavoritesLinked" xml:space="preserve">
+    <value>dodać kilka do swoich ulubionych!</value>
+  </data>
+  <data name="DashboardFavoritesNoFavoritesNoLink" xml:space="preserve">
+    <value>Spróbuj </value>
+  </data>
+  <data name="DashboardFavoritesShowAll" xml:space="preserve">
+    <value>Pokaż wszystkie</value>
+  </data>
+  <data name="DashboardNearbyLabel" xml:space="preserve">
+    <value>W okolicy</value>
+  </data>
+  <data name="DashboardNearbyNoRegionsLabel" xml:space="preserve">
+    <value>Dostosuj swój pulpit,</value>
+  </data>
+  <data name="DashboardNearbyNoRegionsLink" xml:space="preserve">
+    <value>wybierając regiony w pobliżu siebie</value>
+  </data>
+  <data name="DashboardNearbyNoRegionsNoLink" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DashboardPageTitle" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="DialogAlertTitle" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="EmailAppErrorAlertMessage" xml:space="preserve">
+    <value>Nie mogliśmy otworzyć aplikacji e-mailowej.</value>
+  </data>
+  <data name="EmailAppNotFoundAlertMessage" xml:space="preserve">
+    <value>Nie mogliśmy znaleźć aplikacji e-mailowej.</value>
+  </data>
+  <data name="EmailContactUsMessage" xml:space="preserve">
+    <value>Spróbuj skontaktować się z nami ręcznie:</value>
+  </data>
+  <data name="EmailSubject" xml:space="preserve">
+    <value>MyOApp Feedback</value>
+  </data>
+  <data name="EventDetailClubCaption" xml:space="preserve">
+    <value>Klub</value>
+  </data>
+  <data name="EventDetailDateCaption" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="EventDetailEventPageButton" xml:space="preserve">
+    <value>Strona wydarzenia (otwiera przeglądarkę)</value>
+  </data>
+  <data name="EventDetailMapCaption" xml:space="preserve">
+    <value>Mapa</value>
+  </data>
+  <data name="EventDetailNameCaption" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="EventDetailRegionCaption" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="EventDetailResultsButton" xml:space="preserve">
+    <value>Pokaż wyniki (otwiera przeglądarkę)</value>
+  </data>
+  <data name="ProfileHello" xml:space="preserve">
+    <value>Witaj</value>
+  </data>
+  <data name="ProfileNoName" xml:space="preserve">
+    <value>Nieznajomy</value>
+  </data>
+  <data name="ProfilePageTitle" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="ProfileRegionLabel" xml:space="preserve">
+    <value>Wybierz regiony</value>
+  </data>
+  <data name="ProfileThemeLabel" xml:space="preserve">
+    <value>Wybierz layout</value>
+  </data>
+  <data name="ProfileThemePicker" xml:space="preserve">
+    <value>Wybierz motyw</value>
+  </data>
+  <data name="ProfileWhatsYourNameLabel" xml:space="preserve">
+    <value>Jak masz na imię?</value>
+  </data>
+  <data name="ProfileWhatsYourNamePlaceholder" xml:space="preserve">
+    <value>Twoje imię</value>
+  </data>
+  <data name="RegionAG" xml:space="preserve">
+    <value>Aargau</value>
+  </data>
+  <data name="RegionAusland" xml:space="preserve">
+    <value>Zagranica</value>
+  </data>
+  <data name="RegionBESO" xml:space="preserve">
+    <value>Berno</value>
+  </data>
+  <data name="RegionGLGR" xml:space="preserve">
+    <value>Gryzonia</value>
+  </data>
+  <data name="RegionNOS" xml:space="preserve">
+    <value>Sankt Gallen</value>
+  </data>
+  <data name="RegionNWS" xml:space="preserve">
+    <value>Bazylea</value>
+  </data>
+  <data name="RegionSR" xml:space="preserve">
+    <value>Genewa</value>
+  </data>
+  <data name="RegionTI" xml:space="preserve">
+    <value>Ticino</value>
+  </data>
+  <data name="RegionZHSH" xml:space="preserve">
+    <value>Zurych</value>
+  </data>
+  <data name="RegionZS" xml:space="preserve">
+    <value>Lucerna</value>
+  </data>
+</root>
