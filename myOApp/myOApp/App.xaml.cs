@@ -3,6 +3,7 @@ using myOApp.Services;
 using myOApp.DependencyInjection;
 using myOApp.Themes;
 using myOApp.Definitions;
+using myOApp.Resources.localization;
 
 [assembly: ExportFont("fa-regular-400.ttf", Alias = "FA-R")]
 [assembly: ExportFont("fa-solid-900.ttf", Alias = "FA-S")]
@@ -42,7 +43,7 @@ namespace myOApp
         {
             MessagingCenter.Subscribe<EventsService>(this, Constants.Synchronization.NoConnectionMessage, async (sender) =>
             {
-                await this.DialogService.ShowMessage("Sorry, events data could not be refreshed. We can't find Internet connection.", "Alert");
+                await this.DialogService.ShowMessage($"{AppResources.AppCouldNotRefreshDataNoInternetConnection}", AppResources.DialogAlertTitle);
             });
         }
 

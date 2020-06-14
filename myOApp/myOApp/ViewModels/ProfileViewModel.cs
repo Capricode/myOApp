@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using myOApp.Resources.localization;
 using myOApp.Services;
 using myOApp.Themes;
 using Xamarin.Essentials;
@@ -14,16 +15,16 @@ namespace myOApp.ViewModels
     public class ProfileViewModel : BaseViewModel
     {
         private IEnumerable<Region> Regions = new List<Region> {
-            new Region{ Name = "AG", Description = "Aargau" },
-            new Region{ Name = "BE/SO", Description = "Bern & Solothurn" },
-            new Region{ Name = "GL/GR", Description = "Glarus & Graubünden" },
-            new Region{ Name = "NOS", Description = "Nordostschweiz" },
-            new Region{ Name = "NWS", Description = "Nordwestschweiz" },
-            new Region{ Name = "SR", Description = "Suisse Romand (Westschweiz)" },
-            new Region{ Name = "TI", Description = "Ticino" },
-            new Region{ Name = "ZS", Description = "Zentralschweiz" },
-            new Region{ Name = "ZH/SH", Description = "Zürich & Schaffhausen" },
-            new Region{ Name = "AUSL.", Description = "Ausland" }
+            new Region{ Name = "AG", Description = AppResources.RegionAG },
+            new Region{ Name = "BE/SO", Description = AppResources.RegionBESO },
+            new Region{ Name = "GL/GR", Description = AppResources.RegionGLGR },
+            new Region{ Name = "NOS", Description = AppResources.RegionNOS },
+            new Region{ Name = "NWS", Description = AppResources.RegionNWS },
+            new Region{ Name = "SR", Description = AppResources.RegionSR },
+            new Region{ Name = "TI", Description = AppResources.RegionTI },
+            new Region{ Name = "ZS", Description = AppResources.RegionZS },
+            new Region{ Name = "ZH/SH", Description = AppResources.RegionZHSH },
+            new Region{ Name = "AUSL.", Description = AppResources.RegionAusland }
         };
 
         public ObservableCollection<RegionViewModel> RegionsData { get; } = new ObservableCollection<RegionViewModel>();
@@ -51,7 +52,7 @@ namespace myOApp.ViewModels
 
         public string PersonalizedTitle
         {
-            get => $"Hello, {(string.IsNullOrEmpty(this.Name) ? "Stranger" : this.Name )}!";
+            get => $"{AppResources.ProfileHello}, {(string.IsNullOrEmpty(this.Name) ? AppResources.ProfileNoName : this.Name )}!";
         }
 
         public string Name

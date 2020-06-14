@@ -6,22 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\aboutUs.svg" />
-    <None Remove="Resources\fa-regular-400.ttf" />
-    <None Remove="Resources\fa-solid-900.ttf" />
-    <None Remove="Resources\nearbyEvents.svg" />
-    <None Remove="Resources\noFavorites.svg" />
-    <None Remove="Resources\Roboto-Light.ttf" />
-    <None Remove="Resources\RobotoCondensed-Regular.ttf" />
+    <None Remove="Resources\fonts\fa-regular-400.ttf" />
+    <None Remove="Resources\fonts\fa-solid-900.ttf" />
+    <None Remove="Resources\fonts\Roboto-Light.ttf" />
+    <None Remove="Resources\images\aboutUs.svg" />
+    <None Remove="Resources\images\nearbyEvents.svg" />
+    <None Remove="Resources\images\noFavorites.svg" />
+    <None Remove="Resources\fonts\RobotoCondensed-Regular.ttf" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\aboutUs.svg" />
-    <EmbeddedResource Include="Resources\fa-regular-400.ttf" />
-    <EmbeddedResource Include="Resources\fa-solid-900.ttf" />
-    <EmbeddedResource Include="Resources\noFavorites.svg" />
-    <EmbeddedResource Include="Resources\Roboto-Light.ttf" />
-    <EmbeddedResource Include="Resources\RobotoCondensed-Regular.ttf" />
+    <EmbeddedResource Include="Resources\fonts\fa-regular-400.ttf" />
+    <EmbeddedResource Include="Resources\fonts\fa-solid-900.ttf" />
+    <EmbeddedResource Include="Resources\fonts\Roboto-Light.ttf" />
+    <EmbeddedResource Include="Resources\images\aboutUs.svg" />
+    <EmbeddedResource Include="Resources\images\nearbyEvents.svg" />
+    <EmbeddedResource Include="Resources\images\noFavorites.svg" />
+    <EmbeddedResource Include="Resources\fonts\RobotoCondensed-Regular.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,14 +32,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\nearbyEvents.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\myOApp.DataAccess\myOApp.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\localization\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Views\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -56,6 +58,10 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\EventView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\localization\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Themes\AlternativeTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -78,5 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Definitions\" />
+    <Folder Include="Resources\fonts\" />
+    <Folder Include="Resources\images\" />
   </ItemGroup>
 </Project>
