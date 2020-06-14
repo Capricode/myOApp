@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="myOApp.Views.EventDetailsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -44,6 +44,19 @@
                     Command="{Binding GoToBrowserCommand}"
                     CommandParameter="{Binding Link}"
                     Text="{extensions:Translate EventDetailEventPageButton}" />
+            </Frame>
+
+            <Frame
+                Margin="10"
+                Padding="5"
+                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                CornerRadius="{OnPlatform Android='30',
+                                          iOS='16'}"
+                HasShadow="True"
+                IsVisible="{Binding ShouldShowSbbButton}">
+                <Button
+                    Command="{Binding GoToSbbCommand}"
+                    Text="SBB" />
             </Frame>
 
         </StackLayout>

@@ -322,6 +322,15 @@ namespace myOApp.Resources.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Place.
+        /// </summary>
+        public static string EventDetailEventCenterCaption {
+            get {
+                return ResourceManager.GetString("EventDetailEventCenterCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show event page (opens a browser).
         /// </summary>
         public static string EventDetailEventPageButton {
@@ -525,6 +534,15 @@ namespace myOApp.Resources.localization {
         public static string RegionZS {
             get {
                 return ResourceManager.GetString("RegionZS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://www.sbb.ch/en/buying/pages/fahrplan/fahrplan.xhtml.
+        /// </summary>
+        public static string SbbWebsiteTimetableBaseUrl {
+            get {
+                return ResourceManager.GetString("SbbWebsiteTimetableBaseUrl", resourceCulture);
             }
         }
     }

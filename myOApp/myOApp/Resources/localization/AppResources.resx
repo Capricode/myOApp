@@ -204,6 +204,9 @@
   <data name="EventDetailDateCaption" xml:space="preserve">
     <value>Date</value>
   </data>
+  <data name="EventDetailEventCenterCaption" xml:space="preserve">
+    <value>Place</value>
+  </data>
   <data name="EventDetailEventPageButton" xml:space="preserve">
     <value>Show event page (opens a browser)</value>
   </data>
@@ -272,5 +275,8 @@
   </data>
   <data name="RegionZS" xml:space="preserve">
     <value>Central Switzerland</value>
+  </data>
+  <data name="SbbWebsiteTimetableBaseUrl" xml:space="preserve">
+    <value>https://www.sbb.ch/en/buying/pages/fahrplan/fahrplan.xhtml</value>
   </data>
 </root>
