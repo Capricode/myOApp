@@ -48,6 +48,7 @@ namespace myOApp.DataAccess
                 Date = DateTimeOffset.FromUnixTimeMilliseconds(singleEvent.date).UtcDateTime.Date,
                 Map = singleEvent.map,
                 Region = singleEvent.region,
+                EventCenter = singleEvent.eventCenter,
                 Source = singleEvent.source,
                 Link = singleEvent.url,
                 ResultsId = singleEvent.resultsId,

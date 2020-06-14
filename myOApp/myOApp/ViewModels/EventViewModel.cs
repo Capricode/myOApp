@@ -1,4 +1,4 @@
-﻿using myOApp.Services;
+using myOApp.Services;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -27,6 +27,8 @@ namespace myOApp.ViewModels
         public string Club { get; set; }
 
         public string Region { get; set; }
+
+        public string EventCenter { get; set; }
 
         public string Link { get; set; }
 

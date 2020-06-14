@@ -20,6 +20,8 @@ namespace myOApp.DataAccess.Database
 
         public string Region { get; set; }
 
+        public string EventCenter { get; set; }
+
         public string Link { get; set; }
 
         public int? ResultsId { get; set; }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="myOApp.Views.EventDetailsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -15,6 +15,7 @@
             <controls:EventLabel Label="{extensions:Translate EventDetailDateCaption}" Text="{Binding Date, StringFormat='{0:dd.MM.yy}'}" />
             <controls:EventLabel Label="{extensions:Translate EventDetailMapCaption}" Text="{Binding Map}" />
             <controls:EventLabel Label="{extensions:Translate EventDetailClubCaption}" Text="{Binding Club}" />
+            <controls:EventLabel Label="{extensions:Translate EventDetailEventCenterCaption}" Text="{Binding EventCenter}" />
             <controls:EventLabel Label="{extensions:Translate EventDetailRegionCaption}" Text="{Binding Region}" />
 
             <Frame
