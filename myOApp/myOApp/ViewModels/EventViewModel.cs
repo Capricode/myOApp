@@ -1,4 +1,5 @@
-﻿using myOApp.Services;
+﻿using myOApp.Resources.localization;
+using myOApp.Services;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -28,6 +29,10 @@ namespace myOApp.ViewModels
 
         public string Region { get; set; }
 
+        public string EventCenter { get; set; }
+
+        public bool HasEventCenter => !string.IsNullOrEmpty(this.EventCenter);
+
         public string Link { get; set; }
 
         public bool HasLink => !string.IsNullOrEmpty(this.Link);
@@ -39,6 +44,16 @@ namespace myOApp.ViewModels
         public string ResultsUrl => ResultsId == null ? string.Empty : $"{ResultUrl}{ResultsId}";
 
         public string ShortDate => Date.ToString("dd.MM.yy");
+
+        public double DateUnix
+        {
+            get
+            {
+                var date = new DateTime(this.Date.Year, this.Date.Month, this.Date.Day, 8, 0, 0);
+                var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                return (date.ToUniversalTime() - epoch).TotalSeconds;
+            }
+        }
 
         public string Day => Date.ToString("dd");
 
@@ -114,7 +129,23 @@ namespace myOApp.ViewModels
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
+        ICommand goToSbbCommand;
+        public ICommand GoToSbbCommand => goToSbbCommand ?? (goToSbbCommand = new Command(async () => await ExecuteGoToSbbCommand()));
+
+        private async Task ExecuteGoToSbbCommand()
+        {
+            if (await Launcher.CanOpenAsync("sbbmobile://"))
+            {
+                await Launcher.OpenAsync($"sbbmobile://timetable?to={this.EventCenter}&time={this.DateUnix}&timemode=departure");
+            }
+            else
+            {
+                await Browser.OpenAsync($"{AppResources.SbbWebsiteTimetableBaseUrl}?suche=true&nach={this.EventCenter}&datum={this.ShortDate}&zeit=8:00", BrowserLaunchMode.SystemPreferred);
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged([CallerMemberName]string name = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
+        void OnPropertyChanged([CallerMemberName] string name = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

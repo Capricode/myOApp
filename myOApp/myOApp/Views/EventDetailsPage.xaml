@@ -15,6 +15,7 @@
             <controls:EventLabel Label="{extensions:Translate EventDetailDateCaption}" Text="{Binding Date, StringFormat='{0:dd.MM.yy}'}" />
             <controls:EventLabel Label="{extensions:Translate EventDetailMapCaption}" Text="{Binding Map}" />
             <controls:EventLabel Label="{extensions:Translate EventDetailClubCaption}" Text="{Binding Club}" />
+            <controls:EventLabel Label="{extensions:Translate EventDetailEventCenterCaption}" Text="{Binding EventCenter}" />
             <controls:EventLabel Label="{extensions:Translate EventDetailRegionCaption}" Text="{Binding Region}" />
 
             <Frame
@@ -43,6 +44,19 @@
                     Command="{Binding GoToBrowserCommand}"
                     CommandParameter="{Binding Link}"
                     Text="{extensions:Translate EventDetailEventPageButton}" />
+            </Frame>
+
+            <Frame
+                Margin="10"
+                Padding="5"
+                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                CornerRadius="{OnPlatform Android='30',
+                                          iOS='16'}"
+                HasShadow="True"
+                IsVisible="{Binding ShouldShowSbbButton}">
+                <Button
+                    Command="{Binding GoToSbbCommand}"
+                    Text="SBB" />
             </Frame>
 
         </StackLayout>

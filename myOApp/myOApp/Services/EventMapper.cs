@@ -32,6 +32,7 @@ namespace myOApp.Services
                 Map = eventEntity.Map,
                 Date = eventEntity.Date,
                 Region = eventEntity.Region,
+                EventCenter = eventEntity.EventCenter,
                 Link = eventEntity.Link,
                 ResultsId = eventEntity.ResultsId,
                 IsFavorite = eventEntity.IsFavorite
