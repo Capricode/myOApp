@@ -376,6 +376,15 @@ namespace myOApp.Resources.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Timetable.
+        /// </summary>
+        public static string EventDetailTimetableButton {
+            get {
+                return ResourceManager.GetString("EventDetailTimetableButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
         public static string ProfileHello {

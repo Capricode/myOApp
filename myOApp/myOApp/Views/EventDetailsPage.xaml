@@ -56,7 +56,7 @@
                 IsVisible="{Binding ShouldShowSbbButton}">
                 <Button
                     Command="{Binding GoToSbbCommand}"
-                    Text="SBB" />
+                    Text="{extensions:Translate EventDetailTimetableButton}" />
             </Frame>
 
         </StackLayout>

@@ -222,6 +222,9 @@
   <data name="EventDetailResultsButton" xml:space="preserve">
     <value>Ergebnisse anzeigen (öffnet einen Browser)</value>
   </data>
+  <data name="EventDetailTimetableButton" xml:space="preserve">
+    <value>Fahrplan</value>
+  </data>
   <data name="ProfileHello" xml:space="preserve">
     <value>Tschou</value>
   </data>

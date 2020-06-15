@@ -45,7 +45,7 @@ namespace myOApp.ViewModels
 
         public string ShortDate => Date.ToString("dd.MM.yy");
 
-        public double DateUnix
+        public double DefaultTimestampForSbb
         {
             get
             {
@@ -136,7 +136,7 @@ namespace myOApp.ViewModels
         {
             if (await Launcher.CanOpenAsync("sbbmobile://"))
             {
-                await Launcher.OpenAsync($"sbbmobile://timetable?to={this.EventCenter}&time={this.DateUnix}&timemode=departure");
+                await Launcher.OpenAsync($"sbbmobile://timetable?to={this.EventCenter}&time={this.DefaultTimestampForSbb}&timemode=departure");
             }
             else
             {

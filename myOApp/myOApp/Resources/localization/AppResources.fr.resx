@@ -222,6 +222,9 @@
   <data name="EventDetailResultsButton" xml:space="preserve">
     <value>Afficher les résultats (ouvre un navigateur)</value>
   </data>
+  <data name="EventDetailTimetableButton" xml:space="preserve">
+    <value>Horaires CFF</value>
+  </data>
   <data name="ProfileHello" xml:space="preserve">
     <value>Salut</value>
   </data>
