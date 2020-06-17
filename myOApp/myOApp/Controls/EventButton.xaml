@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:system="clr-namespace:System;assembly=netstandard"
+       mc:Ignorable="d"
+       x:Name="buttonFrame"
+       x:Class="myOApp.Controls.EventButton"
+       FlexLayout.Basis="33%"
+       Margin="5"
+       Padding="5,7,5,7"
+       HasShadow="True"
+       IsClippedToBounds="True"
+       Opacity="0.9">
+    <Frame.GestureRecognizers>
+        <TapGestureRecognizer
+            x:Name="command"
+            NumberOfTapsRequired="1" />
+    </Frame.GestureRecognizers>
+    <StackLayout 
+        Orientation="Vertical" 
+        HeightRequest="70">
+        <Label
+            x:Name="icon"
+            TextColor="{DynamicResource AccentColor}"
+            FontSize="Large"
+            HorizontalTextAlignment="Center" />
+        <Label
+            x:Name="label"
+            FontSize="Small"
+            LineBreakMode="WordWrap"
+            Style="{DynamicResource TagLabel}"
+            HorizontalTextAlignment="Center"/>
+    </StackLayout>
+</Frame>
