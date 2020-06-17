@@ -331,11 +331,20 @@ namespace myOApp.Resources.localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show event page (opens a browser).
+        ///   Looks up a localized string similar to Event page.
         /// </summary>
         public static string EventDetailEventPageButton {
             get {
                 return ResourceManager.GetString("EventDetailEventPageButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add to favorites.
+        /// </summary>
+        public static string EventDetailFavoriteButton {
+            get {
+                return ResourceManager.GetString("EventDetailFavoriteButton", resourceCulture);
             }
         }
         
@@ -345,6 +354,15 @@ namespace myOApp.Resources.localization {
         public static string EventDetailMapCaption {
             get {
                 return ResourceManager.GetString("EventDetailMapCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search for maps.
+        /// </summary>
+        public static string EventDetailMapsButton {
+            get {
+                return ResourceManager.GetString("EventDetailMapsButton", resourceCulture);
             }
         }
         
@@ -367,7 +385,7 @@ namespace myOApp.Resources.localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show results (opens a browser).
+        ///   Looks up a localized string similar to Show results.
         /// </summary>
         public static string EventDetailResultsButton {
             get {

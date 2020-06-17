@@ -18,46 +18,54 @@
             <controls:EventLabel Label="{extensions:Translate EventDetailEventCenterCaption}" Text="{Binding EventCenter}" />
             <controls:EventLabel Label="{extensions:Translate EventDetailRegionCaption}" Text="{Binding Region}" />
 
-            <Frame
-                Margin="10"
-                Padding="5"
-                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
-                CornerRadius="{OnPlatform Android='30',
-                                          iOS='16'}"
-                HasShadow="True"
-                IsVisible="{Binding HasResults}">
-                <Button
-                    Command="{Binding GoToBrowserCommand}"
-                    CommandParameter="{Binding ResultsUrl}"
-                    Text="{extensions:Translate EventDetailResultsButton}" />
-            </Frame>
+            <FlexLayout
+                x:Name="regionTags"
+                Padding="3"
+                Direction="Row"
+                Wrap="Wrap"
+                AlignItems="Center">
 
-            <Frame
-                Margin="10"
-                Padding="5"
-                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
-                CornerRadius="{OnPlatform Android='30',
-                                          iOS='16'}"
-                HasShadow="True"
-                IsVisible="{Binding HasLink}">
-                <Button
-                    Command="{Binding GoToBrowserCommand}"
-                    CommandParameter="{Binding Link}"
-                    Text="{extensions:Translate EventDetailEventPageButton}" />
-            </Frame>
+                <!--Results-->
+                <controls:EventButton 
+                    ButtonCommand="{Binding GoToBrowserCommand}"
+                    ButtonCommandParameter="{Binding ResultsUrl}"
+                    Label="{extensions:Translate EventDetailResultsButton}"
+                    Icon="{StaticResource EventResults}"
+                    IconFontFamily="FA-S"
+                    IsVisible="{Binding HasResults}"/>
 
-            <Frame
-                Margin="10"
-                Padding="5"
-                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
-                CornerRadius="{OnPlatform Android='30',
-                                          iOS='16'}"
-                HasShadow="True"
-                IsVisible="{Binding ShouldShowSbbButton}">
-                <Button
-                    Command="{Binding GoToSbbCommand}"
-                    Text="{extensions:Translate EventDetailTimetableButton}" />
-            </Frame>
+                <!--Event Page-->
+                <controls:EventButton 
+                    ButtonCommand="{Binding GoToBrowserCommand}"
+                    ButtonCommandParameter="{Binding Link}"
+                    Label="{extensions:Translate EventDetailEventPageButton}"
+                    Icon="{StaticResource EventPage}"
+                    IconFontFamily="FA-R" 
+                    IsVisible="{Binding HasLink}"/>
+
+                <!--Maps-->
+                <controls:EventButton 
+                    ButtonCommand="{Binding GoToMapsCommand}"
+                    Label="{extensions:Translate EventDetailMapsButton}"
+                    Icon="{StaticResource EventMaps}"
+                    IconFontFamily="FA-S"
+                    IsVisible="{Binding HasMap}"/>
+
+                <!--Transport-->
+                <controls:EventButton 
+                    ButtonCommand="{Binding GoToSbbCommand}"
+                    Label="{extensions:Translate EventDetailTimetableButton}"
+                    Icon="{StaticResource EventTimetable}"
+                    IconFontFamily="FA-S"
+                    IsVisible="{Binding HasEventCenter}"/>
+
+                <!--Favorite--><!--
+                <controls:EventButton 
+                    ButtonCommand="{Binding ToggleFavoriteItemCommand}"
+                    Label="{extensions:Translate EventDetailFavoriteButton}"
+                    Icon="{StaticResource Heart}"
+                    IconFontFamily="FA-S"/>-->
+            </FlexLayout>
 
         </StackLayout>
     </ContentPage.Content>

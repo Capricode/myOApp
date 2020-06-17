@@ -66,6 +66,10 @@
             <x:String x:Key="Settings">&#xf013;</x:String>
             <x:String x:Key="Heart">&#xf004;</x:String>
             <x:String x:Key="Info">&#xf05a;</x:String>
+            <x:String x:Key="EventPage">&#xf059;</x:String>
+            <x:String x:Key="EventMaps">&#xf5a0;</x:String>
+            <x:String x:Key="EventTimetable">&#xf207;</x:String>
+            <x:String x:Key="EventResults">&#xf5a2;</x:String>
 
             <!--  Colors  -->
             <Color x:Key="FavoritedColor">#ff6243</Color>

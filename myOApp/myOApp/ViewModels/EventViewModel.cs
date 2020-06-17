@@ -17,6 +17,8 @@ namespace myOApp.ViewModels
 
         private const string ResultUrl = "https://www.o-l.ch/cgi-bin/results?rl_id=";
 
+        private const string MapsUrl = "http://omaps.worldofo.com/index.php?a=s&submit=Search&st=";
+
         public string Id { get; set; }
 
         public string Name { get; set; }
@@ -24,6 +26,8 @@ namespace myOApp.ViewModels
         public DateTime Date { get; set; }
 
         public string Map { get; set; }
+
+        public bool HasMap => !string.IsNullOrEmpty(this.Map);
 
         public string Club { get; set; }
 
@@ -142,6 +146,15 @@ namespace myOApp.ViewModels
             {
                 await Browser.OpenAsync($"{AppResources.SbbWebsiteTimetableBaseUrl}?suche=true&nach={this.EventCenter}&datum={this.ShortDate}&zeit=8:00", BrowserLaunchMode.SystemPreferred);
             }
+        }        
+        
+        ICommand goToMapsCommand;
+        public ICommand GoToMapsCommand => goToMapsCommand ?? (goToMapsCommand = new Command(async () => await ExecuteGoToMapsCommand()));
+
+        private async Task ExecuteGoToMapsCommand()
+        {
+            var uri = new Uri($"{MapsUrl}{this.Map}");
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

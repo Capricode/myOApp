@@ -208,10 +208,16 @@
     <value>Place</value>
   </data>
   <data name="EventDetailEventPageButton" xml:space="preserve">
-    <value>Show event page (opens a browser)</value>
+    <value>Event page</value>
+  </data>
+  <data name="EventDetailFavoriteButton" xml:space="preserve">
+    <value>Add to favorites</value>
   </data>
   <data name="EventDetailMapCaption" xml:space="preserve">
     <value>Map</value>
+  </data>
+  <data name="EventDetailMapsButton" xml:space="preserve">
+    <value>Search for maps</value>
   </data>
   <data name="EventDetailNameCaption" xml:space="preserve">
     <value>Name</value>
@@ -220,7 +226,7 @@
     <value>Region</value>
   </data>
   <data name="EventDetailResultsButton" xml:space="preserve">
-    <value>Show results (opens a browser)</value>
+    <value>Show results</value>
   </data>
   <data name="EventDetailTimetableButton" xml:space="preserve">
     <value>Timetable</value>
