@@ -58,7 +58,6 @@
                     x:Name="regionTags"
                     BindableLayout.ItemsSource="{Binding RegionsData}"
                     VerticalOptions="FillAndExpand"
-                    BackgroundColor="Red"
                     Padding="3"
                     AlignItems="Start"
                     AlignContent="Start"
@@ -72,7 +71,7 @@
                                 Margin="5"
                                 Padding="6"
                                 CornerRadius="{OnPlatform Android='30',
-                                iOS='16'}"
+                                    iOS='16'}"
                                 HasShadow="True"
                                 IsClippedToBounds="False"
                                 Opacity="0.9"
@@ -94,11 +93,6 @@
                                         NumberOfTapsRequired="1" />
                                 </Frame.GestureRecognizers>
 
-                                <!--<Grid BackgroundColor="Yellow">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.15*" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>-->
                                 <StackLayout Orientation="Horizontal" MinimumWidthRequest="100">
                                     <Label
                                         FontSize="Caption"
