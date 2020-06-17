@@ -111,7 +111,7 @@ namespace myOApp.Controls
             {
                 command.CommandParameter = ButtonCommandParameter;
             }
-            else if(propertyName == LabelProperty.PropertyName)
+            else if (propertyName == LabelProperty.PropertyName)
             {
                 label.Text = Label;
             }

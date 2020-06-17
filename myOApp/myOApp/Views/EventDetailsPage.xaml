@@ -19,8 +19,7 @@
             <controls:EventLabel Label="{extensions:Translate EventDetailRegionCaption}" Text="{Binding Region}" />
 
             <FlexLayout
-                x:Name="regionTags"
-                Padding="3"
+                Margin="-3,10,-3,0"
                 Direction="Row"
                 Wrap="Wrap"
                 AlignItems="Center">
@@ -58,13 +57,6 @@
                     Icon="{StaticResource EventTimetable}"
                     IconFontFamily="FA-S"
                     IsVisible="{Binding HasEventCenter}"/>
-
-                <!--Favorite--><!--
-                <controls:EventButton 
-                    ButtonCommand="{Binding ToggleFavoriteItemCommand}"
-                    Label="{extensions:Translate EventDetailFavoriteButton}"
-                    Icon="{StaticResource Heart}"
-                    IconFontFamily="FA-S"/>-->
             </FlexLayout>
 
         </StackLayout>
