@@ -157,13 +157,13 @@
     <value>Ulubione wydarzenia</value>
   </data>
   <data name="DashboardFavoritesNoFavoritesLabel" xml:space="preserve">
-    <value>Nie masz żadnych ulubionych wydarzeń.</value>
+    <value>Nie masz ulubionych wydarzeń.</value>
   </data>
   <data name="DashboardFavoritesNoFavoritesLinked" xml:space="preserve">
-    <value>dodać kilka do swoich ulubionych!</value>
+    <value>Dodaj kilka do swoich ulubionych!</value>
   </data>
   <data name="DashboardFavoritesNoFavoritesNoLink" xml:space="preserve">
-    <value>Spróbuj </value>
+    <value />
   </data>
   <data name="DashboardFavoritesShowAll" xml:space="preserve">
     <value>Pokaż wszystkie</value>
@@ -208,10 +208,16 @@
     <value>Miasto</value>
   </data>
   <data name="EventDetailEventPageButton" xml:space="preserve">
-    <value>Strona wydarzenia (otwiera przeglądarkę)</value>
+    <value>Strona wydarzenia</value>
+  </data>
+  <data name="EventDetailFavoriteButton" xml:space="preserve">
+    <value>Dodaj do ulubionych</value>
   </data>
   <data name="EventDetailMapCaption" xml:space="preserve">
     <value>Mapa</value>
+  </data>
+  <data name="EventDetailMapsButton" xml:space="preserve">
+    <value>Szukaj map</value>
   </data>
   <data name="EventDetailNameCaption" xml:space="preserve">
     <value>Nazwa</value>
@@ -220,7 +226,7 @@
     <value>Region</value>
   </data>
   <data name="EventDetailResultsButton" xml:space="preserve">
-    <value>Pokaż wyniki (otwiera przeglądarkę)</value>
+    <value>Pokaż wyniki</value>
   </data>
   <data name="EventDetailTimetableButton" xml:space="preserve">
     <value>Rozkład jazdy</value>

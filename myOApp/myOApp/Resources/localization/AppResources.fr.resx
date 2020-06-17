@@ -208,10 +208,16 @@
     <value>Lieu</value>
   </data>
   <data name="EventDetailEventPageButton" xml:space="preserve">
-    <value>Afficher la page de l'événement</value>
+    <value>Information</value>
+  </data>
+  <data name="EventDetailFavoriteButton" xml:space="preserve">
+    <value>Ajouter aux favoris</value>
   </data>
   <data name="EventDetailMapCaption" xml:space="preserve">
     <value>Carte</value>
+  </data>
+  <data name="EventDetailMapsButton" xml:space="preserve">
+    <value>Chercher des cartes</value>
   </data>
   <data name="EventDetailNameCaption" xml:space="preserve">
     <value>Nom</value>
@@ -220,7 +226,7 @@
     <value>Région</value>
   </data>
   <data name="EventDetailResultsButton" xml:space="preserve">
-    <value>Afficher les résultats (ouvre un navigateur)</value>
+    <value>Résultats</value>
   </data>
   <data name="EventDetailTimetableButton" xml:space="preserve">
     <value>Horaires CFF</value>
@@ -256,7 +262,7 @@
     <value>Argovie</value>
   </data>
   <data name="RegionBESO" xml:space="preserve">
-    <value>Berne &amp; Soleure</value>
+    <value>Berne &amp; Soleure </value>
   </data>
   <data name="RegionGLGR" xml:space="preserve">
     <value>Glaris &amp; Grison</value>
