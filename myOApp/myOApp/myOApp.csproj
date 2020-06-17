@@ -36,6 +36,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\EventButton.xaml.cs">
+      <DependentUpon>EventButton.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Resources\localization\AppResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
