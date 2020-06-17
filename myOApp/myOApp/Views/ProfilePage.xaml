@@ -56,19 +56,23 @@
                     Text="{extensions:Translate ProfileRegionLabel}" />
                 <FlexLayout
                     x:Name="regionTags"
-                    Padding="3"
-                    AlignItems="Center"
                     BindableLayout.ItemsSource="{Binding RegionsData}"
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="Red"
+                    Padding="3"
+                    AlignItems="Start"
+                    AlignContent="Start"
                     Direction="Row"
                     JustifyContent="SpaceAround"
-                    Wrap="Wrap">
+                    Wrap="Wrap"
+                    MinimumWidthRequest="500">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <Frame
                                 Margin="5"
                                 Padding="6"
                                 CornerRadius="{OnPlatform Android='30',
-                                                          iOS='16'}"
+                                iOS='16'}"
                                 HasShadow="True"
                                 IsClippedToBounds="False"
                                 Opacity="0.9"
@@ -89,21 +93,29 @@
                                         CommandParameter="{Binding .}"
                                         NumberOfTapsRequired="1" />
                                 </Frame.GestureRecognizers>
-                                <StackLayout Orientation="Horizontal">
+
+                                <!--<Grid BackgroundColor="Yellow">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.15*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>-->
+                                <StackLayout Orientation="Horizontal" MinimumWidthRequest="100">
                                     <Label
                                         FontSize="Caption"
                                         LineBreakMode="NoWrap"
                                         Style="{DynamicResource TagLabel}"
                                         Text="{Binding Region.Name}"
-                                        TextColor="{DynamicResource CaptionContrastTextColor}" />
+                                        TextColor="{DynamicResource CaptionContrastTextColor}"
+                                        MinimumWidthRequest="100"/>
                                     <Label
+                                        HorizontalTextAlignment="Start"
                                         Padding="0,0,4,0"
                                         FontSize="Small"
-                                        LineBreakMode="TailTruncation"
+                                        LineBreakMode="NoWrap"
                                         Style="{DynamicResource TagLabel}"
                                         Text="{Binding Region.Description}"
-                                        VerticalTextAlignment="Center" />
-
+                                        VerticalTextAlignment="Center"
+                                        MinimumWidthRequest="100"/>
                                 </StackLayout>
                             </Frame>
                         </DataTemplate>
