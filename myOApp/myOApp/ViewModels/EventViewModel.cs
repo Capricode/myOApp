@@ -96,7 +96,7 @@ namespace myOApp.ViewModels
 
             try
             {
-                await this.EventsService.ToggleFavorite(this.Id);
+                this.IsFavorite = await this.EventsService.ToggleFavorite(this.Id);
             }
             catch (Exception ex)
             {

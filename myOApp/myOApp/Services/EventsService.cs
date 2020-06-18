@@ -46,15 +46,15 @@ namespace myOApp.Services
             return this.EventMapper.MapToViewModel(singleEvent);
         }
 
-        public async Task ToggleFavorite(string id)
+        public async Task<bool> ToggleFavorite(string id)
         {
             var eventDbAfter = await this.EventsDatabase.ToggleFavorite(id);
-
             var eventAfter = this.EventMapper.MapToViewModel(eventDbAfter);
-
             this.ToggleFavoritedEventsSettings(eventAfter);
 
             MessagingCenter.Send(this, Constants.Favorites.FavoritesToggledMessage, eventAfter);
+
+            return eventAfter.IsFavorite;
         }
 
         public async Task ForceRefresh()

@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:converters="clr-namespace:myOApp.Extensions"
+    xmlns:controls="clr-namespace:myOApp.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -92,28 +93,7 @@
             </StackLayout>
 
             <!--  Favicon  -->
-            <Label
-                x:Name="FavoriteIcon"
-                Grid.Column="2"
-                FontFamily="FA-S"
-                FontSize="26"
-                HorizontalTextAlignment="Center"
-                Text="{StaticResource Heart}"
-                VerticalTextAlignment="Center">
-                <Label.TextColor>
-                    <Binding Path="IsFavorite">
-                        <Binding.Converter>
-                            <converters:BoolToObjectConverter
-                                x:TypeArguments="d:Color"
-                                FalseObject="{StaticResource NotFavoritedColor}"
-                                TrueObject="{StaticResource FavoritedColor}" />
-                        </Binding.Converter>
-                    </Binding>
-                </Label.TextColor>
-                <Label.Behaviors>
-                    <converters:ViewTappedBehavior AnimationType="Scale" Command="{Binding ToggleFavoriteItemCommand}" />
-                </Label.Behaviors>
-            </Label>
+            <controls:FavoriteIcon Grid.Column="2"/>
         </Grid>
     </Frame>
 </ContentView>
