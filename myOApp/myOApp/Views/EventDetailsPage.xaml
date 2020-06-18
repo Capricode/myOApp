@@ -10,55 +10,70 @@
     BackgroundColor="{DynamicResource ContentBackgroundColor}"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout Margin="20,20,20,25">
-            <controls:EventLabel Label="{extensions:Translate EventDetailNameCaption}" Text="{Binding Name}" />
-            <controls:EventLabel Label="{extensions:Translate EventDetailDateCaption}" Text="{Binding Date, StringFormat='{0:dd.MM.yy}'}" />
-            <controls:EventLabel Label="{extensions:Translate EventDetailMapCaption}" Text="{Binding Map}" />
-            <controls:EventLabel Label="{extensions:Translate EventDetailClubCaption}" Text="{Binding Club}" />
-            <controls:EventLabel Label="{extensions:Translate EventDetailEventCenterCaption}" Text="{Binding EventCenter}" />
-            <controls:EventLabel Label="{extensions:Translate EventDetailRegionCaption}" Text="{Binding Region}" />
+        <ScrollView>
+            <StackLayout Margin="20,20,20,25">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-            <FlexLayout
-                Margin="-3,10,-3,0"
-                Direction="Row"
-                Wrap="Wrap"
-                AlignItems="Center">
+                    <controls:EventLabel 
+                        Grid.Column="0"
+                        Label="{extensions:Translate EventDetailNameCaption}"
+                        Text="{Binding Name}" />
 
-                <!--Results-->
-                <controls:EventButton 
-                    ButtonCommand="{Binding GoToBrowserCommand}"
-                    ButtonCommandParameter="{Binding ResultsUrl}"
-                    Label="{extensions:Translate EventDetailResultsButton}"
-                    Icon="{StaticResource EventResults}"
-                    IconFontFamily="FA-S"
-                    IsVisible="{Binding HasResults}"/>
+                    <controls:FavoriteIcon Grid.Column="1" />
+                </Grid>
 
-                <!--Event Page-->
-                <controls:EventButton 
-                    ButtonCommand="{Binding GoToBrowserCommand}"
-                    ButtonCommandParameter="{Binding Link}"
-                    Label="{extensions:Translate EventDetailEventPageButton}"
-                    Icon="{StaticResource EventPage}"
-                    IconFontFamily="FA-R" 
-                    IsVisible="{Binding HasLink}"/>
+                <controls:EventLabel Label="{extensions:Translate EventDetailDateCaption}" Text="{Binding Date, StringFormat='{0:dd.MM.yy}'}" />
+                <controls:EventLabel Label="{extensions:Translate EventDetailMapCaption}" Text="{Binding Map}" />
+                <controls:EventLabel Label="{extensions:Translate EventDetailClubCaption}" Text="{Binding Club}" />
+                <controls:EventLabel Label="{extensions:Translate EventDetailEventCenterCaption}" Text="{Binding EventCenter}" />
+                <controls:EventLabel Label="{extensions:Translate EventDetailRegionCaption}" Text="{Binding Region}" />
 
-                <!--Maps-->
-                <controls:EventButton 
-                    ButtonCommand="{Binding GoToMapsCommand}"
-                    Label="{extensions:Translate EventDetailMapsButton}"
-                    Icon="{StaticResource EventMaps}"
-                    IconFontFamily="FA-S"
-                    IsVisible="{Binding HasMap}"/>
+                <FlexLayout
+                    Margin="-3,10,-3,0"
+                    Direction="Row"
+                    Wrap="Wrap"
+                    AlignItems="Center">
 
-                <!--Transport-->
-                <controls:EventButton 
-                    ButtonCommand="{Binding GoToSbbCommand}"
-                    Label="{extensions:Translate EventDetailTimetableButton}"
-                    Icon="{StaticResource EventTimetable}"
-                    IconFontFamily="FA-S"
-                    IsVisible="{Binding HasEventCenter}"/>
-            </FlexLayout>
+                    <!--Results-->
+                    <controls:EventButton 
+                        ButtonCommand="{Binding GoToBrowserCommand}"
+                        ButtonCommandParameter="{Binding ResultsUrl}"
+                        Label="{extensions:Translate EventDetailResultsButton}"
+                        Icon="{StaticResource EventResults}"
+                        IconFontFamily="FA-S"
+                        IsVisible="{Binding HasResults}"/>
 
-        </StackLayout>
+                    <!--Event Page-->
+                    <controls:EventButton 
+                        ButtonCommand="{Binding GoToBrowserCommand}"
+                        ButtonCommandParameter="{Binding Link}"
+                        Label="{extensions:Translate EventDetailEventPageButton}"
+                        Icon="{StaticResource EventPage}"
+                        IconFontFamily="FA-R" 
+                        IsVisible="{Binding HasLink}"/>
+
+                    <!--Maps-->
+                    <controls:EventButton 
+                        ButtonCommand="{Binding GoToMapsCommand}"
+                        Label="{extensions:Translate EventDetailMapsButton}"
+                        Icon="{StaticResource EventMaps}"
+                        IconFontFamily="FA-S"
+                        IsVisible="{Binding HasMap}"/>
+
+                    <!--Transport-->
+                    <controls:EventButton 
+                        ButtonCommand="{Binding GoToSbbCommand}"
+                        Label="{extensions:Translate EventDetailTimetableButton}"
+                        Icon="{StaticResource EventTimetable}"
+                        IconFontFamily="FA-S"
+                        IsVisible="{Binding HasEventCenter}"/>
+                </FlexLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

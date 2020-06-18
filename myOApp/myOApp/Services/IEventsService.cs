@@ -15,7 +15,7 @@ namespace myOApp.Services
 
         Task<EventViewModel> GetEvent(string id);
 
-        Task ToggleFavorite(string id);
+        Task<bool> ToggleFavorite(string id);
 
         Task ForceRefresh();
     }
