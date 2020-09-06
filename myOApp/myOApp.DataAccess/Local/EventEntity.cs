@@ -29,9 +29,5 @@ namespace myOApp.DataAccess.Database
         public DateTime LastModificationDate { get; set; }
 
         public bool IsFavorite { get; set; }
-
-        ////[OneToOne(inverseProperty: "EventId")]
-        //[OneToOne]
-        //public FavoritedEvent IsFavoritedEvent { get; set; }
     }
 }
