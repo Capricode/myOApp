@@ -16,12 +16,13 @@ Check out the app live:
 
 ## Technologies
 * [Xamarin Forms](https://github.com/xamarin/Xamarin.Forms)
+* Shell Navigation
 * Pure MVVC (no framework used)
 * [Xamarin Essentials](https://github.com/xamarin/Essentials)
 * [FFImageLoading](https://github.com/luberda-molinet/FFImageLoading)
 * [SQLite-net](https://github.com/praeclarum/sqlite-net)
 
 ## Get involved
-Everyone is welcome to open Pull Requests and extend the application. Every now and then I will publish an update to the Google Play Store and App Store.
+Everyone is welcome to contribute! Open Pull Requests and extend the application. Every now and then I will publish an update to the Google Play Store and App Store.
 
 Current list of open enhancements ideas and bugs can be found in the [Issues panel](https://github.com/Capricode/myOApp/issues).
